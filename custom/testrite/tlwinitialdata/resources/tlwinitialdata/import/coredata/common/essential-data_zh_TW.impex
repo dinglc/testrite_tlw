@@ -1,0 +1,70 @@
+#
+# Import essential data for the Accelerator
+#
+
+# Language
+$lang=zh_TW
+
+# Languages
+UPDATE Language;isocode[unique=true];name[lang=$lang]
+;zh_TW;"中文"
+
+# Currencies
+UPDATE Currency;isocode[unique=true];name[lang=$lang]
+;TWD;"台幣"
+
+# Titles
+UPDATE Title;code[unique=true];name[lang=$lang]
+;dr;"博士"
+;miss;"小姐"
+;mr;"先生"
+;mrs;"夫人"
+;ms;"女士"
+;rev;"尊敬的"
+
+# Credit / Debit Cards
+UPDATE CreditCardType;code[unique=true];name[lang=$lang]
+;amex;"American Express"
+;diners;"Diner's Club"
+;maestro;"Maestro"
+;master;"Mastercard"
+;mastercard_eurocard;"Mastercard/Eurocard"
+;switch;"Switch"
+;visa;"Visa"
+
+# DistanceUnits for Storelocator 
+UPDATE DistanceUnit;code[unique=true];name[lang=$lang]
+;km;"公里"
+;miles;"英里"
+
+# MediaFormats
+UPDATE MediaFormat;qualifier[unique=true];name[lang=$lang];
+;1200Wx1200H;"1200Wx1200H"
+;300Wx300H;"300Wx300H"
+;30Wx30H;"30Wx30H"
+;365Wx246H;"365Wx246H"
+;515Wx515H;"515Wx515H"
+;65Wx65H;"65Wx65H"
+;96Wx96H;"96Wx96H"
+
+# Product Tax Groups
+UPDATE ProductTaxGroup;code[unique=true];name[lang=$lang]
+;tw-vat-full;"臺灣消費稅"
+
+# User Tax Groups
+UPDATE UserTaxGroup;code[unique=true];name[lang=$lang]
+;tw-taxes;"臺灣稅費"
+
+# Tax
+UPDATE Tax;code[unique=true];name[lang=$lang]
+;tw-vat-full;"消费税"
+
+# Consginment statuses
+UPDATE ConsignmentStatus;code[unique=true];name[lang=$lang]
+;CANCELLED;"已取消"
+;PICKPACK;"揀配出貨"
+;PICKUP_COMPLETE;"揀貨完成"
+;READY;"準備就緒"
+;READY_FOR_PICKUP;"準備揀貨"
+;SHIPPED;"已發貨"
+;WAITING;"正在等待"
