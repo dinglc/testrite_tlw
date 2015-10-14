@@ -176,4 +176,16 @@
 	</bean>
 
 	<bean id="genderData" class="com.testritegroup.ec.hola.facades.product.data.GenderData" scope="prototype"/>
+
+
+	<bean id="ecpBrandBasicPopulator" class="com.testritegroup.ec.hola.facades.populators.ECPBrandBasicPopulator" scope="prototype"/>
+
+	<alias alias="brandFacade" name="defaultECPBrandFacade"/>
+	<bean id="defaultECPBrandFacade" class="com.testritegroup.ec.hola.facades.category.impl.DefaultECPBrandFacade" >
+		<property name="brandBasicPopulator" ref="ecpBrandBasicPopulator"/>
+		<property name="productFacade" ref="productFacade"/>
+		<property name="ecpBrandService" ref="ecpBrandService"/>
+
+
+	</bean>
 </beans>

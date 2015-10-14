@@ -20,4 +20,10 @@
 		<property name="code" type="String"/>
 		<property name="name" type="String"/>
 	</bean>
+
+    <bean class="com.testritegroup.ec.hola.facades.category.data.ECPBrandData">
+        <property name="code" type="String"/>
+        <property name="name" type="String"/>
+        <property name="story" type="String"/>
+    </bean>
 </beans>

@@ -10,5 +10,5 @@ INSERT_UPDATE ContentCatalog;id[unique=true]
 
 # Catalog versions for content catalogs
 INSERT_UPDATE CatalogVersion;catalog(id)[unique=true];version[unique=true];active;languages(isoCode)
-;$contentCatalog;Staged;false;$languages
-;$contentCatalog;Online;true;$languages
+                            ;$contentCatalog  ;Staged         ;false;$languages
+                            ;$contentCatalog  ;Online         ;true;$languages

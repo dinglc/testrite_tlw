@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<solr persistent="true" sharedLib="hybris">
+  <cores adminPath="/admin/cores">
+
+    <core name="master_hola_Product" instanceDir="D:\130.TestRite\hybris-5.6.0.0-testrite\hybris\config/solr/embedded" dataDir="D:\130.TestRite\hybris-5.6.0.0-testrite\hybris\data\solrfacetsearch\MASTER\hola_Product"/>
+
+    <core name="master_hola_Product_1" instanceDir="D:\130.TestRite\hybris-5.6.0.0-testrite\hybris\config/solr/embedded" dataDir="D:\130.TestRite\hybris-5.6.0.0-testrite\hybris\data\solrfacetsearch\MASTER\hola_Product_1"/>
+</cores>
+</solr>

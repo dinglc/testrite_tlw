@@ -21,6 +21,7 @@ INSERT_UPDATE Language;isocode[unique=true];fallbackLanguages(isocode);active[de
 ;de;en;;
 ;ja;en;;
 ;zh;en;;
+;zh_TW;zh;
 
 # Currencies
 INSERT_UPDATE Currency;isocode[unique=true];conversion;digits;symbol
@@ -28,6 +29,7 @@ INSERT_UPDATE Currency;isocode[unique=true];conversion;digits;symbol
 ;EUR;1;2;€
 ;USD;1,4;2;$
 ;JPY;120;0;¥
+;TWD;1;0;$
 
 # Vendor
 INSERT_UPDATE Vendor;code[unique=true];name

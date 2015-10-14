@@ -8,5 +8,8 @@ $setPassword=@password[translator=de.hybris.platform.impex.jalo.translators.Conv
 
 
 INSERT_UPDATE Employee;UID[unique=true];$setPassword;description;name;groups(uid)[mode=append];sessionLanguage(isocode);sessionCurrency(isocode)
+                        ;cmsmanager;1234     ;"Content Manager";"Content Manager";cmsmanagergroup
 
-UPDATE CatalogVersion;catalog(id)[unique=true];version[unique=true];writePrincipals(uid);
+UPDATE CatalogVersion;catalog(id)[unique=true] ;version[unique=true];writePrincipals(uid);
+                     ;holaContentCatalog;"Staged"       ;cmsmanagergroup,cmsmanager;
+                     ;holaContentCatalog;"Online"       ;cmsmanagergroup,cmsmanager;

@@ -1,0 +1,10 @@
+#
+# Import the CMS Site configuration for the store
+#
+
+# Language
+$lang=zh_TW
+
+# Create CMS Site
+UPDATE CMSSite;uid[unique=true];name[lang=$lang];locale[lang=$lang]
+			  ;$siteUid	       ;"特力屋購物網"	    ;zh_TW

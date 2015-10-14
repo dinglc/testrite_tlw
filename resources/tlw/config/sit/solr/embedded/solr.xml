@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<solr persistent="true" sharedLib="hybris">
+  <cores adminPath="/admin/cores">
+    <core name="master_apparel-de_Product" instanceDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/config/solr/embedded" dataDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/data/solrfacetsearch/MASTER/apparel-de_Product_1"/>
+
+    <core name="master_apparel-de_Product_1" instanceDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/config/solr/embedded" dataDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/data/solrfacetsearch/MASTER/apparel-de_Product"/>
+
+    <core name="master_apparel-uk_Product" instanceDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/config/solr/embedded" dataDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/data/solrfacetsearch/MASTER/apparel-uk_Product_1"/>
+
+    <core name="master_apparel-uk_Product_1" instanceDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/config/solr/embedded" dataDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/data/solrfacetsearch/MASTER/apparel-uk_Product"/>
+
+    <core name="master_electronics_Product" instanceDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/config/solr/embedded" dataDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/data/solrfacetsearch/MASTER/electronics_Product_1"/>
+
+    <core name="master_electronics_Product_1" instanceDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/config/solr/embedded" dataDir="/Users/i303715/Workspaces/hybris-5.6.0.0/hybris/data/solrfacetsearch/MASTER/electronics_Product"/>
+</cores>
+</solr>

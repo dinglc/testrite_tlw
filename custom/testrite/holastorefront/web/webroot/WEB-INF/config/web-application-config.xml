@@ -12,12 +12,13 @@
 -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 		
 	<context:annotation-config/> 
 
@@ -39,5 +40,16 @@
 	<import resource="spring-mvc-config.xml"/>
 	<import resource="classpath:/acceleratorcms/spring/web-spring-context.xml"/>
 	<import resource="spring-cms-config.xml"/>
+
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties">
+			<util:properties>
+				<prop key="cmsPageBeforeViewHandler">${b2cstorefront.package}.interceptors.beforeview.CmsPageBeforeViewHandler</prop>
+				<prop key="uiThemeResourceBeforeViewHandler">${b2cstorefront.package}.interceptors.beforeview.UiThemeResourceBeforeViewHandler</prop>
+				<prop key="defaultThemeName">blue</prop>
+			</util:properties>
+		</property>
+	</bean>
 
 </beans>

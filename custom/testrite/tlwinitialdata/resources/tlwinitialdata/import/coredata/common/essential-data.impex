@@ -20,6 +20,7 @@ INSERT_UPDATE Language;isocode[unique=true];fallbackLanguages(isocode);active[de
 ;de;en;;
 ;ja;en;;
 ;zh;en;;
+;zh_TW;zh;;
 
 # Currencies
 INSERT_UPDATE Currency;isocode[unique=true];conversion;digits;symbol

@@ -1,0 +1,178 @@
+@startuml
+
+
+Category <|- ECPCategory
+
+Category -- Product : supercategories
+ECPDimension -- Product
+ECPCategory <|- ECPBrand
+
+ECPBackendInformation -- Product
+PriceRow -- Product
+
+
+Product "1" .. "many" ECPSocialReviewArticle
+ECPCategory "1" .. "many"  ECPImage
+ECPBackendCategory "1".."*" ECPBackendCategory : Parent Category
+ECPCategory "many" .. "many" ECPBackendCategory
+ECPBackendInformation .. ECPBackendStatusType
+
+class Category {
+}
+
+class ECPBackendCategory {
+  +String code
+  +String name
+}
+note bottom: Merchant-maintained Category
+
+class ECPCategory {
+  +Collection<ECPImage> advertisementBanners
+  +Collection<ECPImage> clearingSalesBanners
+  +BrandDetail brand
+  +Boolean hotspot
+  +localized:String purchaseNotice
+}
+note top of ECPCategory
+ Category for Testrite EC Platform Frontend
+end note
+
+class ECPImage {
+  +localized:Media image
+  +integer sequence
+  +Date onlineDate
+  +Date offlineDate
+}
+note bottom of ECPImage
+ **Catalog Aware** with ECPCategory
+end note
+
+class ECPBrand {
+  +Localized:String name
+  +Localized:String story
+}
+
+class ECPBackendInformation {
+  +String code
+  +String name
+  +String skuType
+  +ECPBackendStatusType status
+  +String reasonCode
+  +Integer standardPackageType
+  +Boolean negativeProfit
+}
+note top of ECPBackendInformation
+ECPBackendInformation is **Catalog-Aware**.
+end note
+
+enum ECPBackendStatusType {
+  Normal
+  Discontinued
+  Hold
+}
+
+
+class Product {
+  +ECPBackendInformation backendInfo
+
+  +Boolean allowVendorDelivery
+  +Boolean allowIslandDelivery
+  +Boolean allowOnlineSell
+  +Boolean allowHomeDelivery
+  +Boolean allowStorePickup
+
+  +ECPDimension productDimension
+  +ECPDimension packageDimension
+  +Double weight
+
+  +String countryOfOrigin
+  +String material
+}
+
+class PriceRow {
+  +Double storePrice
+  +Double listPrice
+  +Double cost
+}
+
+class StockLevel {
+  +Date preventUpdateFromBackendStartDate
+  +Date preventUpdateFromBackendEndDate
+}
+note bottom of StockLevel
+  With dates the StockLevel is assumed
+  to be ECP only
+end note
+
+class ECPDimension {
+  +String code
+  +Integer length
+  +Integer width
+  +Integer height
+}
+note top: Dimension will be catalog aware with product
+
+
+class ECPSocialReviewArticle {
+  +String articleId
+  +String title
+  +String summary
+  +String authorId
+  +String authorName
+  +Date publishDate
+}
+note bottom of ECPSocialReviewArticle
+ Non-Catalog Aware, article points to Online-Catalog Only
+ Double check for synchronize properties setting to
+ avoid overwrite from stage catalog
+end note
+
+class Category {
+}
+
+class ECPBackendCategory {
++String code
++String name
+}
+
+class ECPImage {
++localized:Media image
++Date onlineDate
++Date offlineDate
++integer sequence
+}
+note bottom of ECPImage
+ **Catalog Aware** with ECPCategory
+end note
+
+note top of ECPCategory
+ Category for Testrite EC Platform Frontend
+end note
+class ECPCategory {
++Collection<ECPImage> advertisementBanners
++Collection<ECPImage> clearingSalesBanners
++BrandDetail brand
++Boolean hotspot
+}
+
+class ECPBackendStatus {
++BackendStatusType status
++String reasonCode
+}
+
+enum BackendStatusType {
+  Normal
+  Discontinued
+  Hold
+}
+
+
+class Dimension {
++Integer height
++Integer width
++Integer depth
+}
+note top: Dimension will be catalog aware with product
+
+
+@enduml

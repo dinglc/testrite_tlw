@@ -1,0 +1,50 @@
+@startuml
+
+
+CategoryData -- CategoryPageData : Contains
+
+ProductCategorySearchPageData <|- SubCategorySearchPageData
+CategoryData <|- BrandData
+
+class ProductCategorySearchPageData {
+}
+
+
+class SubCategorySearchPageData {
++HotSellingProductsData hotSellingProducts
++PreOrderProductsData preOrderProducts
+}
+
+class CategoryData {
++List<ImageData> advertisementBanners
+
+}
+
+class BrandData{
++String brandStory
+}
+
+class CategoryPageData {
+
+
++List<CategoryData> category
++List<ProductData> preOrderProducts
++List<CategoryData> subCategoryList
+
++List<HotSellingProductsData> hotSellingProducts
++List<ProductData> suggestedProducts
++List<ProductData> clearingSalesProducts
+
+}
+
+
+class HotSellingProductsData {
++CategoryData categoryData
++List<ProductData> products
+}
+
+class PreOrderProductsData {
++List<ProductData> products
+}
+
+@enduml

@@ -67,4 +67,4 @@ UPDATE ConsignmentStatus;code[unique=true];name[lang=$lang]
 ;READY;"準備就緒"
 ;READY_FOR_PICKUP;"準備揀貨"
 ;SHIPPED;"已發貨"
-;WAITING;"正在等待
+;WAITING;"正在等待"

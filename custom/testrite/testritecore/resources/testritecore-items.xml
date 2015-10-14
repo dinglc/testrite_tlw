@@ -75,28 +75,20 @@
                 <modifiers read="true" write="true" search="true" optional="true"/>
             </targetElement>
         </relation>
+
+        <relation code="Product2ECPSocialReviewArticle" autocreate="true" generate="true" localized="false">
+            <sourceElement qualifier="product" type="Product" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="false"/>
+            </sourceElement>
+            <targetElement qualifier="articles" type="ECPSocialReviewArticle" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
     </relations>
 
 
     <itemtypes>
         <typegroup name="Testrite">
-            <itemtype code="ECPBrand" autocreate="true" generate="true">
-                <description>Product Brand</description>
-                <deployment table="ECPBrand" typecode="15001"/>
-                <attributes>
-                    <attribute qualifier="name" type="localized:java.lang.String">
-                        <description>Name appears on the backend (ERP) system.</description>
-                        <modifiers unique="true" read="true" write="false" initial="true" search="true" optional="false"/>
-                        <persistence type="property"/>
-                    </attribute>
-                    <attribute qualifier="story" type="localized:java.lang.String">
-                        <description>Story for the brand</description>
-                        <modifiers read="true" write="false" initial="true" optional="true"/>
-                        <persistence type="property"/>
-                    </attribute>
-                </attributes>
-            </itemtype>
-
             <itemtype code="ECPBackendCategory" autocreate="true" generate="true">
                 <description>Representing category from the backend (ERP) system. Typically maintained by the merchant staffs.</description>
                 <deployment table="ECPBackendCategory" typecode="15002"/>
@@ -112,14 +104,21 @@
                 <description>Product category that used for the ECP.</description>
                 <deployment table="ECPCategory" typecode="15003"/>
                 <attributes>
-                    <attribute qualifier="brand" type="ECPBrand">
-                        <modifiers read="true" write="true" optional="false"/>
-                        <persistence type="property"/>
-                    </attribute>
                     <attribute qualifier="hotspot" type="java.lang.Boolean">
                         <description>Setting to determine if this category should be appeared as one of the hot selling subcats for it's parent category.</description>
                         <modifiers read="true" write="true" search="true" optional="false"/>
                         <defaultvalue>Boolean.FALSE</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="ECPBrand" extends="ECPCategory" autocreate="true" generate="true">
+                <description>Product Brand</description>
+                <attributes>
+                    <attribute qualifier="story" type="localized:java.lang.String">
+                        <description>Story for the brand</description>
+                        <modifiers read="true" write="false" initial="true" optional="true"/>
                         <persistence type="property"/>
                     </attribute>
                 </attributes>
@@ -328,6 +327,11 @@
                         <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="material" type="localized:java.lang.String">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="additonalSpecification" type="localized:java.lang.String">
+                        <description>Additonal Specification Information for display on Frontent</description>
                         <modifiers read="true" write="true" optional="true"/>
                         <persistence type="property"/>
                     </attribute>

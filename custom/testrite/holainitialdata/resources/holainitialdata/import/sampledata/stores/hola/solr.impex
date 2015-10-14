@@ -3,6 +3,8 @@
 # Macros / Replacement Parameter definitions
 $classificationCatalog=HolaClassification
 $contentCatalog=holaContentCatalog
+$productCatalog=holaProductCatalog
+
 
 $classSystemVersion=systemVersion(catalog(id[default='$classificationCatalog']),version[default='1.0'])
 $classCatalogVersion=catalogVersion(catalog(id[default='$classificationCatalog']),version[default='1.0'])
@@ -10,7 +12,6 @@ $classAttribute=classificationAttribute(code,$classSystemVersion)
 $classClass=classificationClass(code,$classCatalogVersion)
 $classAttributeAssignment=classAttributeAssignment($classClass,$classAttribute,$classSystemVersion)
 $contentCatalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalogName]),CatalogVersion.version[default=Staged])[default=$contentCatalogName:Staged]
-$productCatalog=holaProductCatalog
 $productCatalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
 
