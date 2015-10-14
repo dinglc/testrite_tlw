@@ -319,7 +319,7 @@
                     </attribute>
                     <attribute qualifier="weight" type="java.lang.Double">
                         <modifiers read="true" write="true" optional="true"/>
-                        <defaultvalue>0</defaultvalue>
+                        <defaultvalue>0.0</defaultvalue>
                         <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="countryOfOrigin" type="Country">
@@ -343,17 +343,17 @@
                 <attributes>
                     <attribute qualifier="cost" type="java.lang.Double">
                         <modifiers read="true" write="true" optional="false"/>
-                        <defaultvalue>0</defaultvalue>
+                        <defaultvalue>0.0</defaultvalue>
                         <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="storePrice" type="java.lang.Double">
                         <modifiers read="true" write="true" optional="false"/>
-                        <defaultvalue>0</defaultvalue>
+                        <defaultvalue>0.0</defaultvalue>
                         <persistence type="property"/>
                     </attribute>
                     <attribute qualifier="listPrice" type="java.lang.Double">
                         <modifiers read="true" write="true" optional="false"/>
-                        <defaultvalue>0</defaultvalue>
+                        <defaultvalue>0.0</defaultvalue>
                         <persistence type="property"/>
                     </attribute>
                 </attributes>
