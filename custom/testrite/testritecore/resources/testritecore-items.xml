@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ [y] hybris Platform
+
+ Copyright (c) 2000-2015 hybris AG
+ All rights reserved.
+
+ This software is the confidential and proprietary information of hybris
+ ("Confidential Information"). You shall not disclose such Confidential
+ Information and shall use it only in accordance with the terms of the
+ license agreement you entered into with hybris.
+-->
+
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="items.xsd">
+
+    <collectiontypes>
+        <!-- should be removed -->
+        <collectiontype code="GenderList" elementtype="Gender" autocreate="true" generate="true" type="list"/>
+        <collectiontype code="SwatchColorSet" elementtype="SwatchColorEnum" autocreate="true" generate="true"
+                        type="set"/>
+    </collectiontypes>
+
+
+    <enumtypes>
+        <!-- should be removed -->
+        <enumtype generate="true" code="SwatchColorEnum" autocreate="true" dynamic="true">
+            <value code="BLACK"/>
+            <value code="BLUE"/>
+            <value code="BROWN"/>
+            <value code="GREEN"/>
+            <value code="GREY"/>
+            <value code="ORANGE"/>
+            <value code="PINK"/>
+            <value code="PURPLE"/>
+            <value code="RED"/>
+            <value code="SILVER"/>
+            <value code="WHITE"/>
+            <value code="YELLOW"/>
+        </enumtype>
+
+        <!-- ECP -->
+        <enumtype code="ECPBackendStatusType" autocreate="true" generate="true">
+            <value code="NORMAL"/>
+            <value code="DISCONTINUED"/>
+            <value code="HOLD"/>
+        </enumtype>
+
+    </enumtypes>
+
+    <relations>
+        <relation code="ECPCategory2BackendCategory" autocreate="true" generate="true" localized="false">
+            <deployment table="ECPCat2BackendCatRel" typecode="14001" />
+            <sourceElement qualifier="ecpCategories" type="ECPCategory" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement qualifier="backendCategories" type="ECPBackendCategory" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+
+        <relation code="ECPCategory2AdBanner" autocreate="true" generate="true" localized="false">
+            <sourceElement qualifier="category" type="ECPCategory" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="false"/>
+            </sourceElement>
+            <targetElement qualifier="advertisementBanners" type="ECPImage" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+
+        <relation code="ECPCategory2SalesBanner" autocreate="true" generate="true" localized="false">
+            <sourceElement qualifier="category" type="ECPCategory" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="false"/>
+            </sourceElement>
+            <targetElement qualifier="clearingSalesBanners" type="ECPImage" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+    </relations>
+
+
+    <itemtypes>
+        <typegroup name="Testrite">
+            <itemtype code="ECPBrand" autocreate="true" generate="true">
+                <description>Product Brand</description>
+                <deployment table="ECPBrand" typecode="15001"/>
+                <attributes>
+                    <attribute qualifier="name" type="localized:java.lang.String">
+                        <description>Name appears on the backend (ERP) system.</description>
+                        <modifiers unique="true" read="true" write="false" initial="true" search="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="story" type="localized:java.lang.String">
+                        <description>Story for the brand</description>
+                        <modifiers read="true" write="false" initial="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="ECPBackendCategory" autocreate="true" generate="true">
+                <description>Representing category from the backend (ERP) system. Typically maintained by the merchant staffs.</description>
+                <deployment table="ECPBackendCategory" typecode="15002"/>
+                <attributes>
+                    <attribute qualifier="name" type="java.lang.String">
+                        <modifiers unique="true" read="true" write="false" initial="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="ECPCategory" extends="Category" autocreate="true" generate="true">
+                <description>Product category that used for the ECP.</description>
+                <deployment table="ECPCategory" typecode="15003"/>
+                <attributes>
+                    <attribute qualifier="brand" type="ECPBrand">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="hotspot" type="java.lang.Boolean">
+                        <description>Setting to determine if this category should be appeared as one of the hot selling subcats for it's parent category.</description>
+                        <modifiers read="true" write="true" search="true" optional="false"/>
+                        <defaultvalue>Boolean.FALSE</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="ECPImage" autocreate="true" generate="true">
+                <description>Container for holding image with effective date and sequence</description>
+                <deployment table="ECPImage" typecode="15004"/>
+                <custom-properties>
+                    <!-- marking the type as synchronizing capable here: -->
+                    <property name="catalogItemType">
+                        <value>java.lang.Boolean.TRUE</value>
+                    </property>
+                    <!-- define catalog version attribute here: -->
+                    <property name="catalogVersionAttributeQualifier">
+                        <value>"catalogVersion"</value>
+                    </property>
+                    <!-- define unique key attributes here; separate multiple attribute qualifiers by commas: -->
+                    <property name="uniqueKeyAttributeQualifier">
+                        <value>"code"</value>
+                    </property>
+                </custom-properties>
+                <attributes>
+                    <attribute qualifier="code" type="java.lang.String">
+                        <modifiers unique="true" read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="catalogVersion" type="CatalogVersion">
+                        <modifiers unique="true" read="true" write="false" initial="true" search="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="sequence" type="java.lang.Integer">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>1</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="image" type="localized:Media">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="onlineDate" type="java.util.Date">
+                        <description>Online date that this banner is effective and shown.</description>
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="offlineDate" type="java.util.Date">
+                        <description>Offline date that this banner is not effective and hid.</description>
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="ECPBackendInformation" autocreate="true" generate="true">
+                <description>Container for holding product information from backend (ERP).</description>
+                <deployment table="ECPBackendInformation" typecode="15005"/>
+                <custom-properties>
+                    <!-- marking the type as synchronizing capable here: -->
+                    <property name="catalogItemType">
+                        <value>java.lang.Boolean.TRUE</value>
+                    </property>
+                    <!-- define catalog version attribute here: -->
+                    <property name="catalogVersionAttributeQualifier">
+                        <value>"catalogVersion"</value>
+                    </property>
+                    <!-- define unique key attributes here; separate multiple attribute qualifiers by commas: -->
+                    <property name="uniqueKeyAttributeQualifier">
+                        <value>"code"</value>
+                    </property>
+                </custom-properties>
+                <attributes>
+                    <attribute qualifier="code" type="java.lang.String">
+                        <modifiers unique="true" read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="catalogVersion" type="CatalogVersion">
+                        <modifiers unique="true" read="true" write="false" initial="true" search="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="name" type="localized:java.lang.String">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="skuType" type="java.lang.String">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="status" type="ECPBackendStatusType">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="reasonCode" type="java.lang.String">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="standardPackageType" type="java.lang.Integer">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>0</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="negativeProfit" type="java.lang.Boolean">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>Boolean.FALSE</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="ECPDimension" autocreate="true" generate="true">
+                <description>Dimension (LxWxH) for products</description>
+                <deployment table="ECPDimension" typecode="15006"/>
+                <custom-properties>
+                    <!-- marking the type as synchronizing capable here: -->
+                    <property name="catalogItemType">
+                        <value>java.lang.Boolean.TRUE</value>
+                    </property>
+                    <!-- define catalog version attribute here: -->
+                    <property name="catalogVersionAttributeQualifier">
+                        <value>"catalogVersion"</value>
+                    </property>
+                    <!-- define unique key attributes here; separate multiple attribute qualifiers by commas: -->
+                    <property name="uniqueKeyAttributeQualifier">
+                        <value>"code"</value>
+                    </property>
+                </custom-properties>
+                <attributes>
+                    <attribute qualifier="code" type="java.lang.String">
+                        <modifiers unique="true" read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="catalogVersion" type="CatalogVersion">
+                        <modifiers unique="true" read="true" write="false" initial="true" search="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="length" type="java.lang.Integer">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>0</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="width" type="java.lang.Integer">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>0</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="height" type="java.lang.Integer">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>0</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="Product" autocreate="false" generate="false">
+                <description>Generic Product type with extended attributes</description>
+                <attributes>
+                    <attribute qualifier="backendInfo" type="ECPBackendInformation">
+                        <description>Contain backend (ERP) information that mostly read-only</description>
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="allowVendorDelivery" type="java.lang.Boolean">
+                        <description>Enable delivery directly from vendor/manufacturer</description>
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>Boolean.FALSE</defaultvalue>
+                        <persistence type="property"/>    
+                    </attribute>
+                    <attribute qualifier="allowIslandDelivery" type="java.lang.Boolean">
+                        <description>Enable delivery to suburb areas</description>
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>Boolean.FALSE</defaultvalue>
+                        <persistence type="property"/>    
+                    </attribute>
+                    <attribute qualifier="allowHomeDelivery" type="java.lang.Boolean">
+                        <description>Enable delivery using courier</description>
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>Boolean.FALSE</defaultvalue>
+                        <persistence type="property"/>    
+                    </attribute>
+                    <attribute qualifier="allowStorePickup" type="java.lang.Boolean">
+                        <description>Enable pickup in store option</description>
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>Boolean.FALSE</defaultvalue>
+                        <persistence type="property"/>    
+                    </attribute>
+                    <attribute qualifier="allowOnlineSell" type="java.lang.Boolean">
+                        <description>Forcing product available for online sales</description>
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>Boolean.FALSE</defaultvalue>
+                        <persistence type="property"/>    
+                    </attribute>
+                    <attribute qualifier="productDimension" type="ECPDimension">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="packageDimension" type="ECPDimension">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="weight" type="java.lang.Double">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <defaultvalue>0</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="countryOfOrigin" type="Country">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="material" type="localized:java.lang.String">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="PriceRow" autocreate="false" generate="false">
+                <description>Generice PriceRow extended for ECP</description>
+                <attributes>
+                    <attribute qualifier="cost" type="java.lang.Double">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>0</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="storePrice" type="java.lang.Double">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>0</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="listPrice" type="java.lang.Double">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <defaultvalue>0</defaultvalue>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="StockLevel" autocreate="false" generate="false">
+                <description>Generice StockLevel extended for ECP</description>
+                <attributes>
+                    <attribute qualifier="preventUpdateFromBackendStartDate" type="java.util.Date">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="preventUpdateFromBackendEndDate" type="java.util.Date">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="ECPSocialReviewArticle" autocreate="true" generate="true">
+                <description>Product review article from Sharer+</description>
+                <deployment table="ECPSocialReviewArticle" typecode="15007"/>
+                <attributes>
+                    <attribute qualifier="articleId" type="java.lang.String">
+                        <modifiers unique="true" read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="title" type="localized:java.lang.String">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="summary" type="localized:java.lang.String">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="authorId" type="java.lang.String">
+                        <modifiers unique="true" read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="authorName" type="localized:java.lang.String">
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="publishDate" type="java.util.Date">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+        </typegroup>
+
+
+        <!-- These are exist for historial reasons, should be removed later -->
+        <typegroup name="Apparel">
+            <itemtype code="ApparelProduct" extends="Product"
+                      autocreate="true" generate="true"
+                      jaloclass="com.testritegroup.ec.core.jalo.ApparelProduct">
+                <description>Base apparel product extension that contains additional attributes.</description>
+                <attributes>
+                    <attribute qualifier="genders" type="GenderList">
+                        <description>List of genders that the ApparelProduct is designed for</description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="ApparelStyleVariantProduct" extends="VariantProduct"
+                      autocreate="true" generate="true"
+                      jaloclass="com.testritegroup.ec.core.jalo.ApparelStyleVariantProduct">
+                <description>Apparel style variant type that contains additional attribute describing variant style.
+                </description>
+                <attributes>
+                    <attribute qualifier="style" type="localized:java.lang.String"
+                               metatype="VariantAttributeDescriptor">
+                        <description>Color/Pattern of the product.</description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+
+                    <attribute qualifier="swatchColors" type="SwatchColorSet">
+                        <description>A normalized color mapping to a standardized front-end navigable name.
+                        </description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+
+            </itemtype>
+
+            <itemtype code="ApparelSizeVariantProduct" extends="ApparelStyleVariantProduct"
+                      autocreate="true" generate="true"
+                      jaloclass="com.testritegroup.ec.core.jalo.ApparelSizeVariantProduct">
+                <description>Apparel size variant type that contains additional attribute describing variant size.
+                </description>
+                <attributes>
+                    <attribute qualifier="size" type="localized:java.lang.String"
+                               metatype="VariantAttributeDescriptor">
+                        <description>Size of the product.</description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+        </typegroup>
+
+        <typegroup name="Electronics">
+            <itemtype code="ElectronicsColorVariantProduct" extends="VariantProduct"
+                      autocreate="true" generate="true"
+                      jaloclass="com.testritegroup.ec.core.jalo.ElectronicsColorVariantProduct">
+                <description>Electronics color variant type that contains additional attribute describing variant color.
+                </description>
+                <attributes>
+                    <attribute qualifier="color" type="localized:java.lang.String"
+                               metatype="VariantAttributeDescriptor">
+                        <description>Color of the product.</description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+        </typegroup>
+        <!-- end of "These are exist for historial reasons" -->
+
+    </itemtypes>
+</items>

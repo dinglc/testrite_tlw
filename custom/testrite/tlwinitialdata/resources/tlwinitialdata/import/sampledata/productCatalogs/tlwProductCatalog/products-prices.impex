@@ -1,0 +1,19 @@
+# ImpEx for Importing Prices
+
+# Macros / Replacement Parameter definitions
+$productCatalog=tlwProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default='$productCatalog:Staged']
+$product=product(code,$catalogVersion)[unique=true]
+$unit=unit(code[unit=true,default=pieces])
+$currency=currency(isocode)[unique=true]
+$prices=Europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1PricesTranslator]
+
+# Set product approval status to Approved only for those products that have prices.
+$approved=approvalstatus(code)[default='approved']
+
+UPDATE Product;code[unique=true];$prices;$approved;$catalogVersion;Europe1PriceFactory_PTG(code)
+
+# Set price per product/unit/currency
+INSERT_UPDATE PriceRow;$product;$unit;$currency;cost;price;minqtd[default=1];unitFactor[default=1];net[default=false];$catalogVersion
+;339;pieces;TWD;21;21;;;

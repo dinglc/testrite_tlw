@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testclasses><tlwfacades><testclass>com.testritegroup.ec.tlw.facades.suggestion.impl.DefaultSimpleSuggestionFacadeTest</testclass><testclass>com.testritegroup.ec.tlw.facades.suggestion.DefaultSimpleSuggestionFacadeIntegrationTest</testclass></tlwfacades></testclasses>

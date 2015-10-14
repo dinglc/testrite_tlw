@@ -1,0 +1,31 @@
+#
+# Import the Solr configuration for the store
+#
+
+# Index Type
+$solrIndexedType=holaProductType
+
+# Language
+$lang=zh_TW
+
+# Solr Indexed Property
+UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];displayName[lang=$lang]
+;$solrIndexedType;allPromotions;"促銷"
+;$solrIndexedType;availableInStores;"店鋪"
+;$solrIndexedType;brand;"品牌"
+;$solrIndexedType;category;"類別"
+;$solrIndexedType;code;"編碼"
+;$solrIndexedType;description;"描述"
+;$solrIndexedType;manufacturerName;"製造商名稱"
+;$solrIndexedType;name;"名稱"
+;$solrIndexedType;price;"價格"
+;$solrIndexedType;summary;"摘要"
+
+# Define the available sorts
+UPDATE SolrSort;indexedType(identifier)[unique=true];code[unique=true];name[lang=$lang];useBoost
+;$solrIndexedType;name-asc;"名稱(升序)";"false";
+;$solrIndexedType;name-desc;"名稱(降序)";"false";
+;$solrIndexedType;price-asc;"價格（由低到高）";"false";
+;$solrIndexedType;price-desc;"價格（由高到低）";"false";
+;$solrIndexedType;relevance;"關聯性";"true";
+;$solrIndexedType;topRated;"最高排名";"false";

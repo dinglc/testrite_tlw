@@ -1,0 +1,10 @@
+#
+# Import the BaseStore
+#
+
+# Language
+$lang=zh_TW
+
+# Create Base Store
+UPDATE BaseStore;uid[unique=true];name[lang=$lang]
+;hola;"特力和樂購物網"
