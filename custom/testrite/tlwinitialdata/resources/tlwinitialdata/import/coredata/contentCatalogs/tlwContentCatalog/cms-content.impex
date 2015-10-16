@@ -805,3 +805,54 @@ INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterT
 ;;productList;Product List;ProductListPageTemplate;true;
 ;;productGrid;Product Grid;ProductGridPageTemplate;false;
 ;;category;Default Category Page;CategoryPageTemplate;false;
+
+##### SubCategoryTemplate : 中小分類頁 Template
+INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true]   ;name                     ;frontendTemplateName  ;restrictedPageTypes(code);active[default=true]
+                          ;                       ;SubCategoryTemplate;SubCategory Page Template;category/subCategoryPage;ContentPage
+
+UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true]   ;velocityTemplate[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
+                   ;                       ;SubCategoryTemplate;$jarResourceCms/structure-view/structure_subCategoryTemplate.vm
+
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='SubCategoryTemplate'];validComponentTypes(code);compTypeGroup(code)
+;SiteLogo;;;logo
+;HeaderLinks;;;headerlinks
+;SearchBox;;;searchbox
+;MiniCart;;;minicart
+;NavigationBar;;;navigation
+;Section1A;;;narrow
+;Section2A;;;narrow
+;Section3A;;;narrow
+;Section4A;;;narrow
+;Section5A;;;narrow
+;Section6A;;;narrow
+;Section1B;;;wide
+;Section2B;;;wide
+;Footer;;;footer
+;TopHeaderSlot;;;wide
+;BottomHeaderSlot;;;wide
+;PlaceholderContentSlot;;;
+
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='SubCategoryTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+;;SiteLogo-SubCategoryPage;SiteLogo;;SiteLogoSlot;true
+;;HomepageLink-SubCategoryPage;HomepageNavLink;;HomepageNavLinkSlot;true
+;;NavigationBar-SubCategoryPage;NavigationBar;;NavigationBarSlot;true
+;;MiniCart-SubCategoryPage;MiniCart;;MiniCartSlot;true
+;;Footer-SubCategoryPage;Footer;;FooterSlot;true
+;;HeaderLinks-SubCategoryPage;HeaderLinks;;HeaderLinksSlot;true
+;;SearchBox-SubCategoryPage;SearchBox;;SearchBoxSlot;true
+;;TopHeaderSlot-SubCategoryPage;TopHeaderSlot;;TopHeaderSlot;true
+;;BottomHeaderSlot-SubCategoryPage;BottomHeaderSlot;;BottomHeaderSlot;true
+;;PlaceholderContentSlot-SubCategoryPage;PlaceholderContentSlot;;PlaceholderContentSlot;true
+
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]   ;name              ;masterTemplate(uid,$contentCV);label             ;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)[default='ContentPageModel__function_preview']
+                         ;                       ;SubCategoryPage-11 ;SubCategoryPage-11;SubCategoryTemplate           ;SubCategoryPage-11
+                         ;                       ;SubCategoryPage-12 ;SubCategoryPage-12;SubCategoryTemplate           ;SubCategoryPage-12
+
+#SubCategoryPage-11 ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true]            ;position[unique=true];page(uid,$contentCV)[unique=true][default='SubCategoryPage-11'];contentSlot(uid,$contentCV)[unique=true]
+                                ;                       ;SubCategoryPage-11-Section1A;Section1A            ;                                                               ;SubCategoryPage-11-Section1A-contentSlot
+
+#SubCategoryPage-11 ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]                        ;name                                    ;active
+                         ;                       ;SubCategoryPage-11-Section1A-contentSlot;SubCategoryPage-11-Section1A-contentSlot;true
+# End SubCategoryTemplate

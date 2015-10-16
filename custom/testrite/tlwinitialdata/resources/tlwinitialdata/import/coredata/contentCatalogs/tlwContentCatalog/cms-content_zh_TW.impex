@@ -28,3 +28,8 @@ UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
  ;;searchEmpty;"无结果"
  ;;storefinderPage;"店铺搜索器"
  ;;updatePassword;"更新忘记的密码"
+
+# SubCategoryTemplate : 中小分類頁 Template
+UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]  ;label[lang=$lang]
+                  ;                       ;SubCategoryPage-11;"11中小分類"
+                  ;                       ;SubCategoryPage-12;"12中小分類"
