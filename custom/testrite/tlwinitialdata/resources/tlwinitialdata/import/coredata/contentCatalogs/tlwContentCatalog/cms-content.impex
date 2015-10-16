@@ -246,12 +246,12 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
 ;SearchBox;;;searchbox
 ;MiniCart;;;minicart
 ;NavigationBar;;;navigation
-;Section1;;;wide
-;Section2A;;;wide
-;Section2B;;;narrow
-;Section2C;;;narrow
+;Section1A;;;
+;Section1B;;;
+;Section1C;;;
+;Section2;;;wide
 ;Section3;;;wide
-;Section4;;;narrow
+;Section4;;;wide
 ;Section5;;;wide
 ;Footer;;;footer
 ;TopHeaderSlot;;;wide
@@ -806,7 +806,20 @@ INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterT
 ;;productGrid;Product Grid;ProductGridPageTemplate;false;
 ;;category;Default Category Page;CategoryPageTemplate;false;
 
-##### SubCategoryTemplate : ‰∏≠Â∞èÂàÜÈ°ûÈ†Å Template
+################# Shopping Page
+# Create Content Page
+INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name				;masterTemplate(uid,$contentCV)		;label		;defaultPage[default='true']	;approvalStatus(code)[default='approved']	;homepage[default='false']
+							;							;ShoppingPage			;Shopping Page		;LandingPage3Template				;Shopping	;								;											;
+
+# Create Content Slots
+INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]					;name								;active[default='true']
+							;							;RotatingBannerSlot-shopping		;Rotating Banner Slot for shopping	;
+
+# Bind Content Slots to Shopping Page
+INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ShoppingPage']	;contentSlot(uid,$contentCV)[unique=true]	;allowOverwrite[default='true']
+									;							;RotatingBannerSlot-shopping	;Section2				;															;RotatingBannerSlot-shopping			
+
+##### SubCategoryTemplate : §§§p§¿√˛≠∂ Template
 INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true]   ;name                     ;frontendTemplateName  ;restrictedPageTypes(code);active[default=true]
                           ;                       ;SubCategoryTemplate;SubCategory Page Template;category/subCategoryPage;ContentPage
 

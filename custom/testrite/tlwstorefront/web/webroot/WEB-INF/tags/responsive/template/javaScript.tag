@@ -23,3 +23,20 @@
 </c:choose>
 
 <cms:previewJS cmsPageRequestContextData="${cmsPageRequestContextData}" />
+
+<!-- InstanceBeginEditable name="JS" -->
+<!--Slider Start-->
+<script>
+$(document).ready(function() { 
+$("#slider").responsiveSlides({
+        auto: true,
+        pager: true,
+        nav: true,
+        speed: 500,
+        namespace: "callbacks"
+ });
+$('.callbacks_tabs a').css('display','block').html('');
+})
+</script>
+<!--Slider End-->	
+<!-- InstanceEndEditable -->

@@ -49,10 +49,17 @@ UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lan
 						;							;FindSrvc1Link		;找服務1
 						;							;FindSrvc2Link		;找服務2
 						
-
+############# Footer
 # CMS Footer Component
 UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];notice[lang=$lang]
 					  ;                       ;FooterComponent ;特力屋股份有限公司 版權所有©Copyright 2015 Test Rite Retail Co.,LTD. All Rights Reserved
+
+############## Content
+# Banner Component
+UPDATE BannerComponent		;$contentCV[unique=true]	;uid[unique=true]		;headline[lang=$lang]	;$picture[lang=$lang]		;content[lang=$lang]
+							;							;mBN1BannerComponent	;						;/images/sample/mBN_1.jpg	;
+							;							;mBN2BannerComponent	;						;/images/sample/mBN_2.jpg	;
+							;							;mBN3BannerComponent	;						;/images/sample/mBN_3.jpg	;
 
 # Lightbox Banner for Mini Cart (banner is not localizable so we must create a separate banner per language)
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
