@@ -31,6 +31,6 @@ UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]
  ;;updatePassword;"更新忘记的密码"
 
 # SubCategoryTemplate : 中小分類頁 Template
-UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]  ;label[lang=$lang]
+UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]  ;title[lang=$lang]
                   ;                       ;SubCategoryPage-11;"11中小分類"
                   ;                       ;SubCategoryPage-12;"12中小分類"

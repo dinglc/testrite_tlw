@@ -819,7 +819,7 @@ INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]					;name		
 INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ShoppingPage']	;contentSlot(uid,$contentCV)[unique=true]	;allowOverwrite[default='true']
 									;							;RotatingBannerSlot-shopping	;Section2				;															;RotatingBannerSlot-shopping			
 
-##### SubCategoryTemplate : ¤¤¤p¤ÀÃþ­¶ Template
+##### SubCategoryTemplate : ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Template
 INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true]   ;name                     ;frontendTemplateName  ;restrictedPageTypes(code);active[default=true]
                           ;                       ;SubCategoryTemplate;SubCategory Page Template;category/subCategoryPage;ContentPage
 
@@ -861,11 +861,11 @@ INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]   ;name      
                          ;                       ;SubCategoryPage-11 ;SubCategoryPage-11;SubCategoryTemplate           ;SubCategoryPage-11
                          ;                       ;SubCategoryPage-12 ;SubCategoryPage-12;SubCategoryTemplate           ;SubCategoryPage-12
 
+#SubCategoryPage-11 ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]                        ;name                                    ;active
+                         ;                       ;SubCategoryPage-11-Section1A-contentSlot;SubCategoryPage-11-Section1A-contentSlot;true
 #SubCategoryPage-11 ContentSlotForPage
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true]            ;position[unique=true];page(uid,$contentCV)[unique=true][default='SubCategoryPage-11'];contentSlot(uid,$contentCV)[unique=true]
                                 ;                       ;SubCategoryPage-11-Section1A;Section1A            ;                                                               ;SubCategoryPage-11-Section1A-contentSlot
 
-#SubCategoryPage-11 ContentSlot
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]                        ;name                                    ;active
-                         ;                       ;SubCategoryPage-11-Section1A-contentSlot;SubCategoryPage-11-Section1A-contentSlot;true
 # End SubCategoryTemplate
