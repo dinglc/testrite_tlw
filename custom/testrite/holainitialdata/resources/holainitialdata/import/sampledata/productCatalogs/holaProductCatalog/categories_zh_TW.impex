@@ -1,13 +1,13 @@
 # ImpEx for Importing Categories
 
 # Macros / Replacement Parameter definitions
-$productCatalog=electronicsProductCatalog
+$productCatalog=holaProductCatalog
 $productCatalogName=Hola Product Catalog
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
 # Language
-$lang=en
+$lang=zh_TW
 
 # Create Categories
 UPDATE Category;code[unique=true];name[lang=$lang];$catalogVersion

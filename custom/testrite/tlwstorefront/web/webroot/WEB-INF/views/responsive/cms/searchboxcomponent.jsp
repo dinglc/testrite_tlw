@@ -8,7 +8,7 @@
 <c:url value="/search/autocomplete/${component.uid}"
 	var="autocompleteUrl" />
 
-<div class="site-search ui-front">
+<div class="searchZone MTB10">
 	<form name="search_form_${component.uid}" method="get"
 		action="${searchUrl}">
 		<div class="input-group">

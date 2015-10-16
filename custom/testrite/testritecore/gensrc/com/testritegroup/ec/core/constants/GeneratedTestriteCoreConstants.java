@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 2015/10/14 上午 11:58:46                      ---
+ * --- Generated at 2015/10/14 下午 04:13:03                      ---
  * ----------------------------------------------------------------
  */
 package com.testritegroup.ec.core.constants;
@@ -19,6 +19,7 @@ public class GeneratedTestriteCoreConstants
 		public static final String APPARELPRODUCT = "ApparelProduct".intern();
 		public static final String APPARELSIZEVARIANTPRODUCT = "ApparelSizeVariantProduct".intern();
 		public static final String APPARELSTYLEVARIANTPRODUCT = "ApparelStyleVariantProduct".intern();
+		public static final String CATEGORYNAVIGATIONBARCOMPONENT = "CategoryNavigationBarComponent".intern();
 		public static final String ECPBACKENDCATEGORY = "ECPBackendCategory".intern();
 		public static final String ECPBACKENDINFORMATION = "ECPBackendInformation".intern();
 		public static final String ECPBACKENDSTATUSTYPE = "ECPBackendStatusType".intern();
@@ -28,6 +29,7 @@ public class GeneratedTestriteCoreConstants
 		public static final String ECPIMAGE = "ECPImage".intern();
 		public static final String ECPSOCIALREVIEWARTICLE = "ECPSocialReviewArticle".intern();
 		public static final String ELECTRONICSCOLORVARIANTPRODUCT = "ElectronicsColorVariantProduct".intern();
+		public static final String LEFTNAVIGATIONBARCOMPONENT = "LeftNavigationBarComponent".intern();
 		public static final String SWATCHCOLORENUM = "SwatchColorEnum".intern();
 	}
 	public static class Attributes
@@ -40,11 +42,13 @@ public class GeneratedTestriteCoreConstants
 		}
 		public static class Product
 		{
+			public static final String ADDITONALSPECIFICATION = "additonalSpecification".intern();
 			public static final String ALLOWHOMEDELIVERY = "allowHomeDelivery".intern();
 			public static final String ALLOWISLANDDELIVERY = "allowIslandDelivery".intern();
 			public static final String ALLOWONLINESELL = "allowOnlineSell".intern();
 			public static final String ALLOWSTOREPICKUP = "allowStorePickup".intern();
 			public static final String ALLOWVENDORDELIVERY = "allowVendorDelivery".intern();
+			public static final String ARTICLES = "articles".intern();
 			public static final String BACKENDINFO = "backendInfo".intern();
 			public static final String COUNTRYOFORIGIN = "countryOfOrigin".intern();
 			public static final String MATERIAL = "material".intern();
@@ -87,6 +91,7 @@ public class GeneratedTestriteCoreConstants
 		public static final String ECPCATEGORY2ADBANNER = "ECPCategory2AdBanner".intern();
 		public static final String ECPCATEGORY2BACKENDCATEGORY = "ECPCategory2BackendCategory".intern();
 		public static final String ECPCATEGORY2SALESBANNER = "ECPCategory2SalesBanner".intern();
+		public static final String PRODUCT2ECPSOCIALREVIEWARTICLE = "Product2ECPSocialReviewArticle".intern();
 	}
 	
 	protected GeneratedTestriteCoreConstants()

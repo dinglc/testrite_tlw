@@ -12,10 +12,57 @@ $siteResource=jar:tw.testrite.initialdata.setup.InitialDataSystemSetup&/testrite
 $lang=zh_TW
 
 # Site Logo Component
-UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true]			;$picture[lang=$lang]
+							;						;SimpleBannerComponent		;/images/theme/logo.png
+							;						;CasaSimpleBannerComponent	;/images/theme/logo_casa.png
+							;						;HolasSimpleBannerComponent	;/images/theme/logo_hola_s.png
 
 # CMS Link Components
-UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lang=$lang]
+					   	;							;NortonLink      	;諾頓
+					   	;							;BrandLink      	;品牌簡介
+					   	;							;AboutMeLink		;關於HOLA
+					   	;							;StoreLink      	;全台門市
+					   	;							;CategoryLink    	;線上型錄
+					   	;							;CooperateLink  	;異業合作
+					   	;							;ServiceLink    	;客服中心
+					   	;							;SecurityLink   	;交易安全
+					   	;							;PrivacyLink    	;隱私權保護
+					   	;						  	;FurnitureLink		;傢具
+					  	;						  	;RoomLink			;寢室
+						;						  	;BathroomLink		;浴室
+						;						  	;KitchenLink		;廚房
+						;						  	;TablewareLink		;餐具
+						;						  	;StorageLink		;收納
+						;							;DecorativeLink		;裝飾
+						;							;CarpetLink			;地毯
+						;							;CleanLink			;清潔
+						;							;LightingLink		;燈飾
+						;							;FoodLink			;美食
+						;							;EletricLink		;家電
+						;							;ShoppingLink		;線上購物
+						;							;ExclusiveLink		;網購獨享
+						;							;ClearLink			;出清
+						;							;TeamshopingLink	;團購
+						;							;PreorderingLink	;預購
+						;							;HotsellingLink		;熱銷排行
+						;							;BrandsLink			;品牌總覽
+						;							;CategoryLink		;線上型錄
+						;							;ProposalLink		;生活提案
+						;							;InformationLink	;活動情報
+						;							;AdvisoryLink		;服務諮詢
+						;							;GiftLink			;Gift
+						;							;SweetLink			;貼心服務
+
+#Banner Component
+UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;headline[lang=$lang]	;$picture[lang=$lang]		;content[lang=$lang]
+						;							;mBN1BannerComponent	;第一張					;/images/theme/mBN_1.jpg	;
+						;							;mBN2BannerComponent	;第二張					;/images/theme/mBN_2.jpg	;
+						;							;mBN3BannerComponent	;第三張					;/images/theme/mBN_3.jpg	;
+
+#ProductCarouselComponent
+UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]
+								;							;Suggestion			;推薦
 
 # Lightbox Banner for Mini Cart (banner is not localizable so we must create a separate banner per language)
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
@@ -30,12 +77,16 @@ UPDATE CMSTabParagraphComponent;$contentCV[unique=true];uid[unique=true];title[l
 
 # CMS Footer Component
 UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];notice[lang=$lang]
-
+					  ;                       ;FooterComponent ;特力屋股份有限公司 版權所有©Copyright 2015 Test Rite Retail Co.,LTD. All Rights Reserved
 # CMS Paragraph Component (Contact information)
 UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=$lang]
 
 # CMS ProductReferences Components
-UPDATE ProductReferencesComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+UPDATE ProductReferencesComponent	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]
+									;							;CrossSelling		;"推薦"
+									;							;Others				;"配件"
+									;							;Similar			;"可能喜歡..."
+									;							;accessories		;"配件"
 
 # CMS PurchasedCategorySuggestionComponent Components
 UPDATE PurchasedCategorySuggestionComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
@@ -47,7 +98,9 @@ UPDATE CartSuggestionComponent;$contentCV[unique=true];uid[unique=true];title[la
 UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 
 # CMS Navigation Nodes
-UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true]	;title[lang=$lang]
+						;						;HolaFooterNode		;和樂頁尾節點
+						;						;AboutMeNode		;關於HOLA
 
 # FAQ Page
 

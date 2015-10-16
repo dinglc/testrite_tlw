@@ -12,7 +12,8 @@ $jarResourceCms=$config-jarResourceCmsValue
 # These define the layout for pages
 # "FrontendTemplateName" is used to define the JSP that should be used to render the page for pages with multiple possible layouts.
 # "RestrictedPageTypes" is used to restrict templates to page types
-INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]
+INSERT_UPDATE PageTemplate	;$contentCV[unique=true]	;uid[unique=true]	;name				;frontendTemplateName	;restrictedPageTypes(code)	;active[default=true]
+							;							;MkPageTemplate		;Mk Page Template	;layout/mkLayoutPage	;ContentPage				;true
 ;;ProductDetailsPageTemplate;Product Details Page Template;product/productLayout2Page;ProductPage
 ;;ProductListPageTemplate;Product List Page Template;category/productListPage;CategoryPage
 ;;ProductGridPageTemplate;Product Grid Page Template;category/productGridPage;CategoryPage
@@ -41,7 +42,8 @@ INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;fronten
 
 # Add Velocity templates that are in the CMS Cockpit. These give a better layout for editing pages
 # The FileLoaderValueTranslator loads a File into a String property. The templates could also be inserted in-line in this file.
-UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];velocityTemplate[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
+UPDATE PageTemplate	;$contentCV[unique=true]	;uid[unique=true]	;velocityTemplate[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
+					;							;MkPageTemplate		;$jarResourceCms/structure-view/structure_mkPageTemplate.vm
 ;;ProductDetailsPageTemplate;$jarResourceCms/structure-view/structure_productDetails1PageTemplate.vm
 ;;ProductListPageTemplate   ;$jarResourceCms/structure-view/structure_productListPageTemplate.vm
 ;;ProductGridPageTemplate   ;$jarResourceCms/structure-view/structure_productGridPageTemplate.vm
@@ -265,12 +267,12 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
 ;SearchBox;;;searchbox
 ;MiniCart;;;minicart
 ;NavigationBar;;;navigation
-;Section1;;;wide
-;Section2A;;;wide
-;Section2B;;;narrow
-;Section2C;;;narrow
+;Section1A;;;
+;Section1B;;;
+;Section1C;;;
+;Section2;;;wide
 ;Section3;;;wide
-;Section4;;;narrow
+;Section4;;;wide
 ;Section5;;;wide
 ;Footer;;;footer
 ;TopHeaderSlot;;;wide
@@ -450,8 +452,28 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
 ;BottomHeaderSlot;;;wide
 ;PlaceholderContentSlot;;;
 
+# Mk Page Template
+INSERT_UPDATE ContentSlotName	;name[unique=true]		;template(uid,$contentCV)[unique=true][default='MkPageTemplate']	;validComponentTypes(code)	;compTypeGroup(code)
+								;SiteLogo				;																	;							;logo
+								;HeaderLinks			;																	;							;headerlinks
+								;SearchBox				;																	;							;searchbox
+								;NavigationBar			;																	;							;navigation
+								;Section1				;																	;							;
+								;Section2				;																	;							;wide
+								;Section3				;																	;							;wide
+								;Section4				;																	;							;wide
+								;Section5				;																	;							;wide
+								;Section6				;																	;							;wide
+								;Footer					;																	;							;footer
+								;TopHeaderSlot			;																	;							;wide
+								;BottomHeaderSlot		;																	;							;wide
+								;PlaceholderContentSlot	;																	;							;
+
 # Create Content Slots
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
+INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]		;name					;active[default='true']
+							;							;Mk-Section1Slot		;Mk Section1 Slot		;
+							;							;RotatingBannerSlot		;Rotating Banner Slot	;
+							;							;ProductCarouselSlot	;Product Carousel Slot	;
 ;;SiteLogoSlot;Default Site Logo Slot;true
 ;;HomepageNavLinkSlot;Default Homepage Link;true
 ;;MiniCartSlot;Mini Cart;true
@@ -471,8 +493,8 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
 ;;TopHeaderSlot;Top Header;true
 ;;BottomHeaderSlot;Bottom Header;true
 ;;ProductLeftRefinements;Refinements;true
-;;ProductGridSlot;Product List;true
-;;ProductListSlot;Product Grid;true
+;;ProductGridSlot;Product Grid;true
+;;ProductListSlot;Product List;true
 ;;SearchResultsListSlot;Search Result List;true
 ;;SearchResultsGridSlot;Search Result Grid;true
 ;;MiddleContentSlot;Middle Content Slot;true
@@ -592,7 +614,9 @@ INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];po
 ;;BottomHeaderSlot-LandingPage2;BottomHeaderSlot;;BottomHeaderSlot;true
 ;;PlaceholderContentSlot-LandingPage2;PlaceholderContentSlot;;PlaceholderContentSlot;true
 
-INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='LandingPage3Template'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+INSERT_UPDATE ContentSlotForTemplate	;$contentCV[unique=true]	;uid[unique=true]		;position[unique=true]	;pageTemplate(uid,$contentCV)[unique=true][default='LandingPage3Template']	;contentSlot(uid,$contentCV)[unique=true]	;allowOverwrite
+										;							;Section2-LandingPage3	;Section2				;																			;RotatingBannerSlot							;true
+										;							;Section4-LandingPage3	;Section4				;																			;ProductCarouselSlot						;true
 ;;SiteLogo-LandingPage3;SiteLogo;;SiteLogoSlot;true
 ;;HomepageLink-LandingPage3;HomepageNavLink;;HomepageNavLinkSlot;true
 ;;NavigationBar-LandingPage3;NavigationBar;;NavigationBarSlot;true
@@ -787,6 +811,17 @@ INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];po
 ;;BottomHeaderSlot-ErrorPage;BottomHeaderSlot;;BottomHeaderSlot;true
 ;;PlaceholderContentSlot-ErrorPage;PlaceholderContentSlot;;PlaceholderContentSlot;true
 
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true]	;position[unique=true]	;pageTemplate(uid,$contentCV)[unique=true][default='MkPageTemplate'];contentSlot(uid,$contentCV)[unique=true]	;allowOverwrite
+									;						;Section1-Mk		;Section1				;																	;Mk-Section1Slot							;true
+;;SiteLogo-Mk;SiteLogo;;SiteLogoSlot;true
+;;NavigationBar-Mk;NavigationBar;;NavigationBarSlot;true
+;;Footer-Mk;Footer;;FooterSlot;true
+;;HeaderLinks-Mk;HeaderLinks;;HeaderLinksSlot;true
+;;SearchBox-Mk;SearchBox;;SearchBoxSlot;true
+;;TopHeaderSlot-Mk;TopHeaderSlot;;TopHeaderSlot;true
+;;BottomHeaderSlot-Mk;BottomHeaderSlot;;BottomHeaderSlot;true
+;;PlaceholderContentSlot-Mk;PlaceholderContentSlot;;PlaceholderContentSlot;true
+
 # Create Content Pages
 
 # Site-wide Homepage
@@ -798,7 +833,7 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;
 ;;ContentPageModel__function_preview;text/gif;ContentPageModel__function_preview.gif;$jarResourceCms/preview-images/ContentPageModel__function_preview.gif
 
 # Functional Content Pages
-INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)[default='ContentPageModel__function_preview']
+INSERT_UPDATE ContentPage	;$contentCV[unique=true];uid[unique=true]	;name		;masterTemplate(uid,$contentCV)	;label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)[default='ContentPageModel__function_preview']
 ;;multiStepCheckoutSummaryPage;Multi Checkout Summary Page;MultiStepCheckoutSummaryPageTemplate;multiStepCheckoutSummary
 ;;orderConfirmationPage;Order Confirmation Page;OrderConfirmationPageTemplate;orderConfirmation
 ;;cartPage;Cart Page;CartPageTemplate;cart
@@ -845,3 +880,13 @@ INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterT
 ;;productList;Product List;ProductListPageTemplate;true;
 ;;productGrid;Product Grid;ProductGridPageTemplate;false;
 ;;category;Default Category Page;BrandCategoryTemplate;false;
+
+
+
+#####
+INSERT_UPDATE ContentPage	;$contentCV[unique=true];uid[unique=true]	;name			;masterTemplate(uid,$contentCV)	;label		;defaultPage[default='true'];approvalStatus(code)[default='approved']
+							;						;MkPage				;Mk Page		;MkPageTemplate					;mk
+							;						;AboutMePage		;About Me Page	;MkPageTemplate					;aboutme
+							;						;BrandPage			;Brand Page		;MkPageTemplate					;brand
+
+							;						;ShoppingPage		;Shopping Page	;LandingPage3Template			;Shopping

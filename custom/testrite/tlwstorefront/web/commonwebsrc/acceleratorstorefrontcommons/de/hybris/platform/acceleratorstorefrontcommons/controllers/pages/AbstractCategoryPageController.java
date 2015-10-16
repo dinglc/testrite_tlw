@@ -108,7 +108,7 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 		final ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> searchPageData = categorySearch
 				.getSearchPageData();
 		final boolean showCategoriesOnly = categorySearch.isShowCategoriesOnly();
-
+		LOG.info(":::::::::::::search::::" + searchPageData.getCategoryCode());
 		storeCmsPageInModel(model, categorySearch.getCategoryPage());
 		storeContinueUrl(request);
 
@@ -262,6 +262,7 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 				searchPageData = getProductSearchFacade().categorySearch(categoryCode);
 				if (categoryPage != null)
 				{
+					//					LOG.info(":::::::::::::searchSubCategoriessize::::" + searchPageData.getSubCategories().size());
 					showCategoriesOnly = !categoryHasDefaultPage(categoryPage)
 							&& CollectionUtils.isNotEmpty(searchPageData.getSubCategories());
 				}

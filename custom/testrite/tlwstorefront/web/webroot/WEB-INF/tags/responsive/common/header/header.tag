@@ -10,53 +10,74 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="nav" tagdir="/WEB-INF/tags/responsive/nav"%>
 
-<cms:pageSlot position="TopHeaderSlot" var="component" element="div" class="container">
+<cms:pageSlot position="TopHeaderSlot" var="component" element="div" class="btnTop">
 	<cms:component component="${component}" />
 </cms:pageSlot>
 
+<!--購物車-->
+<cms:pageSlot position="MiniCart" var="cart" limit="1" element="div" class="shopping_icon">
+	<cms:component component="${cart}" />
+</cms:pageSlot>
+
 <header class="main-header main-header-md">
+<div id="topZone"> 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-4">
-				<div class="site-logo">
+			<div class="col-md-2  col-xs-2 col-sm-5">
+				<h1 class="logo">
 					<cms:pageSlot position="SiteLogo" var="logo" limit="1">
 						<cms:component component="${logo}" />
 					</cms:pageSlot>
-				</div>
+				</h1>
 			</div>
-			<div class="col-sm-12 col-md-8">
-				<div class="md-secondary-navigation">
-					<ul>
-						<c:if test="${empty hideHeaderLinks}">
-							<c:if test="${uiExperienceOverride}">
-								<li class="backToMobileLink"><c:url
-										value="/_s/ui-experience?level=" var="backToMobileStoreUrl" />
-									<a href="${backToMobileStoreUrl}"> <spring:theme
-											code="text.backToMobileStore" />
-								</a></li>
-							</c:if>
+			<div class="col-md-7 hidden-xs hidden-sm">
+                <!--主選單-->
+                  <nav id="mainNav">
+                  	<nav:topNavigation />
+                 </nav>
+               <!--主選單End-->        
+           </div>
+			<div class="col-md-3  col-xs-8 col-sm-6 text-right">
+<!-- 			<div class="col-sm-12 col-md-8"> -->
+<!-- 				<div class="md-secondary-navigation"> -->
+						<nav id="loginNav" class="hidden-xs">
+							<ul class="nav nav-pills">
+<%-- 						<c:if test="${empty hideHeaderLinks}"> --%>
+<%-- 							<c:if test="${uiExperienceOverride}"> --%>
+<%-- 								<li class="backToMobileLink"><c:url --%>
+<%-- 										value="/_s/ui-experience?level=" var="backToMobileStoreUrl" /> --%>
+<%-- 									<a href="${backToMobileStoreUrl}"> <spring:theme --%>
+<%-- 											code="text.backToMobileStore" /> --%>
+<!-- 								</a></li> -->
+<%-- 							</c:if> --%>
 
 
 							<sec:authorize ifNotGranted="ROLE_ANONYMOUS">
 								<c:set var="maxNumberChars" value="25" />
 								<c:if test="${fn:length(user.firstName) gt maxNumberChars}">
-									<c:set target="${user}" property="firstName"
-										value="${fn:substring(user.firstName, 0, maxNumberChars)}..." />
-								</c:if>
+									<c:set target="${user}" property="firstName" value="${fn:substring(user.firstName, 0, maxNumberChars)}..." />
+ 								</c:if> 
 
-								<li class="logged_in">
+								<li>
+									<span>
 									<ycommerce:testId code="header_LoggedUser">
 										<spring:theme code="header.welcome" arguments="${user.firstName},${user.lastName}" htmlEscape="true" />
 									</ycommerce:testId>
+									</span>
 								</li>
 							</sec:authorize>
 
-                     <cms:pageSlot position="HeaderLinks" var="link">
-                         <cms:component component="${link}" element="li"/>
-                     </cms:pageSlot>
+<%--                      <cms:pageSlot position="HeaderLinks" var="link"> --%>
+<%--                          <cms:component component="${link}" element="li"/> --%>
+<%--                      </cms:pageSlot> --%>
 
 
 							<sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
+								<li>
+									<span>
+										<spring:theme code="header.hello"/>
+									</span>
+								</li>
 								<li class="liOffcanvas">
 									<ycommerce:testId code="header_Login_link">
 										<a href="<c:url value="/login"/>">
@@ -75,62 +96,69 @@
 									</ycommerce:testId>
 								</li>
 							</sec:authorize>
+							
+							<li role="presentation"><a href="#">顧客中心</a></li>
 
-						</c:if>
+<%-- 						</c:if> --%>
 
 					</ul>
-				</div>
+<!-- 				</div> -->
 
-			</div>
-		</div>
-
-		<%-- a hook for the my account links in desktop/wide desktop--%>
-        <div class="hidden-xs hidden-sm col-md-12 accNavComponentDesktop collapse" id="accNavComponentDesktop">
-            <ul class=""></ul>
-        </div>
-
-        <div class="sm-navigation">
-            <div class="row">
-                <div class="col-xs-6 col-sm-2 visible-xs visible-sm">
-                    <button class="btn btn-default js-toggle-sm-navigation"
-                            type="button">
-                        <span class="glyphicon glyphicon-align-justify"></span>
-                    </button>
-                    <ycommerce:testId code="header_search_activation_button">
-                        <button	class="btn btn-default js-toggle-xs-search hidden-sm hidden-md hidden-lg" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </ycommerce:testId>
-                </div>
-
-                <div class="col-xs-6 col-sm-5 col-md-4 col-sm-push-5 col-md-push-8" id="miniCartSlot">
-
-                    <c:if test="${empty hideHeaderLinks}">
-                        <ycommerce:testId code="header_StoreFinder_link">
-                            <a href="<c:url value="/store-finder"/>" class="btn btn-default">
-                                <span class="glyphicon glyphicon-map-marker"></span>
-                            </a>
-                        </ycommerce:testId>
-                    </c:if>
-                    <cms:pageSlot position="MiniCart" var="cart" limit="1">
-                        <cms:component component="${cart}" />
-                    </cms:pageSlot>
-                </div>
-
-                <div class="col-xs-12 col-sm-5 col-md-8 col-sm-pull-5 col-md-pull-4">
-                    <cms:pageSlot position="SearchBox" var="component">
-                        <cms:component component="${component}" />
-                    </cms:pageSlot>
-                </div>
-
+<!-- 			</div> -->
+			
+              	</nav>
+              	
+            	<cms:pageSlot position="SearchBox" var="component">
+                	<cms:component component="${component}" />
+                </cms:pageSlot>
             </div>
-        </div>
+            <!--MobileMenu-->
+           <div class="mobileMenu hidden-md hidden-lg col-xs-2 col-sm-1 text-right">
+                <a href="#"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span></a>
+           </div>
+		</div>
+		<div class="row">
+	      <!--Mobile選單-->
+	      <div class="col-xs-12 hidden-md hidden-lg">
+	           <nav id="mobileNav">
+	           <ul class="nav" >
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>登入</a></li>
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>新註冊</a></li>
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>顧客中心</a></li>
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>線上購物</a></li>
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>網購獨享</a></li>
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>出清</a></li>
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>團購</a></li>
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>新品預購</a></li>
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>熱銷排行</a></li>
+	                  <li role="presentation"><a href="#"><span class="MR10 glyphicon glyphicon-chevron-right" aria-hidden="true"></span>品牌總覽</a></li>
+	           </ul>
+	           </nav>
+	      </div>
+	    </div><!--rowEnd--> 
 	</div>
-	<a id="skiptonavigation"></a>
-	<nav:topNavigation />
+</div>
+<div id="subNav">
+	<div class="container">     
+        <div class="row">
+        <div class="col-md-10 col-md-offset-2">
+			<cms:pageSlot position="BottomHeaderSlot" var="component">
+				<c:choose>
+				<c:when test="${fn:containsIgnoreCase(component.name,'sub') }">
+					<div class="btn-group" role="group" aria-label="...">
+						<cms:component component="${component}" />
+					</div>
+				</c:when>
+				<c:otherwise>
+					<cms:component component="${component}" />
+				</c:otherwise>
+				</c:choose>
+			</cms:pageSlot>
+		</div>
+		</div>
+	</div>
+</div>
 </header>
 
 
-<cms:pageSlot position="BottomHeaderSlot" var="component" element="div"	class="container">
-	<cms:component component="${component}" />
-</cms:pageSlot>
+

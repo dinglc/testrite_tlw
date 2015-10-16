@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[2.3.0.200912170948-RELEASE]]></pluginVersion>
+	<pluginVersion><![CDATA[3.6.4.201503051146-RELEASE]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
 		<config>resources/testritefulfilmentprocess-spring.xml</config>
+		<config>resources/testritefulfilmentprocess/process/consignment-process-spring.xml</config>
+		<config>resources/testritefulfilmentprocess/process/order-process-spring.xml</config>
 	</configs>
+	<autoconfigs>
+	</autoconfigs>
 	<configSets>
 	</configSets>
 </beansProjectDescription>

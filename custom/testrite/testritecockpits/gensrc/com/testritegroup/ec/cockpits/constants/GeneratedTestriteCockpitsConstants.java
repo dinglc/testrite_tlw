@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Aug 17, 2015 3:47:46 PM                     ---
+ * --- Generated at 2015/10/14 上午 11:35:48                      ---
  * ----------------------------------------------------------------
  */
 package com.testritegroup.ec.cockpits.constants;

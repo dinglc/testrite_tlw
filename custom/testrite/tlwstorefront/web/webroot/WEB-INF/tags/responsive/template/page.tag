@@ -25,10 +25,10 @@
 
 	<jsp:body>
 		<main data-currency-iso-code="${currentCurrency.isocode}">
-			<spring:theme code="text.skipToContent" var="skipToContent" />
-			<a href="#skip-to-content" class="skiptocontent" data-role="none">${skipToContent}</a>
-			<spring:theme code="text.skipToNavigation" var="skipToNavigation" />
-			<a href="#skiptonavigation" class="skiptonavigation" data-role="none">${skipToNavigation}</a>
+<%-- 			<spring:theme code="text.skipToContent" var="skipToContent" /> --%>
+<%-- 			<a href="#skip-to-content" class="skiptocontent" data-role="none">${skipToContent}</a> --%>
+<%-- 			<spring:theme code="text.skipToNavigation" var="skipToNavigation" /> --%>
+<%-- 			<a href="#skiptonavigation" class="skiptonavigation" data-role="none">${skipToNavigation}</a> --%>
 
 
 			<header:header hideHeaderLinks="${hideHeaderLinks}" />

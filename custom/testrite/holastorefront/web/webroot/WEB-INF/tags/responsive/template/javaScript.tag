@@ -23,3 +23,28 @@
 </c:choose>
 
 <cms:previewJS cmsPageRequestContextData="${cmsPageRequestContextData}" />
+
+<!-- InstanceBeginEditable name="JS" -->
+<script>
+$(document).ready(function() { 
+$("#slider").responsiveSlides({
+        auto: true,
+        pager: true,
+        nav: true,
+        speed: 500,
+        namespace: "callbacks"
+ });
+ $('.callbacks_tabs a').css('display','block').html('');
+ 
+ $('.MainCategory>.leftNav>ul').hide();
+ $('.MainCategory .leftNav .title-3').css('cursor','pointer');
+ $('.MainCategory .leftNav .title-3').click(function(){
+	 $('.MainCategory .leftNav>ul').hide(300);
+	 $(this).parent().find('ul').show(300);
+	 })
+ $('.MainCategory .leftNav .title-3').eq(0).click();
+
+})
+</script>
+
+<!-- InstanceEndEditable -->

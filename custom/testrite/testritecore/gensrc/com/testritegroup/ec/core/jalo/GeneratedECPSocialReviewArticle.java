@@ -1,18 +1,24 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 2015/10/14 上午 11:58:46                      ---
+ * --- Generated at 2015/10/14 下午 04:13:03                      ---
  * ----------------------------------------------------------------
  */
 package com.testritegroup.ec.core.jalo;
 
 import com.testritegroup.ec.core.constants.TestriteCoreConstants;
 import de.hybris.platform.jalo.GenericItem;
+import de.hybris.platform.jalo.Item;
 import de.hybris.platform.jalo.Item.AttributeMode;
+import de.hybris.platform.jalo.JaloBusinessException;
 import de.hybris.platform.jalo.JaloInvalidParameterException;
 import de.hybris.platform.jalo.SessionContext;
 import de.hybris.platform.jalo.c2l.C2LManager;
 import de.hybris.platform.jalo.c2l.Language;
+import de.hybris.platform.jalo.product.Product;
+import de.hybris.platform.jalo.type.CollectionType;
+import de.hybris.platform.jalo.type.ComposedType;
+import de.hybris.platform.util.BidirectionalOneToManyHandler;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -36,6 +42,20 @@ public abstract class GeneratedECPSocialReviewArticle extends GenericItem
 	public static final String AUTHORNAME = "authorName";
 	/** Qualifier of the <code>ECPSocialReviewArticle.publishDate</code> attribute **/
 	public static final String PUBLISHDATE = "publishDate";
+	/** Qualifier of the <code>ECPSocialReviewArticle.product</code> attribute **/
+	public static final String PRODUCT = "product";
+	/**
+	* {@link BidirectionalOneToManyHandler} for handling 1:n PRODUCT's relation attributes from 'one' side.
+	**/
+	protected static final BidirectionalOneToManyHandler<GeneratedECPSocialReviewArticle> PRODUCTHANDLER = new BidirectionalOneToManyHandler<GeneratedECPSocialReviewArticle>(
+	TestriteCoreConstants.TC.ECPSOCIALREVIEWARTICLE,
+	false,
+	"product",
+	null,
+	false,
+	true,
+	CollectionType.COLLECTION
+	);
 	protected static final Map<String, AttributeMode> DEFAULT_INITIAL_ATTRIBUTES;
 	static
 	{
@@ -46,6 +66,7 @@ public abstract class GeneratedECPSocialReviewArticle extends GenericItem
 		tmp.put(AUTHORID, AttributeMode.INITIAL);
 		tmp.put(AUTHORNAME, AttributeMode.INITIAL);
 		tmp.put(PUBLISHDATE, AttributeMode.INITIAL);
+		tmp.put(PRODUCT, AttributeMode.INITIAL);
 		DEFAULT_INITIAL_ATTRIBUTES = Collections.unmodifiableMap(tmp);
 	}
 	@Override
@@ -204,6 +225,49 @@ public abstract class GeneratedECPSocialReviewArticle extends GenericItem
 	public void setAllAuthorName(final Map<Language,String> value)
 	{
 		setAllAuthorName( getSession().getSessionContext(), value );
+	}
+	
+	@Override
+	protected Item createItem(final SessionContext ctx, final ComposedType type, final ItemAttributeMap allAttributes) throws JaloBusinessException
+	{
+		PRODUCTHANDLER.newInstance(ctx, allAttributes);
+		return super.createItem( ctx, type, allAttributes );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>ECPSocialReviewArticle.product</code> attribute.
+	 * @return the product
+	 */
+	public Product getProduct(final SessionContext ctx)
+	{
+		return (Product)getProperty( ctx, PRODUCT);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>ECPSocialReviewArticle.product</code> attribute.
+	 * @return the product
+	 */
+	public Product getProduct()
+	{
+		return getProduct( getSession().getSessionContext() );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>ECPSocialReviewArticle.product</code> attribute. 
+	 * @param value the product
+	 */
+	public void setProduct(final SessionContext ctx, final Product value)
+	{
+		PRODUCTHANDLER.addValue( ctx, value, this  );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>ECPSocialReviewArticle.product</code> attribute. 
+	 * @param value the product
+	 */
+	public void setProduct(final Product value)
+	{
+		setProduct( getSession().getSessionContext(), value );
 	}
 	
 	/**

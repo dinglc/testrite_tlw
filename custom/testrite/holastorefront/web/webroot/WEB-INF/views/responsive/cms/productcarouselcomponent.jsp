@@ -8,8 +8,8 @@
 
 <c:choose>
 	<c:when test="${not empty productData}">
-		<div class="carousel-component">
-			<div class="headline">${title}</div>
+		<div class="itemRecommend">
+			<h3 class="MB20  letter_3px">${title}</h3>
 
 			<c:choose>
 				<c:when test="${component.popup}">
@@ -35,19 +35,22 @@
 					</div>
 				</c:when>
 				<c:otherwise>
-					<div class="carousel js-owl-carousel js-owl-default">
+					<div class="row prdList">
 						<c:forEach items="${productData}" var="product">
 
 							<c:url value="${product.url}" var="productUrl"/>
 
-							<div class="item">
-								<a href="${productUrl}">
-									<div class="thumb">
+							<div class="col-sm-6 col-md-4 col-lg-3">
+								<section>
+              						<hr>
+									<a href="${productUrl}">
+<!-- 									<div class="thumb"> -->
 										<product:productPrimaryImage product="${product}" format="product"/>
-									</div>
-									<div class="item-name">${product.name}</div>
-									<div class="item-price"><format:fromPrice priceData="${product.price}"/></div>
-								</a>
+<!-- 									</div> -->
+									<h3>${product.name}</h3>
+									<p><span class="MR5"><format:fromPrice priceData="${product.price}"/></span>
+									</a>
+								</section>
 							</div>
 						</c:forEach>
 					</div>

@@ -6,7 +6,7 @@ $contentCatalog=tlwContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 
 # Language
-$lang=zh
+$lang=zh_TW
 
 # Content Pages
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
@@ -16,7 +16,7 @@ UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
  ;;cartPage;"您的购物篮"
  ;;checkout-login;"进入结算流程"
  ;;faq;"常见问题解答"
- ;;homepage;"主页"
+ ;;homepage;"主頁"
  ;;login;"登录"
  ;;multiStepCheckoutSummaryPage;"结帐"
  ;;notFound;"没有找到"

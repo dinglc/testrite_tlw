@@ -1,0 +1,168 @@
+@charset "utf-8";
+/* CSS Document */
+header .logo img{width:50px;height:auto;margin-top:5px}
+header #topZone{position:fixed;left:0;top:0;z-index:9999;background:#616161;width:100%;box-shadow:0 5px 5px;}
+header #subNav{padding:3px 0;margin-top:60px;}
+
+.btnTop{right:5px;bottom:5px;}
+.btnTop span{display:none}
+
+.callbacks_nav {
+  top: 50%;
+  height: 35px;
+  width: 35px;
+  margin-top:-17px;
+}
+
+#footerFN{padding:20px 0;text-align:center;}
+#footerFN .safe_icons{text-align:center;border:none;}
+#footerFN ul{border:none;}
+#footerFN .borderGrayR{border:none;text-align:center;}
+#footerFN li{}
+
+.prdList{}
+.prdList div section{}
+
+.prdList2 section a{width:280px;height:280px;}
+
+.prdList3 h4,.prdList3 p{text-align:center;}
+
+.brandTab div a i{height:10px;bottom:-10px;}
+
+.shopping_icon{top:150px;}
+
+#loginNav{margin-top:25px;}
+.leftNav li{float:left;}
+
+
+/*
+.hotItem ul a{width:100px;}
+.hotItem ul section{width:120px;}
+.hotItem ul li{width:130px;text-align:left;}
+*/
+.hotItem ul section{text-align:left;}
+.hotItem ul  li{border-bottom:1px solid #eee;width:100%;}
+
+.moreBtn .moreLeft{margin-right:10px;}
+.moreBtn .moreRight{margin-left:10px;}
+
+.categoryTxt h3{margin-bottom:20px;}
+.categoryTxt .FR,.categoryTxt .FL{margin-top:10px;text-align:center;width:100%;}
+
+.brandSlider{margin-top:15px;}
+.brandSlider ul.brandSliderButton li{width:100%;}
+.brandSlider a.btnPrev{top:35%;}
+.brandSlider a.btnNext{top:35%;}
+
+.brandList .row div:nth-child(3n){border:none;}
+
+.storyCt{text-align:left;}
+.storyCt div:last-child{text-align:center;}
+.storyCt div:nth-child(2){text-align:left;}
+.storyCt>div{margin-bottom:15px;}
+
+.w50{width:100%;}
+
+.eventTitle li{border-top:1px solid #eee}
+.breadcrumb{display:none;}
+
+@media (min-width: 768px) {
+header .logo img{width:auto;margin:15px 0}
+header #topZone{position:static;}
+header #subNav{padding:10px 0;margin-top:0px;}
+.breadcrumb{display:block;}
+
+.btnTop{right:20px;bottom:50px;}
+.btnTop span{display:block}
+
+.callbacks_nav {
+  height: 48px;
+  width: 48px;
+  margin-top:-24px;
+}
+
+.prdList div section.bigItem{width:420px;}
+.prdList div section{width:200px;}
+.prdList.List5 div section{width:215px;}
+	
+.shopping_icon{top:320px;}	
+
+.brandTab div a i{height:15px;bottom:-15px;}
+.brandTab div a section h3{font-size:15px;}
+
+#footerFN{}
+#footerFN .safe_icons{margin-top:30px;}
+#footerFN .nav{text-align:right;}
+#footerFN li{border:none}
+
+#loginNav{margin-top:20px;}
+
+.leftNav{margin-bottom:30px;}
+.leftNav li{float:none;}
+
+.hotItem ul li{width:100%;}
+.hotItem ul a{width:70px;}
+.hotItem ul section{width:130px;text-align:left;}
+
+.shareItem .row em{text-align:right;}
+
+.moreBtn .moreLeft{left:0;top:-150px;position:absolute;margin-right:0px;}
+.moreBtn .moreRight{right:0;top:-150px;position:absolute;margin-left:0px;}
+
+.categoryTxt h3{margin-bottom:0px;}
+.categoryTxt .FL{float:left;width:auto;}
+.categoryTxt .FR{float:right;width:auto;}
+
+.brandSlider ul.brandSliderButton{position:absolute;}
+.brandSlider ul.brandSliderButton li{width:19.5%;}
+.brandSlider a.btnPrev{top:40%;}
+.brandSlider a.btnNext{top:40%;}
+
+.brandList .row div:nth-child(3n){border-right:1px solid #ccc;}
+.brandList .row div:nth-child(4n){border:none;}
+
+.eventTitle{background:rgba(0,0,0,.7);position:absolute;bottom:0px;width:98.8%;z-index:999;color:#fff;}
+.eventTitle .nav a{color:#fff;font-size:90%;}
+.eventTitle .nav a:hover{color:#333}
+.eventTitle li{border-top:none;}
+}
+
+
+@media (min-width: 992px) {
+		
+.prdtopBtn{text-align:right;}
+
+#footerFN .borderGrayR{border-right:1px solid #bdbdbd;}
+#footerFN .co_icons{text-align:left;padding-left:20px;}
+#footerFN .safe_icons{text-align:left;}
+
+.moreBtn .moreLeft{left:0;top:-90px;}
+.moreBtn .moreRight{right:0;top:-90px;}
+
+
+.brandList .row div:nth-child(4n){border-right:1px solid #ccc;}
+.brandList .row div:nth-child(6n){border:none;}
+
+.w50{width:50%;}
+.eventTitle{width:98.9%;bottom:20px;}
+
+.prdList section.sellPrd{height:240px;}
+.prdList section.sellPrd a{height:70%;}
+
+.storyCt div:last-child{text-align:right;}
+
+/*LeftZone*/
+.LeftZone{max-width:240px;}
+
+}
+
+@media (min-width: 1200px) {
+.prdList section.sellPrd{height:300px;}
+.prdList section.sellPrd a{height:75%;}
+
+.brandList .row div:nth-child(6n){border-right:1px solid #ccc;}
+.brandList .row div:nth-child(12n){border:none;}
+
+.brandHola .prdList div:last-child,
+.brandGallery .prdList div:last-child{background:none}
+}

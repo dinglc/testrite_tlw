@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Aug 27, 2015 10:52:12 AM                    ---
+ * --- Generated at 2015/10/14 下午 04:13:03                      ---
  * ----------------------------------------------------------------
  */
 package com.testritegroup.ec.tlw.constants;

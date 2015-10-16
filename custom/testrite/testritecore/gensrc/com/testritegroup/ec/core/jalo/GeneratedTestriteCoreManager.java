@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 2015/10/14 上午 11:58:46                      ---
+ * --- Generated at 2015/10/14 下午 04:13:03                      ---
  * ----------------------------------------------------------------
  */
 package com.testritegroup.ec.core.jalo;
@@ -18,6 +18,8 @@ import com.testritegroup.ec.core.jalo.ECPDimension;
 import com.testritegroup.ec.core.jalo.ECPImage;
 import com.testritegroup.ec.core.jalo.ECPSocialReviewArticle;
 import com.testritegroup.ec.core.jalo.ElectronicsColorVariantProduct;
+import com.testritegroup.ec.core.jalo.cms2.components.CategoryNavigationBarComponent;
+import com.testritegroup.ec.core.jalo.cms2.components.LeftNavigationBarComponent;
 import de.hybris.platform.europe1.jalo.PDTRow;
 import de.hybris.platform.europe1.jalo.PriceRow;
 import de.hybris.platform.jalo.GenericItem;
@@ -33,9 +35,12 @@ import de.hybris.platform.jalo.c2l.Language;
 import de.hybris.platform.jalo.extension.Extension;
 import de.hybris.platform.jalo.link.Link;
 import de.hybris.platform.jalo.product.Product;
+import de.hybris.platform.jalo.type.CollectionType;
 import de.hybris.platform.jalo.type.ComposedType;
 import de.hybris.platform.jalo.type.JaloGenericCreationException;
 import de.hybris.platform.ordersplitting.jalo.StockLevel;
+import de.hybris.platform.util.OneToManyHandler;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -47,6 +52,18 @@ import java.util.Map;
 @SuppressWarnings({"deprecation","unused","cast","PMD"})
 public abstract class GeneratedTestriteCoreManager extends Extension
 {
+	/**
+	* {@link OneToManyHandler} for handling 1:n ARTICLES's relation attributes from 'many' side.
+	**/
+	protected static final OneToManyHandler<ECPSocialReviewArticle> PRODUCT2ECPSOCIALREVIEWARTICLEARTICLESHANDLER = new OneToManyHandler<ECPSocialReviewArticle>(
+	TestriteCoreConstants.TC.ECPSOCIALREVIEWARTICLE,
+	false,
+	"product",
+	null,
+	false,
+	true,
+	CollectionType.COLLECTION
+	);
 	protected static final Map<String, Map<String, AttributeMode>> DEFAULT_INITIAL_ATTRIBUTES;
 	static
 	{
@@ -63,6 +80,7 @@ public abstract class GeneratedTestriteCoreManager extends Extension
 		tmp.put("weight", AttributeMode.INITIAL);
 		tmp.put("countryOfOrigin", AttributeMode.INITIAL);
 		tmp.put("material", AttributeMode.INITIAL);
+		tmp.put("additonalSpecification", AttributeMode.INITIAL);
 		ttmp.put("de.hybris.platform.jalo.product.Product", Collections.unmodifiableMap(tmp));
 		tmp = new HashMap<String, AttributeMode>();
 		tmp.put("cost", AttributeMode.INITIAL);
@@ -85,6 +103,86 @@ public abstract class GeneratedTestriteCoreManager extends Extension
 			ret.putAll(attr);
 		}
 		return ret;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.additonalSpecification</code> attribute.
+	 * @return the additonalSpecification - Additonal Specification Information for display on Frontent
+	 */
+	public String getAdditonalSpecification(final SessionContext ctx, final Product item)
+	{
+		if( ctx == null || ctx.getLanguage() == null )
+		{
+			throw new JaloInvalidParameterException("GeneratedProduct.getAdditonalSpecification requires a session language", 0 );
+		}
+		return (String)item.getLocalizedProperty( ctx, TestriteCoreConstants.Attributes.Product.ADDITONALSPECIFICATION);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.additonalSpecification</code> attribute.
+	 * @return the additonalSpecification - Additonal Specification Information for display on Frontent
+	 */
+	public String getAdditonalSpecification(final Product item)
+	{
+		return getAdditonalSpecification( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.additonalSpecification</code> attribute. 
+	 * @return the localized additonalSpecification - Additonal Specification Information for display on Frontent
+	 */
+	public Map<Language,String> getAllAdditonalSpecification(final SessionContext ctx, final Product item)
+	{
+		return (Map<Language,String>)item.getAllLocalizedProperties(ctx,TestriteCoreConstants.Attributes.Product.ADDITONALSPECIFICATION,C2LManager.getInstance().getAllLanguages());
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.additonalSpecification</code> attribute. 
+	 * @return the localized additonalSpecification - Additonal Specification Information for display on Frontent
+	 */
+	public Map<Language,String> getAllAdditonalSpecification(final Product item)
+	{
+		return getAllAdditonalSpecification( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.additonalSpecification</code> attribute. 
+	 * @param value the additonalSpecification - Additonal Specification Information for display on Frontent
+	 */
+	public void setAdditonalSpecification(final SessionContext ctx, final Product item, final String value)
+	{
+		if( ctx == null || ctx.getLanguage() == null )
+		{
+			throw new JaloInvalidParameterException("GeneratedProduct.setAdditonalSpecification requires a session language", 0 );
+		}
+		item.setLocalizedProperty(ctx, TestriteCoreConstants.Attributes.Product.ADDITONALSPECIFICATION,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.additonalSpecification</code> attribute. 
+	 * @param value the additonalSpecification - Additonal Specification Information for display on Frontent
+	 */
+	public void setAdditonalSpecification(final Product item, final String value)
+	{
+		setAdditonalSpecification( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.additonalSpecification</code> attribute. 
+	 * @param value the additonalSpecification - Additonal Specification Information for display on Frontent
+	 */
+	public void setAllAdditonalSpecification(final SessionContext ctx, final Product item, final Map<Language,String> value)
+	{
+		item.setAllLocalizedProperties(ctx,TestriteCoreConstants.Attributes.Product.ADDITONALSPECIFICATION,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.additonalSpecification</code> attribute. 
+	 * @param value the additonalSpecification - Additonal Specification Information for display on Frontent
+	 */
+	public void setAllAdditonalSpecification(final Product item, final Map<Language,String> value)
+	{
+		setAllAdditonalSpecification( getSession().getSessionContext(), item, value );
 	}
 	
 	/**
@@ -453,6 +551,78 @@ public abstract class GeneratedTestriteCoreManager extends Extension
 	}
 	
 	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.articles</code> attribute.
+	 * @return the articles
+	 */
+	public Collection<ECPSocialReviewArticle> getArticles(final SessionContext ctx, final Product item)
+	{
+		return PRODUCT2ECPSOCIALREVIEWARTICLEARTICLESHANDLER.getValues( ctx, item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Product.articles</code> attribute.
+	 * @return the articles
+	 */
+	public Collection<ECPSocialReviewArticle> getArticles(final Product item)
+	{
+		return getArticles( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.articles</code> attribute. 
+	 * @param value the articles
+	 */
+	public void setArticles(final SessionContext ctx, final Product item, final Collection<ECPSocialReviewArticle> value)
+	{
+		PRODUCT2ECPSOCIALREVIEWARTICLEARTICLESHANDLER.setValues( ctx, item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Product.articles</code> attribute. 
+	 * @param value the articles
+	 */
+	public void setArticles(final Product item, final Collection<ECPSocialReviewArticle> value)
+	{
+		setArticles( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to articles. 
+	 * @param value the item to add to articles
+	 */
+	public void addToArticles(final SessionContext ctx, final Product item, final ECPSocialReviewArticle value)
+	{
+		PRODUCT2ECPSOCIALREVIEWARTICLEARTICLESHANDLER.addValue( ctx, item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Adds <code>value</code> to articles. 
+	 * @param value the item to add to articles
+	 */
+	public void addToArticles(final Product item, final ECPSocialReviewArticle value)
+	{
+		addToArticles( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from articles. 
+	 * @param value the item to remove from articles
+	 */
+	public void removeFromArticles(final SessionContext ctx, final Product item, final ECPSocialReviewArticle value)
+	{
+		PRODUCT2ECPSOCIALREVIEWARTICLEARTICLESHANDLER.removeValue( ctx, item, value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Removes <code>value</code> from articles. 
+	 * @param value the item to remove from articles
+	 */
+	public void removeFromArticles(final Product item, final ECPSocialReviewArticle value)
+	{
+		removeFromArticles( getSession().getSessionContext(), item, value );
+	}
+	
+	/**
 	 * <i>Generated method</i> - Getter of the <code>Product.backendInfo</code> attribute.
 	 * @return the backendInfo - Contain backend (ERP) information that mostly read-only
 	 */
@@ -675,6 +845,32 @@ public abstract class GeneratedTestriteCoreManager extends Extension
 		return createApparelStyleVariantProduct( getSession().getSessionContext(), attributeValues );
 	}
 	
+	public CategoryNavigationBarComponent createCategoryNavigationBarComponent(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TestriteCoreConstants.TC.CATEGORYNAVIGATIONBARCOMPONENT );
+			return (CategoryNavigationBarComponent)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating CategoryNavigationBarComponent : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public CategoryNavigationBarComponent createCategoryNavigationBarComponent(final Map attributeValues)
+	{
+		return createCategoryNavigationBarComponent( getSession().getSessionContext(), attributeValues );
+	}
+	
 	public ECPBackendCategory createECPBackendCategory(final SessionContext ctx, final Map attributeValues)
 	{
 		try
@@ -881,6 +1077,32 @@ public abstract class GeneratedTestriteCoreManager extends Extension
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final Map attributeValues)
 	{
 		return createElectronicsColorVariantProduct( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public LeftNavigationBarComponent createLeftNavigationBarComponent(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TestriteCoreConstants.TC.LEFTNAVIGATIONBARCOMPONENT );
+			return (LeftNavigationBarComponent)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating LeftNavigationBarComponent : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public LeftNavigationBarComponent createLeftNavigationBarComponent(final Map attributeValues)
+	{
+		return createLeftNavigationBarComponent( getSession().getSessionContext(), attributeValues );
 	}
 	
 	@Override

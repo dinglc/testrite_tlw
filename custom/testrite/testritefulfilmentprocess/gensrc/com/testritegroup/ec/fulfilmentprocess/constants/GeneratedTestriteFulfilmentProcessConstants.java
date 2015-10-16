@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 2015/10/14 上午 11:58:46                      ---
+ * --- Generated at 2015/10/14 下午 04:13:03                      ---
  * ----------------------------------------------------------------
  */
 package com.testritegroup.ec.fulfilmentprocess.constants;

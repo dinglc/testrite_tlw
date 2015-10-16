@@ -1,8 +1,14 @@
 # ImpEx for Importing Prices
 
 # Macros / Replacement Parameter definitions
-$productCatalog=electronicsProductCatalog
 
+$contentCatalog=holaContentCatalog
+$contentCatalogName=Hola Content Catalog
+$productCatalog=holaProductCatalog
+$productCatalogName=Hola Product Catalog
+
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default='$productCatalog:Staged']
 $product=product(code,$catalogVersion)[unique=true]
 $unit=unit(code[unit=true,default=pieces])

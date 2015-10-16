@@ -4,7 +4,6 @@
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
 
 <template:page pageTitle="${pageTitle}">
-		
 		<div class="no-space">
 			<cms:pageSlot position="Section1" var="feature">
 				<cms:component component="${feature}" />

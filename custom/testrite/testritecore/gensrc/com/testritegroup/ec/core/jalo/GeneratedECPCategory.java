@@ -1,14 +1,13 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 2015/10/14 上午 11:58:46                      ---
+ * --- Generated at 2015/10/14 下午 04:13:03                      ---
  * ----------------------------------------------------------------
  */
 package com.testritegroup.ec.core.jalo;
 
 import com.testritegroup.ec.core.constants.TestriteCoreConstants;
 import com.testritegroup.ec.core.jalo.ECPBackendCategory;
-import com.testritegroup.ec.core.jalo.ECPBrand;
 import com.testritegroup.ec.core.jalo.ECPImage;
 import de.hybris.platform.category.jalo.Category;
 import de.hybris.platform.jalo.Item.AttributeMode;
@@ -28,8 +27,6 @@ import java.util.Map;
 @SuppressWarnings({"deprecation","unused","cast","PMD"})
 public abstract class GeneratedECPCategory extends Category
 {
-	/** Qualifier of the <code>ECPCategory.brand</code> attribute **/
-	public static final String BRAND = "brand";
 	/** Qualifier of the <code>ECPCategory.hotspot</code> attribute **/
 	public static final String HOTSPOT = "hotspot";
 	/** Qualifier of the <code>ECPCategory.backendCategories</code> attribute **/
@@ -71,7 +68,6 @@ public abstract class GeneratedECPCategory extends Category
 	static
 	{
 		final Map<String, AttributeMode> tmp = new HashMap<String, AttributeMode>(Category.DEFAULT_INITIAL_ATTRIBUTES);
-		tmp.put(BRAND, AttributeMode.INITIAL);
 		tmp.put(HOTSPOT, AttributeMode.INITIAL);
 		DEFAULT_INITIAL_ATTRIBUTES = Collections.unmodifiableMap(tmp);
 	}
@@ -273,42 +269,6 @@ public abstract class GeneratedECPCategory extends Category
 	public void removeFromBackendCategories(final ECPBackendCategory value)
 	{
 		removeFromBackendCategories( getSession().getSessionContext(), value );
-	}
-	
-	/**
-	 * <i>Generated method</i> - Getter of the <code>ECPCategory.brand</code> attribute.
-	 * @return the brand
-	 */
-	public ECPBrand getBrand(final SessionContext ctx)
-	{
-		return (ECPBrand)getProperty( ctx, BRAND);
-	}
-	
-	/**
-	 * <i>Generated method</i> - Getter of the <code>ECPCategory.brand</code> attribute.
-	 * @return the brand
-	 */
-	public ECPBrand getBrand()
-	{
-		return getBrand( getSession().getSessionContext() );
-	}
-	
-	/**
-	 * <i>Generated method</i> - Setter of the <code>ECPCategory.brand</code> attribute. 
-	 * @param value the brand
-	 */
-	public void setBrand(final SessionContext ctx, final ECPBrand value)
-	{
-		setProperty(ctx, BRAND,value);
-	}
-	
-	/**
-	 * <i>Generated method</i> - Setter of the <code>ECPCategory.brand</code> attribute. 
-	 * @param value the brand
-	 */
-	public void setBrand(final ECPBrand value)
-	{
-		setBrand( getSession().getSessionContext(), value );
 	}
 	
 	/**

@@ -41,36 +41,41 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @Scope("tenant")
 @RequestMapping(value = "/**/c")
-public class CategoryPageController extends AbstractCategoryPageController {
-    protected static final Logger LOG = Logger.getLogger(CategoryPageController.class);
+public class CategoryPageController extends AbstractCategoryPageController
+{
+	protected static final Logger LOG = Logger.getLogger(CategoryPageController.class);
 
-    @RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
-    public String category(@PathVariable("categoryCode") final String categoryCode,
-                           @RequestParam(value = "q", required = false) final String searchQuery,
-                           @RequestParam(value = "page", defaultValue = "0") final int page,
-                           @RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
-                           @RequestParam(value = "sort", required = false) final String sortCode, final Model model,
-                           final HttpServletRequest request, final HttpServletResponse response) throws UnsupportedEncodingException {
-        return performSearchAndGetResultsPage(categoryCode, searchQuery, page, showMode, sortCode, model, request, response);
-    }
+	@RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
+	public String category(@PathVariable("categoryCode") final String categoryCode,
+			@RequestParam(value = "q", required = false) final String searchQuery,
+			@RequestParam(value = "page", defaultValue = "0") final int page,
+			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
+			@RequestParam(value = "sort", required = false) final String sortCode, final Model model,
+			final HttpServletRequest request, final HttpServletResponse response) throws UnsupportedEncodingException
+	{
+		LOG.info("::::::::seacrquery:::::::" + searchQuery);
+		return performSearchAndGetResultsPage(categoryCode, searchQuery, page, showMode, sortCode, model, request, response);
+	}
 
-    @ResponseBody
-    @RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN + "/facets", method = RequestMethod.GET)
-    public FacetRefinement<SearchStateData> getFacets(@PathVariable("categoryCode") final String categoryCode,
-                                                      @RequestParam(value = "q", required = false) final String searchQuery,
-                                                      @RequestParam(value = "page", defaultValue = "0") final int page,
-                                                      @RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
-                                                      @RequestParam(value = "sort", required = false) final String sortCode) throws UnsupportedEncodingException {
-        return performSearchAndGetFacets(categoryCode, searchQuery, page, showMode, sortCode);
-    }
+	@ResponseBody
+	@RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN + "/facets", method = RequestMethod.GET)
+	public FacetRefinement<SearchStateData> getFacets(@PathVariable("categoryCode") final String categoryCode,
+			@RequestParam(value = "q", required = false) final String searchQuery,
+			@RequestParam(value = "page", defaultValue = "0") final int page,
+			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
+			@RequestParam(value = "sort", required = false) final String sortCode) throws UnsupportedEncodingException
+	{
+		return performSearchAndGetFacets(categoryCode, searchQuery, page, showMode, sortCode);
+	}
 
-    @ResponseBody
-    @RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN + "/results", method = RequestMethod.GET)
-    public SearchResultsData<ProductData> getResults(@PathVariable("categoryCode") final String categoryCode,
-                                                     @RequestParam(value = "q", required = false) final String searchQuery,
-                                                     @RequestParam(value = "page", defaultValue = "0") final int page,
-                                                     @RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
-                                                     @RequestParam(value = "sort", required = false) final String sortCode) throws UnsupportedEncodingException {
-        return performSearchAndGetResultsData(categoryCode, searchQuery, page, showMode, sortCode);
-    }
+	@ResponseBody
+	@RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN + "/results", method = RequestMethod.GET)
+	public SearchResultsData<ProductData> getResults(@PathVariable("categoryCode") final String categoryCode,
+			@RequestParam(value = "q", required = false) final String searchQuery,
+			@RequestParam(value = "page", defaultValue = "0") final int page,
+			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
+			@RequestParam(value = "sort", required = false) final String sortCode) throws UnsupportedEncodingException
+	{
+		return performSearchAndGetResultsData(categoryCode, searchQuery, page, showMode, sortCode);
+	}
 }

@@ -9,7 +9,10 @@ $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCata
 $lang=zh_TW
 
 # Content Pages
-UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]
+					;							;ShoppingPage		;線上購物
+					;							;AboutMePage		;關於HOLA
+					;							;BrandPage			;品牌簡介
 ;;account;"My Account"
 ;;add-edit-address;"Add/Edit Address"
 ;;address-book;"Address Book"

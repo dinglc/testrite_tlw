@@ -8,8 +8,10 @@
 
 <c:forEach items="${actions}" var="action" varStatus="idx">
 	<c:if test="${action.visible}">
+		<c:if test="${action.name eq 'Product Add To Cart Action'}" >
 		<${element} class="${parentComponent.uid}-${action.uid}" data-index="${idx.index + 1}" class="${styleClass}">
 			<cms:component component="${action}" parentComponent="${parentComponent}" evaluateRestriction="true"/>
 		</${element}>
+		</c:if>
 	</c:if>
 </c:forEach>

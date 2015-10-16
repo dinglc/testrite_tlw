@@ -1,0 +1,62 @@
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$contentCatalog=holaContentCatalog
+$contentCatalogName=Hola Content Catalog
+$productCatalog=holaProductCatalog
+$productCatalogName=Hola Product Catalog
+
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$productCVON=catalogVersion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+
+$picture=media(code, $productCV);
+$image=image(code, $productCV);
+$media=media(code, $productCV);
+$page=page(uid, $contentCV);
+$contentPage=contentPage(uid, $contentCV);
+$siteResource=jar:com.testritegroup.ec.hola.setup.InitialDataSystemSetup&/holainitialdata/import/sampledata/contentCatalogs/$contentCatalog
+$productResource=jar:com.testritegroup.ec.hola.setup.InitialDataSystemSetup&/holainitialdata/import/sampledata/productCatalogs/$productCatalog
+$jarResourceCms=jar:com.testritegroup.ec.hola.setup.InitialDataSystemSetup&/holainitialdata/import/sampledata/cockpits/cmscockpit
+
+$supercategories=supercategories(code, $productCV)
+$supercategoriesonline=supercategories(code, $productCVON)
+
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='approved']
+$lang=zh_TW
+
+# Insert ECPBackendInformation
+INSERT_UPDATE ECPBackendInformation;code[unique=true];$contentCV[unique=true];name      ;skutype   ;reasonCode;status(code)
+                                   ;test             ;                       ;130       ;130       ;130       ;NORMAL     
+
+# Insert ECPDimension
+INSERT_UPDATE ECPDimension;code[unique=true];$contentCV[unique=true];length ;width   ;height
+                          ;test             ;                       ;10     ;20      ;30     
+                          
+# Insert Products
+INSERT_UPDATE Product	;code[unique=true]	;$productCV		;$approved	;backendInfo(code)	;productDimension(code)	;packageDimension(code)	;ean		;$supercategories
+						;130				;				;			;test				;test					;test					;009100130	;42
+						;322				;				;			;test				;test					;test					;009100325	;74
+						;1193;;;test;test;test;009101260;3685
+						;2516;;;test;test;test;009102553;75
+						;6663;;;test;test;test;009106599;73
+						;7880;;;test;test;test;009107822;58
+						;9129;;;test;test;test;009109034;36
+						;10481;;;test;test;test;009110340;70
+						;10491;;;test;test;test;009110351;71
+						;10857;;;test;test;test;009110722;74
+						;10972;;;test;test;test;009110832;67
+						
+INSERT_UPDATE Product	;code[unique=true]	;$productCVON		;$approved	;backendInfo(code)	;productDimension(code)	;packageDimension(code)	;ean		;$supercategoriesonline
+						;130				;					;			;test				;test					;test					;009100130	;42
+						;322				;					;			;test				;test					;test					;009100325	;74
+						;1193;;;test;test;test;009101260;3685
+						;2516;;;test;test;test;009102553;75
+						;6663;;;test;test;test;009106599;73
+						;7880;;;test;test;test;009107822;58
+						;9129;;;test;test;test;009109034;36
+						;10481;;;test;test;test;009110340;70
+						;10491;;;test;test;test;009110351;71
+						;10857;;;test;test;test;009110722;74
+						;10972;;;test;test;test;009110832;67

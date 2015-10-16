@@ -13,8 +13,14 @@
 
 
 <%-- Theme CSS files --%>
-<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/style.css"/>
-
+<%-- <link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/style.css"/> --%>
+<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/style_tlw.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/rwd.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/responsiveslides.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/normalize.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/main.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/IE8.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/bootstrap.css"/>
 <%--  AddOn Theme CSS files --%>
 <c:forEach items="${addOnThemeCssPaths}" var="addOnThemeCss">
 	<link rel="stylesheet" type="text/css" media="all" href="${addOnThemeCss}"/>

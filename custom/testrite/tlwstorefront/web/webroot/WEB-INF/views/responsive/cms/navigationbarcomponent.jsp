@@ -4,7 +4,7 @@
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags" %>
 
 <c:set value="${component.styleClass} ${dropDownLayout}" var="bannerClasses"/>
-
+<c:if test="${empty component.navigationNode}">
 <li class="${bannerClasses} <c:if test="${not empty component.navigationNode.children}"> has-sub js-enquire-has-sub</c:if>">
 	<cms:component component="${component.link}" evaluateRestriction="true"/>
 	<c:if test="${not empty component.navigationNode.children}">
@@ -75,5 +75,15 @@
 				</c:forEach>
 			</div>
 		</div>
+		</c:if>
+		</li>
 	</c:if>
-</li>
+
+
+	<c:if test="${not empty component.navigationNode}">
+		<ul class="dropdown-menu" role="menu">
+			<c:forEach items="${component.navigationNode.links}" var="link">
+				<cms:component component="${link}" evaluateRestriction="true" element="li" />
+            </c:forEach>
+        </ul>
+	</c:if>

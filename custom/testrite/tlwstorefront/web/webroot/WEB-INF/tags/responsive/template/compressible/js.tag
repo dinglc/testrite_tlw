@@ -50,6 +50,9 @@
 <script type="text/javascript" src="${commonResourcePath}/js/acc.tabs.js"></script>
 <script type="text/javascript" src="${commonResourcePath}/js/acc.track.js"></script>
 <script type="text/javascript" src="${commonResourcePath}/js/acc.storefinder.js"></script>
+<script type="text/javascript" src="${commonResourcePath}/js/responsiveslides.min.js"></script>
+<script type="text/javascript" src="${commonResourcePath}/js/npm.js"></script>
+<script type="text/javascript" src="${commonResourcePath}/js/animate.js"></script>
 
 <script type="text/javascript" src="${commonResourcePath}/js/_autoload.js"></script>
 

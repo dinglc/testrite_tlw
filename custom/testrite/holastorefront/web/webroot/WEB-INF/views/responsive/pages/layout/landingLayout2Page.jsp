@@ -4,7 +4,8 @@
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
 
 <template:page pageTitle="${pageTitle}">
-		
+		<c:url value="/p/10481" var="prdurl"></c:url>
+		<a href="${prdurl}">10481</a>
 		<div class="no-space">
 			<cms:pageSlot position="Section1" var="feature">
 				<cms:component component="${feature}" />
@@ -22,7 +23,6 @@
 				</cms:pageSlot>
 			</div>
 		</div>
-
 		<cms:pageSlot position="Section3" var="feature">
 			<cms:component component="${feature}" />
 		</cms:pageSlot>

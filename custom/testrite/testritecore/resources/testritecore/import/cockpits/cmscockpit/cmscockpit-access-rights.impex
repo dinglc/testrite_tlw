@@ -85,6 +85,7 @@ UserGroup;cmsmanagergroup;cockpitgroup,employeegroup;;;;;;;
 ;;;;AccountNavigationCollectionComponent;+;+;+;+;+;
 ;;;;JspIncludeComponent;+;+;+;+;+;
 ;;;;AccountBookmarkComponent;+;+;+;+;+;
+;;;;LeftNavigationBarComponent;+;+;+;+;+;
 
 # Access Rights for Products & Catalog;;;;;;;;;
 ;;;;ItemSyncTimestamp;+;;;

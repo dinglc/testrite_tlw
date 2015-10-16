@@ -3,8 +3,8 @@
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags" %>
 
 
-<footer class="main-footer">
+<!-- <footer class="main-footer"> -->
 	<cms:pageSlot position="Footer" var="feature">
 		<cms:component component="${feature}"/>
 	</cms:pageSlot>
-</footer>
+<!-- </footer> -->

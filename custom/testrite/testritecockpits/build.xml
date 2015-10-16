@@ -13,7 +13,7 @@
 
 -->
 
-<project name="addonsupport" default="all">
+<project name="testritecockpits" default="all">
 	<property file="platformhome.properties" />
 
 	<!-- next line is only for eclipse to get rid of warnings -->

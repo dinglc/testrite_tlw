@@ -47,16 +47,6 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 	
 	
 		createItemType(
-			"ECPBrand",
-			"GenericItem",
-			com.testritegroup.ec.core.jalo.ECPBrand.class,
-			"de.hybris.platform.persistence.testritecore_ECPBrand",
-			false,
-			null,
-			false
-		);
-	
-		createItemType(
 			"ECPBackendCategory",
 			"GenericItem",
 			com.testritegroup.ec.core.jalo.ECPBackendCategory.class,
@@ -71,6 +61,16 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 			"Category",
 			com.testritegroup.ec.core.jalo.ECPCategory.class,
 			"de.hybris.platform.persistence.testritecore_ECPCategory",
+			false,
+			null,
+			false
+		);
+	
+		createItemType(
+			"ECPBrand",
+			"ECPCategory",
+			com.testritegroup.ec.core.jalo.ECPBrand.class,
+			null,
 			false,
 			null,
 			false
@@ -111,6 +111,26 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 			"GenericItem",
 			com.testritegroup.ec.core.jalo.ECPSocialReviewArticle.class,
 			"de.hybris.platform.persistence.testritecore_ECPSocialReviewArticle",
+			false,
+			null,
+			false
+		);
+	
+		createItemType(
+			"LeftNavigationBarComponent",
+			"NavigationBarComponent",
+			com.testritegroup.ec.core.jalo.cms2.components.LeftNavigationBarComponent.class,
+			null,
+			false,
+			null,
+			false
+		);
+	
+		createItemType(
+			"CategoryNavigationBarComponent",
+			"NavigationBarComponent",
+			com.testritegroup.ec.core.jalo.cms2.components.CategoryNavigationBarComponent.class,
+			null,
 			false,
 			null,
 			false
@@ -174,6 +194,12 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 			true
 		);
 	
+		createRelationType(
+			"Product2ECPSocialReviewArticle",
+			null,
+			true
+		);
+	
 		createEnumerationType(
 			"SwatchColorEnum",
 			null
@@ -209,15 +235,11 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 
 	
 	
-				single_createattr_ECPBrand_name();
-			
-				single_createattr_ECPBrand_story();
-			
 				single_createattr_ECPBackendCategory_name();
 			
-				single_createattr_ECPCategory_brand();
-			
 				single_createattr_ECPCategory_hotspot();
+			
+				single_createattr_ECPBrand_story();
 			
 				single_createattr_ECPImage_code();
 			
@@ -278,6 +300,8 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 				single_createattr_Product_countryOfOrigin();
 			
 				single_createattr_Product_material();
+			
+				single_createattr_Product_additonalSpecification();
 			
 				single_createattr_PriceRow_cost();
 			
@@ -371,43 +395,29 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 			CollectionType.COLLECTION
 		);
 	
+		createRelationAttributes(
+			"Product2ECPSocialReviewArticle", 
+			false, 
+
+			"product", 
+			"Product", 
+			true,
+			de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG, 
+			false,
+			false,
+			CollectionType.COLLECTION,
+			"articles", 
+			"ECPSocialReviewArticle", 
+			true,
+			de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG, 
+			true,
+			false,
+			CollectionType.COLLECTION
+		);
+	
 
 	}
 
-	
-	public void single_createattr_ECPBrand_name() throws JaloBusinessException
-	{
-		
-						Map sqlColumnDefinitions = null;
-					
-				createPropertyAttribute(
-					"ECPBrand", 
-					"name",  
-					null,
-					"localized:java.lang.String",
-					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.INITIAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
-					null,
-					sqlColumnDefinitions
-				);
-			
-	}
-	
-	public void single_createattr_ECPBrand_story() throws JaloBusinessException
-	{
-		
-						Map sqlColumnDefinitions = null;
-					
-				createPropertyAttribute(
-					"ECPBrand", 
-					"story",  
-					null,
-					"localized:java.lang.String",
-					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.INITIAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
-					null,
-					sqlColumnDefinitions
-				);
-			
-	}
 	
 	public void single_createattr_ECPBackendCategory_name() throws JaloBusinessException
 	{
@@ -426,23 +436,6 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 			
 	}
 	
-	public void single_createattr_ECPCategory_brand() throws JaloBusinessException
-	{
-		
-						Map sqlColumnDefinitions = null;
-					
-				createPropertyAttribute(
-					"ECPCategory", 
-					"brand",  
-					null,
-					"ECPBrand",
-					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
-					null,
-					sqlColumnDefinitions
-				);
-			
-	}
-	
 	public void single_createattr_ECPCategory_hotspot() throws JaloBusinessException
 	{
 		
@@ -454,6 +447,23 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 					null,
 					"java.lang.Boolean",
 					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
+	public void single_createattr_ECPBrand_story() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"ECPBrand", 
+					"story",  
+					null,
+					"localized:java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.INITIAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
 					null,
 					sqlColumnDefinitions
 				);
@@ -970,6 +980,23 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 			
 	}
 	
+	public void single_createattr_Product_additonalSpecification() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"Product", 
+					"additonalSpecification",  
+					null,
+					"localized:java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
 	public void single_createattr_PriceRow_cost() throws JaloBusinessException
 	{
 		
@@ -1290,11 +1317,15 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 	
 		single_setRelAttributeProperties_ECPCategory2SalesBanner_source();
 	
+		single_setRelAttributeProperties_Product2ECPSocialReviewArticle_source();
+	
 		single_setRelAttributeProperties_ECPCategory2BackendCategory_target();
 	
 		single_setRelAttributeProperties_ECPCategory2AdBanner_target();
 	
 		single_setRelAttributeProperties_ECPCategory2SalesBanner_target();
+	
+		single_setRelAttributeProperties_Product2ECPSocialReviewArticle_target();
 	
 		connectRelation(
 			"ECPCategory2BackendCategory", 
@@ -1341,23 +1372,21 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 			true
 		);
 	
-				{
-				Map customPropsMap = new HashMap();
-				
-				setItemTypeProperties(
-					"ECPBrand",
-					false,
-					true,
-					true,
-					null,
-					customPropsMap
-				);
-				}
-			
-			single_setAttributeProperties_ECPBrand_name();
-		
-			single_setAttributeProperties_ECPBrand_story();
-		
+		connectRelation(
+			"Product2ECPSocialReviewArticle", 
+			false, 
+			"product", 
+			"Product", 
+			true,
+			de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG, 
+			"articles", 
+			"ECPSocialReviewArticle", 
+			true,
+			de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG, 
+			true,
+			true
+		);
+	
 				{
 				Map customPropsMap = new HashMap();
 				
@@ -1386,9 +1415,22 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 				);
 				}
 			
-			single_setAttributeProperties_ECPCategory_brand();
-		
 			single_setAttributeProperties_ECPCategory_hotspot();
+		
+				{
+				Map customPropsMap = new HashMap();
+				
+				setItemTypeProperties(
+					"ECPBrand",
+					false,
+					true,
+					true,
+					null,
+					customPropsMap
+				);
+				}
+			
+			single_setAttributeProperties_ECPBrand_story();
 		
 				{
 				Map customPropsMap = new HashMap();
@@ -1517,6 +1559,8 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 		
 			single_setAttributeProperties_Product_material();
 		
+			single_setAttributeProperties_Product_additonalSpecification();
+		
 				{
 				Map customPropsMap = new HashMap();
 				
@@ -1572,6 +1616,32 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 		
 			single_setAttributeProperties_ECPSocialReviewArticle_publishDate();
 		
+				{
+				Map customPropsMap = new HashMap();
+				
+				setItemTypeProperties(
+					"LeftNavigationBarComponent",
+					false,
+					true,
+					true,
+					null,
+					customPropsMap
+				);
+				}
+			
+				{
+				Map customPropsMap = new HashMap();
+				
+				setItemTypeProperties(
+					"CategoryNavigationBarComponent",
+					false,
+					true,
+					true,
+					null,
+					customPropsMap
+				);
+				}
+			
 				{
 				Map customPropsMap = new HashMap();
 				
@@ -1666,50 +1736,6 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 
 
 		
-						public void single_setAttributeProperties_ECPBrand_name() throws JaloBusinessException
-						{
-							
-							
-							
-							Map customPropsMap = new HashMap();
-							
-							setAttributeProperties(
-								"ECPBrand", 
-								"name",
-								true, 
-								null,
-								null,
-								null,
-								true,
-								true,
-								null,
-								customPropsMap,
-								null
-							);
-						}
-					
-						public void single_setAttributeProperties_ECPBrand_story() throws JaloBusinessException
-						{
-							
-							
-							
-							Map customPropsMap = new HashMap();
-							
-							setAttributeProperties(
-								"ECPBrand", 
-								"story",
-								false, 
-								null,
-								null,
-								null,
-								true,
-								true,
-								null,
-								customPropsMap,
-								null
-							);
-						}
-					
 						public void single_setAttributeProperties_ECPBackendCategory_name() throws JaloBusinessException
 						{
 							
@@ -1721,28 +1747,6 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 								"ECPBackendCategory", 
 								"name",
 								true, 
-								null,
-								null,
-								null,
-								true,
-								true,
-								null,
-								customPropsMap,
-								null
-							);
-						}
-					
-						public void single_setAttributeProperties_ECPCategory_brand() throws JaloBusinessException
-						{
-							
-							
-							
-							Map customPropsMap = new HashMap();
-							
-							setAttributeProperties(
-								"ECPCategory", 
-								"brand",
-								false, 
 								null,
 								null,
 								null,
@@ -1767,6 +1771,28 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 								false, 
 								Boolean.FALSE,
 								"Boolean.FALSE",
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_ECPBrand_story() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"ECPBrand", 
+								"story",
+								false, 
+								null,
+								null,
 								null,
 								true,
 								true,
@@ -2381,8 +2407,8 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 								"Product", 
 								"weight",
 								false, 
-								0,
-								"0",
+								0.0,
+								"0.0",
 								null,
 								true,
 								true,
@@ -2424,6 +2450,28 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 							setAttributeProperties(
 								"Product", 
 								"material",
+								false, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_Product_additonalSpecification() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"Product", 
+								"additonalSpecification",
 								false, 
 								null,
 								null,
@@ -2902,6 +2950,48 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 									setAttributeProperties(
 										"ECPCategory", 
 										"clearingSalesBanners",
+										false, 
+										null,
+										null,
+										null,
+										true,
+										true,
+										null,
+										customPropsMap,
+										null
+									);
+								}
+							
+								public void single_setRelAttributeProperties_Product2ECPSocialReviewArticle_source() throws JaloBusinessException
+								{
+									
+									Map customPropsMap = new HashMap();
+									
+
+									setAttributeProperties(
+										"ECPSocialReviewArticle", 
+										"product",
+										false, 
+										null,
+										null,
+										null,
+										true,
+										true,
+										null,
+										customPropsMap,
+										null
+									);
+								}
+							
+								public void single_setRelAttributeProperties_Product2ECPSocialReviewArticle_target() throws JaloBusinessException
+								{
+									
+									Map customPropsMap = new HashMap();
+									
+
+									setAttributeProperties(
+										"Product", 
+										"articles",
 										false, 
 										null,
 										null,

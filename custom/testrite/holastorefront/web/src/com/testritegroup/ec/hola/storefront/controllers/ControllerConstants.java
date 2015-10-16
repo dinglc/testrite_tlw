@@ -26,6 +26,9 @@ import de.hybris.platform.acceleratorcms.model.components.SubCategoryListCompone
 import de.hybris.platform.cms2.model.contents.components.CMSLinkComponentModel;
 import de.hybris.platform.cms2lib.model.components.ProductCarouselComponentModel;
 
+import com.testritegroup.ec.core.model.cms2.components.CategoryNavigationBarComponentModel;
+import com.testritegroup.ec.core.model.cms2.components.LeftNavigationBarComponentModel;
+
 
 /**
  */
@@ -57,6 +60,8 @@ public interface ControllerConstants
 			String ProductFeatureComponent = _Prefix + ProductFeatureComponentModel._TYPECODE + _Suffix;
 			String CategoryFeatureComponent = _Prefix + CategoryFeatureComponentModel._TYPECODE + _Suffix;
 			String NavigationBarComponent = _Prefix + NavigationBarComponentModel._TYPECODE + _Suffix;
+			String LeftNavigationBarComponent = _Prefix + LeftNavigationBarComponentModel._TYPECODE + _Suffix;
+			String CategoryNavigationBarComponent = _Prefix + CategoryNavigationBarComponentModel._TYPECODE + _Suffix;
 			String CMSLinkComponent = _Prefix + CMSLinkComponentModel._TYPECODE + _Suffix;
 			String DynamicBannerComponent = _Prefix + DynamicBannerComponentModel._TYPECODE + _Suffix;
 			String SubCategoryListComponent = _Prefix + SubCategoryListComponentModel._TYPECODE + _Suffix;
