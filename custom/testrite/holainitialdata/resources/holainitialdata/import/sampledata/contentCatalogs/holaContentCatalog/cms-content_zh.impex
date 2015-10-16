@@ -56,9 +56,6 @@ UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lan
 
 #Banner Component
 UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;headline[lang=$lang]	;$picture[lang=$lang]		;content[lang=$lang]
-						;							;mBN1BannerComponent	;第一張					;/images/theme/mBN_1.jpg	;
-						;							;mBN2BannerComponent	;第二張					;/images/theme/mBN_2.jpg	;
-						;							;mBN3BannerComponent	;第三張					;/images/theme/mBN_3.jpg	;
 
 #ProductCarouselComponent
 UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]

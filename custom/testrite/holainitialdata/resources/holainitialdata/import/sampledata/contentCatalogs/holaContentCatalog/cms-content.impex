@@ -126,18 +126,14 @@ INSERT_UPDATE AccountNavigationCollectionComponent;$contentCV[unique=true];uid[u
 
 # Medias for Rotating Images
 INSERT_UPDATE Media	;$contentCV[unique=true]	;code[unique=true]								 ;realfilename				;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator] ;mime[default='image/jpeg']		;altText	;&imageRef	;folder(qualifier)[default='images']
-                    ;                         	;/images/theme/mBN_1.jpg                       	 ;mBN_1.jpg          	  	;$siteResource/images/theme/mBN_1.jpg                             	     	;image/jpg                   	;mBN_1 	  	;mBN_1		;
-                    ;                         	;/images/theme/mBN_2.jpg             	      	 ;mBN_2.jpg	        	  	;$siteResource/images/theme/mBN_2.jpg                         		     	;image/jpg                   	;mBN_2 	  	;mBN_2		;
-                    ;                         	;/images/theme/mBN_3.jpg                		 ;mBN_3.jpg		        	;$siteResource/images/theme/mBN_3.jpg                       	   		 	;image/jpg                   	;mBN_3	 	;mBN_3		;
+
 
 #BannerComponent for Rotating Images
 INSERT_UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;&componentRef			;urlLink
-								;							;mBN1BannerComponent	;mBN1 Banner Component	;mBN1BannerComponent	;/
-								;							;mBN2BannerComponent	;mBN2 Banner Component	;mBN2BannerComponent	;/
-								;							;mBN3BannerComponent	;mBN3 Banner Component	;mBN3BannerComponent	;/
+
 
 INSERT_UPDATE RotatingImagesComponent	;$contentCV[unique=true]	;uid[unique=true]			;name						;banners(&componentRef)											;&componentRef
-										;							;RotatingImagesComponent	;Rotating Images Component	;mBN1BannerComponent,mBN2BannerComponent,mBN3BannerComponent	;RotatingImagesComponent
+
 
 # CMS tabs components
 INSERT_UPDATE CMSTabParagraphComponent;$contentCV[unique=true];uid[unique=true];name;visible;&componentRef

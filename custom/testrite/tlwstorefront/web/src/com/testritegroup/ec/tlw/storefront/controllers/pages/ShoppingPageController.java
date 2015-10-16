@@ -24,9 +24,7 @@ import de.hybris.platform.converters.Converters;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -69,13 +67,14 @@ public class ShoppingPageController extends AbstractPageController
 				final List<CategoryModel> root = catalogVersionModel.getRootCategories();
 				if (root.size() > 0)
 				{
-					final Map<String, List<CategoryData>> categoryList = new HashMap<String, List<CategoryData>>();
-					for (final CategoryModel categorymodel : root)
-					{
-						categoryList.put(categorymodel.getName(),
-								Converters.convertAll(categorymodel.getAllSubcategories(), categoryConverter));
-					}
-					model.addAttribute("root", categoryList);
+					//					final Map<String, List<CategoryData>> categoryList = new HashMap<String, List<CategoryData>>();
+					//					for (final CategoryModel categorymodel : root)
+					//					{
+					//						categoryList.put(categorymodel.getName(),
+					//								Converters.convertAll(categorymodel.getAllSubcategories(), categoryConverter));
+					//					}
+
+					model.addAttribute("root", Converters.convertAll(root, categoryConverter));
 				}
 			}
 			catch (final UnknownIdentifierException ignore)
