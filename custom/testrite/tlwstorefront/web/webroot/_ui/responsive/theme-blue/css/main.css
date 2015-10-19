@@ -82,8 +82,8 @@ header .logo{}
 #mobileNav li:last-child,#mobileNav li:nth-child(9){border:none;box-shadow:none}
 
 
-#mobileNav li a{padding:8px 0;padding-left:10px;color:#fff;}
-#mobileNav li a:hover{color:#333;}
+#mobileNav li a{padding:8px 0;padding-left:10px;color:#fff;background:none;}
+#mobileNav li a:hover{color:#333;background:#fff;}
 
 #loginNav{float:right;}
 
@@ -205,7 +205,7 @@ footer span{display:inline-block}
 .prdList section h3{font-size:14px;}
 .prdList section hr{border:none;border-left:3px solid #235c63;position:absolute;left:0;bottom:-20px;height:70px;}
 
-.prdList section.noContent{border:none;padding:0;}
+.prdList section.noContent{border:none;padding:0;background:#737373}
 .prdList section.noContent a{height:auto;display:block;}
 
 .prdList.noBG,.prdList.noBG div{background:none;}
@@ -282,6 +282,9 @@ footer span{display:inline-block}
 .itemImg div p{color:#fff;text-align:center;font-size:15px;display:inline-block;vertical-align:middle;width:100%;}
 
 .itemIcon{}
+.itemIcon li{width:70px;}
+.itemIcon li img{width:100%;border:2px solid #eee;cursor:pointer;}
+.itemIcon li img.active{border:2px solid #3b9098;}
 
 .itemDetail{font-size:15px;letter-spacing:1px;}
 .itemDetail li{margin-bottom:10px;}
@@ -383,6 +386,7 @@ footer span{display:inline-block}
 
 
 .brandSmallBn .row>div{margin-bottom:10px;}
+.brandSmallBn img{max-width:100%;}
 
 .eventTitle{font-size:13px;}
 
@@ -403,3 +407,6 @@ footer span{display:inline-block}
 
 /*active*/
 .pagination > .active > a{background:#3b9098;border-color:#3b9098}
+
+.smallBn .row div{margin-bottom:10px;text-align:center;}
+.smallBn .row div img{width:100%;}

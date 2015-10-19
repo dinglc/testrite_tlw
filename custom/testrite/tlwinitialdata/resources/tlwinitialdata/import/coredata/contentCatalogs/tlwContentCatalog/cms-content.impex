@@ -814,10 +814,14 @@ INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name				;
 # Create Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]					;name								;active[default='true']
 							;							;RotatingBannerSlot-shopping		;Rotating Banner Slot for shopping	;
+							;							;ProductCarouselSlot-shopping		;Product Carousel Slot for shopping	;
+
 
 # Bind Content Slots to Shopping Page
-INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ShoppingPage']	;contentSlot(uid,$contentCV)[unique=true]	;allowOverwrite[default='true']
+INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ShoppingPage']	;contentSlot(uid,$contentCV)[unique=true]
 									;							;RotatingBannerSlot-shopping	;Section2				;															;RotatingBannerSlot-shopping			
+									;							;ProductCarouselSlot-shopping	;Section3				;															;ProductCarouselSlot-shopping			
+
 
 ##### SubCategoryTemplate : ���p������ Template
 INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true]   ;name                     ;frontendTemplateName  ;restrictedPageTypes(code);active[default=true]

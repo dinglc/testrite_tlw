@@ -11,6 +11,7 @@ $lang=zh_TW
 
 # Create Categories
 UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+;1;;特力屋産品目錄
 ;2;;窗簾/壁飾/家飾/白板;
 ;3;;百葉簾/窗;
 ;12;;布簾/紗簾;
@@ -240,6 +241,7 @@ UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
 ;2454;;辦公文具用品;
 ;2455;;餐茶玻璃;
 ;2457;;蠟燭香氛;
+;2458;;寢具;
 ;2459;;FRETTE;
 ;2460;;中式寢具;
 ;2461;;西式寢具;

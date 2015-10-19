@@ -179,9 +179,28 @@ INSERT_UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;name	
 INSERT_UPDATE RotatingImagesComponent	;$contentCV[unique=true]	;uid[unique=true]			;name						;banners(&componentRef)											;&componentRef
 										;							;RotatingImagesComponent	;Rotating Images Component	;mBN1BannerComponent,mBN2BannerComponent,mBN3BannerComponent	;RotatingImagesComponent
 
+# CMS Product Refinement Component
+INSERT_UPDATE ProductRefinementComponent;$contentCV[unique=true]	;uid[unique=true]			;name								;&componentRef
+										;							;RefinementFacetComponent	;Product Refinement Facet Component	;RefinementFacetComponent
+
+# CMS Product List Component
+INSERT_UPDATE CMSProductListComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;actions(uid,$contentCV)						;&componentRef
+										;							;ProductListComponent	;Product List Component	;												;ProductListComponent
+
+# CMS Product Grid Component
+INSERT_UPDATE ProductGridComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;actions(uid,$contentCV)	;&componentRef
+									;							;ProductGridComponent	;Product Grid Component	;							;ProductGridComponent
+
+#create Product Carousel Component
+INSERT_UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;name		;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
+										;							;Suggestion			;Suggestion	;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;Suggestion
+
 # Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
                          	;                       	;RotatingBannerSlot-shopping	     	; RotatingImagesComponent
+						 	;							;ProductCarouselSlot-shopping			;Suggestion
+						 	;							;ProductLeftRefinements					;RefinementFacetComponent
+						 	;							;ProductListSlot						;ProductListComponent
 
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef

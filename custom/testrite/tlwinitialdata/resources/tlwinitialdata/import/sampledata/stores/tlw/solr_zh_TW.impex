@@ -2,19 +2,18 @@
 
 # Macros / Replacement Parameter definitions
 $indexedType=tlwProductType
+$solrIndexedType=solrIndexedType(identifier[default=$indexedType])[unique=true]
 $facetSearchConfigName=tlwIndex
 $contentCatalogName=tlwContentCatalog
-$productCatalog=tlwProductCatalog
-
-$solrIndexedType=solrIndexedType(identifier[default=$indexedType])[unique=true]
 $contentCatalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalogName]),CatalogVersion.version[default=Staged])[default=$contentCatalogName:Staged]
+$productCatalog=tlwProductCatalog
 $productCatalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$productCatalog]),CatalogVersion.version[default=Staged])[default=$productCatalog:Staged]
 
 # Language
 $lang=zh_TW
 
 UPDATE SolrIndexedProperty;name[unique=true];$solrIndexedType;displayName[lang=$lang]
-
+ 
 # Redirect page URL (Must use INSERT_UPDATE here)
 UPDATE SolrURIRedirect;url[unique=true];&redirectRefID
 
