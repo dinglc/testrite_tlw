@@ -20,8 +20,10 @@ header #subNav{padding:3px 0;margin-top:60px;}
 #footerFN .borderGrayR{border:none;text-align:center;}
 #footerFN li{}
 
-.prdList{}
-.prdList div section{}
+/*
+.brandZone,.hotItem{display:none;}
+*/
+.hotItem{margin-top:20px;}
 
 .prdList2 section a{width:280px;height:280px;}
 
@@ -32,6 +34,7 @@ header #subNav{padding:3px 0;margin-top:60px;}
 .shopping_icon{top:150px;}
 
 #loginNav{margin-top:25px;}
+.leftNav ul {margin:0;}
 .leftNav li{float:left;}
 
 
@@ -67,6 +70,7 @@ header #subNav{padding:3px 0;margin-top:60px;}
 .breadcrumb{display:none;}
 
 @media (min-width: 768px) {
+	
 header .logo img{width:auto;margin:15px 0}
 header #topZone{position:static;}
 header #subNav{padding:10px 0;margin-top:0px;}
@@ -80,6 +84,8 @@ header #subNav{padding:10px 0;margin-top:0px;}
   width: 48px;
   margin-top:-24px;
 }
+
+.brandZone,.hotItem{display:block;}
 
 .prdList div section.bigItem{width:420px;}
 .prdList div section{width:200px;}
@@ -97,7 +103,7 @@ header #subNav{padding:10px 0;margin-top:0px;}
 
 #loginNav{margin-top:20px;}
 
-.leftNav{margin-bottom:30px;}
+.leftNav ul{margin:0 20px 30px;}
 .leftNav li{float:none;}
 
 .hotItem ul li{width:100%;}

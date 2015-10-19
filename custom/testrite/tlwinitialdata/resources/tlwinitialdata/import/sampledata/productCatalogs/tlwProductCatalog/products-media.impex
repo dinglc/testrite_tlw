@@ -1,9 +1,10 @@
 # ImPex for Importing Product Media
 
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
+$productCatalog=tlwProductCatalog
+$productCatalogName=tlw Product Catalog
 
-$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog]
+$catalogVersion=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $media=@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]
 $thumbnail=thumbnail(code, $catalogVersion)
 $picture=picture(code, $catalogVersion)
@@ -14,13 +15,88 @@ $others=others(code, $catalogVersion)
 $data_sheet=data_sheet(code, $catalogVersion)
 $medias=medias(code, $catalogVersion)
 $galleryImages=galleryImages(qualifier, $catalogVersion)
-$siteResource=jar:tw.testrite.initialdata.setup.InitialDataSystemSetup&/testriteinitialdata/import/productCatalogs/$productCatalog
+$siteResource=jar:com.testritegroup.ec.tlw.setup.InitialDataSystemSetup&/tlwinitialdata/import/sampledata/contentCatalogs/$contentCatalog
+$productResource=jar:com.testritegroup.ec.tlw.setup.InitialDataSystemSetup&/tlwinitialdata/import/sampledata/productCatalogs/$productCatalog
+$jarResourceCms=jar:com.testritegroup.ec.tlw.setup.InitialDataSystemSetup&/tlwinitialdata/import/sampledata/cockpits/cmscockpit
 
 # Create Media
-INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpeg'];$catalogVersion;folder(qualifier)
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true]            ;$media                        							;mime[default='image/jpeg']		;$catalogVersion;folder(qualifier)
+                   ;1200Wx1200H           ;/1200Wx1200H/10481.jpg       ;$productResource/images/product/1200Wx1200H/10481.jpg	;		                       	;               ;images
+                   ;515Wx515H             ;/515Wx515H/10481.jpg         ;$productResource/images/product/515Wx515H/10481.jpg	;   		                    ;               ;images
+                   ;300Wx300H             ;/300Wx300H/10481.jpg         ;$productResource/images/product/300Wx300H/10481.jpg	;   		                    ;               ;images
+                   ;96Wx96H               ;/96Wx96H/10481.jpg           ;$productResource/images/product/96Wx96H/10481.jpg	;           		            ;               ;images
+                   ;65Wx65H               ;/65Wx65H/10481.jpg           ;$productResource/images/product/65Wx65H/10481.jpg	;                   		    ;               ;images
+                   ;30Wx30H               ;/30Wx30H/10481.jpg           ;$productResource/images/product/30Wx30H/10481.jpg	;       		                ;               ;images
+                   ;1200Wx1200H           ;/1200Wx1200H/10491.jpg       ;$productResource/images/product/1200Wx1200H/10491.jpg	;               		        ;               ;images
+                   ;515Wx515H             ;/515Wx515H/10491.jpg         ;$productResource/images/product/515Wx515H/10491.jpg	;  			                    ;               ;images
+                   ;300Wx300H             ;/300Wx300H/10491.jpg         ;$productResource/images/product/300Wx300H/10491.jpg	;           		            ;               ;images
+                   ;96Wx96H               ;/96Wx96H/10491.jpg           ;$productResource/images/product/96Wx96H/10491.jpg	;                  			    ;               ;images
+                   ;65Wx65H               ;/65Wx65H/10491.jpg           ;$productResource/images/product/65Wx65H/10491.jpg	;                  			    ;               ;images
+                   ;30Wx30H               ;/30Wx30H/10491.jpg           ;$productResource/images/product/30Wx30H/10491.jpg	;               		        ;               ;images
+                   ;1200Wx1200H           ;/1200Wx1200H/10857.jpg       ;$productResource/images/product/1200Wx1200H/10857.jpg	;                    			;               ;images
+                   ;515Wx515H             ;/515Wx515H/10857.jpg         ;$productResource/images/product/515Wx515H/10857.jpg	;             			        ;               ;images
+                   ;300Wx300H             ;/300Wx300H/10857.jpg         ;$productResource/images/product/300Wx300H/10857.jpg	;                 			    ;               ;images
+                   ;96Wx96H               ;/96Wx96H/10857.jpg           ;$productResource/images/product/96Wx96H/10857.jpg	;                   		    ;               ;images
+                   ;65Wx65H               ;/65Wx65H/10857.jpg           ;$productResource/images/product/65Wx65H/10857.jpg	;                			    ;               ;images
+                   ;30Wx30H               ;/30Wx30H/10857.jpg           ;$productResource/images/product/30Wx30H/10857.jpg	;              			        ;               ;images
+                   ;1200Wx1200H           ;/1200Wx1200H/10972.jpg       ;$productResource/images/product/1200Wx1200H/10972.jpg	;                    			;               ;images
+                   ;515Wx515H             ;/515Wx515H/10972.jpg         ;$productResource/images/product/515Wx515H/10972.jpg	;             			        ;               ;images
+                   ;300Wx300H             ;/300Wx300H/10972.jpg         ;$productResource/images/product/300Wx300H/10972.jpg	;                 			    ;               ;images
+                   ;96Wx96H               ;/96Wx96H/10972.jpg           ;$productResource/images/product/96Wx96H/10972.jpg	;                   		    ;               ;images
+                   ;65Wx65H               ;/65Wx65H/10972.jpg           ;$productResource/images/product/65Wx65H/10972.jpg	;                			    ;               ;images
+                   ;30Wx30H               ;/30Wx30H/10972.jpg           ;$productResource/images/product/30Wx30H/10972.jpg	;              			        ;               ;images
+                   ;1200Wx1200H           ;/1200Wx1200H/6663.jpg       ;$productResource/images/product/1200Wx1200H/6663.jpg	;                    			;               ;images
+                   ;515Wx515H             ;/515Wx515H/6663.jpg         ;$productResource/images/product/515Wx515H/6663.jpg	;             			        ;               ;images
+                   ;300Wx300H             ;/300Wx300H/6663.jpg         ;$productResource/images/product/300Wx300H/6663.jpg	;                 			    ;               ;images
+                   ;96Wx96H               ;/96Wx96H/6663.jpg           ;$productResource/images/product/96Wx96H/6663.jpg	;                   		    ;               ;images
+                   ;65Wx65H               ;/65Wx65H/6663.jpg           ;$productResource/images/product/65Wx65H/6663.jpg	;                			    ;               ;images
+                   ;30Wx30H               ;/30Wx30H/6663.jpg           ;$productResource/images/product/30Wx30H/6663.jpg	;              			        ;               ;images
+                   ;1200Wx1200H           ;/1200Wx1200H/2516.jpg       ;$productResource/images/product/1200Wx1200H/2516.jpg	;                    			;               ;images
+                   ;515Wx515H             ;/515Wx515H/2516.jpg         ;$productResource/images/product/515Wx515H/2516.jpg	;             			        ;               ;images
+                   ;300Wx300H             ;/300Wx300H/2516.jpg         ;$productResource/images/product/300Wx300H/2516.jpg	;                 			    ;               ;images
+                   ;96Wx96H               ;/96Wx96H/2516.jpg           ;$productResource/images/product/96Wx96H/2516.jpg	;                   		    ;               ;images
+                   ;65Wx65H               ;/65Wx65H/2516.jpg           ;$productResource/images/product/65Wx65H/2516.jpg	;                			    ;               ;images
+                   ;30Wx30H               ;/30Wx30H/2516.jpg           ;$productResource/images/product/30Wx30H/2516.jpg	;              			        ;               ;images
+                   ;1200Wx1200H           ;/1200Wx1200H/322.jpg       ;$productResource/images/product/1200Wx1200H/322.jpg	;                    			;               ;images
+                   ;515Wx515H             ;/515Wx515H/322.jpg         ;$productResource/images/product/515Wx515H/322.jpg	;             			        ;               ;images
+                   ;300Wx300H             ;/300Wx300H/322.jpg         ;$productResource/images/product/300Wx300H/322.jpg	;                 			    ;               ;images
+                   ;96Wx96H               ;/96Wx96H/322.jpg           ;$productResource/images/product/96Wx96H/322.jpg	;                   		    ;               ;images
+                   ;65Wx65H               ;/65Wx65H/322.jpg           ;$productResource/images/product/65Wx65H/322.jpg	;                			    ;               ;images
+                   ;30Wx30H               ;/30Wx30H/322.jpg           ;$productResource/images/product/30Wx30H/322.jpg	;              			        ;               ;images
+                   ;1200Wx1200H           ;/1200Wx1200H/564557.jpg       ;$productResource/images/product/1200Wx1200H/564557.jpg	;                    			;               ;images
+                   ;515Wx515H             ;/515Wx515H/564557.jpg         ;$productResource/images/product/515Wx515H/564557.jpg	;             			        ;               ;images
+                   ;300Wx300H             ;/300Wx300H/564557.jpg         ;$productResource/images/product/300Wx300H/564557.jpg	;                 			    ;               ;images
+                   ;96Wx96H               ;/96Wx96H/564557.jpg           ;$productResource/images/product/96Wx96H/564557.jpg	;                   		    ;               ;images
+                   ;65Wx65H               ;/65Wx65H/564557.jpg           ;$productResource/images/product/65Wx65H/564557.jpg	;                			    ;               ;images
+                   ;30Wx30H               ;/30Wx30H/564557.jpg           ;$productResource/images/product/30Wx30H/564557.jpg	;              			        ;               ;images
+                   ;1200Wx1200H           ;/1200Wx1200H/557910.jpg       ;$productResource/images/product/1200Wx1200H/557910.jpg	;                    			;               ;images
+                   ;515Wx515H             ;/515Wx515H/557910.jpg         ;$productResource/images/product/515Wx515H/557910.jpg	;             			        ;               ;images
+                   ;300Wx300H             ;/300Wx300H/557910.jpg         ;$productResource/images/product/300Wx300H/557910.jpg	;                 			    ;               ;images
+                   ;96Wx96H               ;/96Wx96H/557910.jpg           ;$productResource/images/product/96Wx96H/557910.jpg	;                   		    ;               ;images
+                   ;65Wx65H               ;/65Wx65H/557910.jpg           ;$productResource/images/product/65Wx65H/557910.jpg	;                			    ;               ;images
+                   ;30Wx30H               ;/30Wx30H/557910.jpg           ;$productResource/images/product/30Wx30H/557910.jpg	;              			        ;               ;images
+
 
 # Create Media Containers
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
+                            ;10481                 ;/1200Wx1200H/10481.jpg,/515Wx515H/10481.jpg,/300Wx300H/10481.jpg,/96Wx96H/10481.jpg,/65Wx65H/10481.jpg,/30Wx30H/10481.jpg;
+                            ;10491                 ;/1200Wx1200H/10491.jpg,/515Wx515H/10491.jpg,/300Wx300H/10491.jpg,/96Wx96H/10491.jpg,/65Wx65H/10491.jpg,/30Wx30H/10491.jpg;
+                            ;10857                 ;/1200Wx1200H/10857.jpg,/515Wx515H/10857.jpg,/300Wx300H/10857.jpg,/96Wx96H/10857.jpg,/65Wx65H/10857.jpg,/30Wx30H/10857.jpg;
+                            ;10972                 ;/1200Wx1200H/10972.jpg,/515Wx515H/10972.jpg,/300Wx300H/10972.jpg,/96Wx96H/10972.jpg,/65Wx65H/10972.jpg,/30Wx30H/10972.jpg;
+                            ;6663                 ;/1200Wx1200H/6663.jpg,/515Wx515H/6663.jpg,/300Wx300H/6663.jpg,/96Wx96H/6663.jpg,/65Wx65H/6663.jpg,/30Wx30H/6663.jpg;
+                            ;2516                 ;/1200Wx1200H/2516.jpg,/515Wx515H/2516.jpg,/300Wx300H/2516.jpg,/96Wx96H/2516.jpg,/65Wx65H/2516.jpg,/30Wx30H/2516.jpg;
+                            ;322                 ;/1200Wx1200H/322.jpg,/515Wx515H/322.jpg,/300Wx300H/322.jpg,/96Wx96H/322.jpg,/65Wx65H/322.jpg,/30Wx30H/322.jpg;
+                            ;564557                 ;/1200Wx1200H/564557.jpg,/515Wx515H/564557.jpg,/300Wx300H/564557.jpg,/96Wx96H/564557.jpg,/65Wx65H/564557.jpg,/30Wx30H/564557.jpg;
+                            ;557910                 ;/1200Wx1200H/557910.jpg,/515Wx515H/557910.jpg,/300Wx300H/557910.jpg,/96Wx96H/557910.jpg,/65Wx65H/557910.jpg,/30Wx30H/557910.jpg;
 
 # Update Products with Media and Media Containers
 UPDATE Product;code[unique=true];$picture;$thumbnail;$detail;$others;$normal;$thumbnails;$galleryImages;$catalogVersion
+;10481;/300Wx300H/10481.jpg;/96Wx96H/10481.jpg;;/515Wx515H/10481.jpg,/65Wx65H/10481.jpg,/30Wx30H/10481.jpg;/300Wx300H/10481.jpg;/96Wx96H/10481.jpg;10481;
+;10491;/300Wx300H/10491.jpg;/96Wx96H/10491.jpg;;/515Wx515H/10491.jpg,/65Wx65H/10491.jpg,/30Wx30H/10491.jpg;/300Wx300H/10491.jpg;/96Wx96H/10491.jpg;10491;
+;10857;/300Wx300H/10857.jpg;/96Wx96H/10857.jpg;;/515Wx515H/10857.jpg,/65Wx65H/10857.jpg,/30Wx30H/10857.jpg;/300Wx300H/10857.jpg;/96Wx96H/10857.jpg;10857;
+;10972;/300Wx300H/10972.jpg;/96Wx96H/10972.jpg;;/515Wx515H/10972.jpg,/65Wx65H/10972.jpg,/30Wx30H/10972.jpg;/300Wx300H/10972.jpg;/96Wx96H/10972.jpg;10972;
+;6663;/300Wx300H/6663.jpg;/96Wx96H/6663.jpg;;/515Wx515H/6663.jpg,/65Wx65H/6663.jpg,/30Wx30H/6663.jpg;/300Wx300H/6663.jpg;/96Wx96H/6663.jpg;6663;
+;2516;/300Wx300H/2516.jpg;/96Wx96H/2516.jpg;;/515Wx515H/2516.jpg,/65Wx65H/2516.jpg,/30Wx30H/2516.jpg;/300Wx300H/2516.jpg;/96Wx96H/2516.jpg;2516;
+;322;/300Wx300H/322.jpg;/96Wx96H/322.jpg;;/515Wx515H/322.jpg,/65Wx65H/322.jpg,/30Wx30H/322.jpg;/300Wx300H/322.jpg;/96Wx96H/322.jpg;322;
+;564557;/300Wx300H/564557.jpg;/96Wx96H/564557.jpg;;/515Wx515H/564557.jpg,/65Wx65H/564557.jpg,/30Wx30H/564557.jpg;/300Wx300H/564557.jpg;/96Wx96H/564557.jpg;564557;
+;557910;/300Wx300H/557910.jpg;/96Wx96H/557910.jpg;;/515Wx515H/557910.jpg,/65Wx65H/557910.jpg,/30Wx30H/557910.jpg;/300Wx300H/557910.jpg;/96Wx96H/557910.jpg;557910;

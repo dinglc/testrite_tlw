@@ -14,10 +14,12 @@
 	<div class="row">
 		<cms:pageSlot position="ProductLeftRefinements" var="feature">
 			<cms:component component="${feature}"/>
+			${feature}
 		</cms:pageSlot>
 
 		<cms:pageSlot position="ProductListSlot" var="feature">
 			<cms:component component="${feature}"/>
+			${feature}
 		</cms:pageSlot>
 
 
