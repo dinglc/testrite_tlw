@@ -1201,6 +1201,16 @@
 			<str name="buildOnOptimize">true</str>
 			<str name="accuracy">0.35</str>
 		</lst>
+		<lst name="spellchecker">
+			<str name="name">zh_TW</str>
+			<str name="classname">org.apache.solr.spelling.suggest.Suggester</str>
+			<str name="lookupImpl">org.apache.solr.spelling.suggest.tst.TSTLookup</str>
+			<str name="field">autosuggest_zh_tw</str>
+			<str name="buildOnCommit">true</str>
+			<str name="buildOnOptimize">true</str>
+			<str name="accuracy">0.35</str>
+		</lst>
+		
 	</searchComponent>
 
     <requestHandler name="/spell" class="solr.SearchHandler">
@@ -1258,6 +1268,12 @@
 		<lst name="spellchecker">
 			<str name="name">pt</str>
 			<str name="field">spellcheck_pt</str>
+			<str name="buildOnCommit">true</str>
+			<str name="buildOnOptimize">true</str>
+		</lst>
+		<lst name="spellchecker">
+			<str name="name">zh_TW</str>
+			<str name="field">spellcheck_zh_tw</str>
 			<str name="buildOnCommit">true</str>
 			<str name="buildOnOptimize">true</str>
 		</lst>
