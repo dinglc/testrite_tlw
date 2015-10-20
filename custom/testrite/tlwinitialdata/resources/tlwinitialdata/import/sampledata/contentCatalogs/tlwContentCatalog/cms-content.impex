@@ -533,3 +533,13 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 
 # ContentSlotForPage
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='checkout-login'];contentSlot(uid,$contentCV)[unique=true];;;
+
+########### subcategory
+#create Hot Product Component
+INSERT_UPDATE HotProductComponent	;$contentCV[unique=true]	;uid[unique=true]	;name		;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
+									;							;HotProduct			;HotProduct	;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;HotProduct
+
+INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
+						 	;						 	;SubCategoryPage-Section1A-contentSlot  ;HotProduct
+
+

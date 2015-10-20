@@ -415,6 +415,12 @@
 			    extends="NavigationBarComponent" autocreate="true">
 			    <description>It represents category navigation bar component.</description>
 			</itemtype>
+			
+			<itemtype code="HotProductComponent" generate="true"
+			    jaloclass="com.testritegroup.ec.core.jalo.cms2.components.HotProductComponent"
+			    extends="ProductCarouselComponent" autocreate="true">
+			    <description>It represents Hotselling product by customer.</description>
+			</itemtype>
 
         </typegroup>
 

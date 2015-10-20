@@ -139,3 +139,7 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
 
 UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=$lang]
+
+##### category left hotselling product
+UPDATE HotProductComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+                          ;                       ;HotProduct      ;"熱銷排行"
