@@ -28,11 +28,6 @@ UPDATE CMSNavigationNode	;$contentCV[unique=true];uid[unique=true]	;title[lang=$
 
 # CMS Link Components
 UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lang=$lang]
-					   	;							;AboutMeLink		;關於我們
-					   	;							;StoreLink      	;門市資訊
-					   	;							;ReportLink  	  	;媒體報導
-					   	;							;WebMapLink  	 	;網站地圖
-					   	;							;CopyrightLink    	;版權申明
 						;							;ShoppingLink		;線上購物
 						;							;ExclusiveLink		;網購獨享
 						;							;ClearLink			;出清
@@ -54,12 +49,29 @@ UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lan
 UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];notice[lang=$lang]
 					  ;                       ;FooterComponent ;特力屋股份有限公司 版權所有©Copyright 2015 Test Rite Retail Co.,LTD. All Rights Reserved
 
+# CMS Link Components
+UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lang=$lang]
+					   	;							;AboutMeLink		;關於我們
+					   	;							;StoreLink      	;門市資訊
+					   	;							;ReportLink  	  	;媒體報導
+					   	;							;WebMapLink  	 	;網站地圖
+					   	;							;CopyrightLink    	;版權申明
+
 ############## Content
 # Banner Component
 UPDATE BannerComponent		;$contentCV[unique=true]	;uid[unique=true]		;headline[lang=$lang]	;$picture[lang=$lang]		;content[lang=$lang]
 							;							;mBN1BannerComponent	;						;/images/sample/mBN_1.jpg	;
 							;							;mBN2BannerComponent	;						;/images/sample/mBN_2.jpg	;
 							;							;mBN3BannerComponent	;						;/images/sample/mBN_3.jpg	;
+
+# Product Carousel Component
+UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]
+								;							;Suggestion			;家家家家家家
+
+# CMS Link Components
+UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lang=$lang]
+						;							;3MLink				;3M
+						;							;SakuraLink			;櫻花
 
 # Lightbox Banner for Mini Cart (banner is not localizable so we must create a separate banner per language)
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText

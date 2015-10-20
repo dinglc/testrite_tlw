@@ -18,6 +18,8 @@
         <collectiontype code="GenderList" elementtype="Gender" autocreate="true" generate="true" type="list"/>
         <collectiontype code="SwatchColorSet" elementtype="SwatchColorEnum" autocreate="true" generate="true"
                         type="set"/>
+        <collectiontype code="CMSLinkComponentList" elementtype="CMSLinkComponent" autocreate="true" generate="true"
+			type="list" />
     </collectiontypes>
 
 
@@ -415,13 +417,25 @@
 			    extends="NavigationBarComponent" autocreate="true">
 			    <description>It represents category navigation bar component.</description>
 			</itemtype>
-			
+
+			<itemtype code="LinkCollectionComponent" generate="true"
+			    jaloclass="com.testritegroup.ec.core.jalo.cms2.components.LinkCollectionComponent"
+			    extends="SimpleCMSComponent" autocreate="true">
+			    <description>It represents link collection component.</description>
+			    <attributes>
+					<attribute type="CMSLinkComponentList" qualifier="Links">
+						<persistence type="property" />
+						<modifiers />
+						<description>List of links that are rendered in this component.</description>
+					</attribute>
+				</attributes>
+			</itemtype>
+
 			<itemtype code="HotProductComponent" generate="true"
 			    jaloclass="com.testritegroup.ec.core.jalo.cms2.components.HotProductComponent"
 			    extends="ProductCarouselComponent" autocreate="true">
 			    <description>It represents Hotselling product by customer.</description>
 			</itemtype>
-
         </typegroup>
 
 

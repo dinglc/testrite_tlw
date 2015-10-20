@@ -17,13 +17,32 @@
 			</div>
 			<nav class="leftNav">
 				<ul class="nav">
-					<c:if test="${not empty root}">
-						<c:forEach items="${root}" var="rt">
-							<li><a href="<c:url value="${rt.url}"/>">${rt.name}</a></li>
+					<c:if test="${not empty subcategories}">
+						<c:forEach items="${subcategories}" var="sub">
+							<li><a href="<c:url value="${sub.url}"/>">${sub.name}</a></li>
 						</c:forEach>
 					</c:if>
 				</ul>
 			</nav>
+			<div class="brandZone">
+			    <div class="title-3">
+				    <h3>
+				    	<spring:theme code="text.brands"/>
+				    </h3>
+				    <hr>
+			    </div>
+			    
+			    <nav class="leftNav">
+			    <ul class="nav">
+				    <cms:pageSlot position="Section1B" var="feature">
+						<cms:component component="${feature}" />
+					</cms:pageSlot>
+				    </ul>
+			    </nav>
+			</div>
+			<cms:pageSlot position="Section1C" var="feature">
+						<cms:component component="${feature}" />
+					</cms:pageSlot>
 		</section>
 	</div><!--左版位End-->
 	<!--右版位-->
@@ -38,7 +57,7 @@
 		     </div>    
 		</section>
 		
-		<cms:pageSlot position="Section4" var="feature">
+		<cms:pageSlot position="Section3" var="feature">
 			<cms:component component="${feature}" />
 		</cms:pageSlot>
 				

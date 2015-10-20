@@ -163,7 +163,36 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]	;name			
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]		;cmsComponents(&componentRef)
                          	;                       	;FooterSlot	     		; FooterComponent
 
-###########	Content
+###########	Left Content
+# CMS Product Refinement Component
+INSERT_UPDATE ProductRefinementComponent;$contentCV[unique=true]	;uid[unique=true]			;name								;&componentRef
+										;							;RefinementFacetComponent	;Product Refinement Facet Component	;RefinementFacetComponent
+
+# CMS Link Collection Component
+INSERT_UPDATE LinkCollectionComponent	;$contentCV[unique=true]	;uid[unique=true]			;name							;Links(uid,$contentCV)	;&componentRef
+										;							;LinkCollectionComponent	;Link Collection Component		;3MLink,SakuraLink		;LinkCollectionComponent
+
+# CMS Link Components
+INSERT_UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;name				;url							;external[default='false']	;&linkRef			;&componentRef		;target(code)[default='sameWindow']
+								;							;3MLink				;3M Link			;/brand/3M						;							;3MLink				;3MLink				;
+								;							;SakuraLink			;Sakura Link		;/brand/Sakura					;							;SakuraLink			;SakuraLink			;	
+
+#Bind ComponentTypeGroups to ComponentType
+INSERT_UPDATE ComponentTypeGroups2ComponentType	;source(code)[unique=true];target(code)[unique=true]
+												;narrow;LinkCollectionComponent
+												;wide;LinkCollectionComponent
+
+#create Hot Product Component
+INSERT_UPDATE HotProductComponent	;$contentCV[unique=true]	;uid[unique=true]	;name		;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
+									;							;HotProduct			;HotProduct	;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;HotProduct
+
+# Content Slots
+INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
+						 	;							;ProductLeftRefinements					;RefinementFacetComponent
+						 	;							;BrandLinksContentSlot					;LinkCollectionComponent
+						 	;							;HotProductContentSlot					;HotProduct
+
+###########	Right Content
 # Medias for Rotating Images
 INSERT_UPDATE Media	;$contentCV[unique=true]	;code[unique=true]								 ;realfilename				;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator] ;mime[default='image/jpeg']		;altText	;&imageRef	;folder(qualifier)[default='images']
                     ;                         	;/images/sample/mBN_1.jpg                      	 ;mBN_1.jpg          	  	;$siteResource/images/sample/mBN_1.jpg                             	     	;image/jpg                   	;mBN_1 	  	;mBN_1		;
@@ -178,10 +207,6 @@ INSERT_UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;name	
 
 INSERT_UPDATE RotatingImagesComponent	;$contentCV[unique=true]	;uid[unique=true]			;name						;banners(&componentRef)											;&componentRef
 										;							;RotatingImagesComponent	;Rotating Images Component	;mBN1BannerComponent,mBN2BannerComponent,mBN3BannerComponent	;RotatingImagesComponent
-
-# CMS Product Refinement Component
-INSERT_UPDATE ProductRefinementComponent;$contentCV[unique=true]	;uid[unique=true]			;name								;&componentRef
-										;							;RefinementFacetComponent	;Product Refinement Facet Component	;RefinementFacetComponent
 
 # CMS Product List Component
 INSERT_UPDATE CMSProductListComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;actions(uid,$contentCV)						;&componentRef
@@ -199,7 +224,6 @@ INSERT_UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
                          	;                       	;RotatingBannerSlot-shopping	     	; RotatingImagesComponent
 						 	;							;ProductCarouselSlot-shopping			;Suggestion
-						 	;							;ProductLeftRefinements					;RefinementFacetComponent
 						 	;							;ProductListSlot						;ProductListComponent
 
 # Navigation Bar Component
@@ -535,9 +559,6 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='checkout-login'];contentSlot(uid,$contentCV)[unique=true];;;
 
 ########### subcategory
-#create Hot Product Component
-INSERT_UPDATE HotProductComponent	;$contentCV[unique=true]	;uid[unique=true]	;name		;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
-									;							;HotProduct			;HotProduct	;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;HotProduct
 
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
 						 	;						 	;SubCategoryPage-Section1A-contentSlot  ;HotProduct

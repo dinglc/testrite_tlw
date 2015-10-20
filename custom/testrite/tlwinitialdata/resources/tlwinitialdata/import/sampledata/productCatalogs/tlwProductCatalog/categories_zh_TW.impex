@@ -310,3 +310,7 @@ UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
 ;5455;;冷氣配件;
 ;5461;;按摩椅/健身器材;
 ;5467;;伯登家具;
+
+# Create Brands
+UPDATE ECPBrand	;code[unique=true]	;$catalogVersion	;name[lang=$lang]	;story[lang=$lang]
+				;brands				;					;大眾品牌				;大眾的故事

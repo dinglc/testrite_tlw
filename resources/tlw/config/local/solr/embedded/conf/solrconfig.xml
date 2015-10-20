@@ -1201,6 +1201,7 @@
 			<str name="buildOnOptimize">true</str>
 			<str name="accuracy">0.35</str>
 		</lst>
+
 		<lst name="spellchecker">
 			<str name="name">zh_TW</str>
 			<str name="classname">org.apache.solr.spelling.suggest.Suggester</str>
@@ -1209,9 +1210,7 @@
 			<str name="buildOnCommit">true</str>
 			<str name="buildOnOptimize">true</str>
 			<str name="accuracy">0.35</str>
-		</lst>
-		
-	</searchComponent>
+		</lst>	</searchComponent>
 
     <requestHandler name="/spell" class="solr.SearchHandler">
         <lst name="defaults">

@@ -246,9 +246,10 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
 ;SearchBox;;;searchbox
 ;MiniCart;;;minicart
 ;NavigationBar;;;navigation
-;Section1A;;;
-;Section1B;;;
-;Section1C;;;
+;Section1A;;;narrow
+;Section1B;;;narrow
+;Section1C;;;narrow
+;Section1D;;;narrow
 ;Section2;;;wide
 ;Section3;;;wide
 ;Section4;;;wide
@@ -464,6 +465,8 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
 ;;CenterRightContentSlot;Center Right Content Slot;true
 ;;EmptyCartMiddleContent;Empty CartMiddle Content Slot;true
 ;;PlaceholderContentSlot;Placeholder for Addon tag files;true
+;;BrandLinksContentSlot;Brand Links Content Slot;true
+;;HotProductContentSlot;Hot Product Content Slot;true
 
 # Bind Content Slots to Page Templates
 INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='ProductDetailsPageTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
@@ -559,7 +562,9 @@ INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];po
 ;;BottomHeaderSlot-LandingPage2;BottomHeaderSlot;;BottomHeaderSlot;true
 ;;PlaceholderContentSlot-LandingPage2;PlaceholderContentSlot;;PlaceholderContentSlot;true
 
-INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='LandingPage3Template'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true]			;position[unique=true]	;pageTemplate(uid,$contentCV)[unique=true][default='LandingPage3Template']	;contentSlot(uid,$contentCV)[unique=true]	;allowOverwrite
+									;						;BrandLinks-LandingPage3	;Section1B				;																			;BrandLinksContentSlot						;true
+									;						;HotProduct-LandingPage3	;Section1C				;																			;HotProductContentSlot						;true
 ;;SiteLogo-LandingPage3;SiteLogo;;SiteLogoSlot;true
 ;;HomepageLink-LandingPage3;HomepageNavLink;;HomepageNavLinkSlot;true
 ;;NavigationBar-LandingPage3;NavigationBar;;NavigationBarSlot;true

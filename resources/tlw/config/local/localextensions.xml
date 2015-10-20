@@ -23,7 +23,7 @@
 
     <!-- TestRite's modules -->
     <!-- <extension name='testritetest' /> -->
-    <!-- <extension name='testritecockpits' /> -->
+    <extension name='testritecockpits' />
 
     <extension name='testritefulfilmentprocess' />
     <extension name='testritecore' />

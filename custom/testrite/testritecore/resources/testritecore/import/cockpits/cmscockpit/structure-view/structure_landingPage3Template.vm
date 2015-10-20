@@ -30,7 +30,7 @@
 			</tr>
 			
 			<tr>
-				<td rowspan="2" style="vertical-align:top;" class="structureViewSection">
+				<td style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section1A" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
@@ -39,13 +39,16 @@
 				
 			</tr>
 			<tr>
+				<td style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section1B" />
+				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section3" />
 				</td>
 			</tr>
 			<tr>
 				<td style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section1B" />
+					<cockpit code="Section1C" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section4" />
@@ -53,7 +56,7 @@
 			</tr>
 			<tr>
 				<td style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section1C" />
+					<cockpit code="Section1D" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section5" />

@@ -481,6 +481,14 @@
 
         </fieldType>
 
+		<fieldType name="text_zh_tw" class="solr.TextField"
+			positionIncrementGap="100">
+			<analyzer>
+				<tokenizer class="org.apache.solr.analysis.CJKTokenizerFactory" />
+				<filter	class="de.hybris.platform.solrfacetsearch.ysolr.synonyms.HybrisSynonymFilterFactory" ignoreCase="true" synonyms="zh_tw" coreName="${solr.core.name}"/>
+			</analyzer>
+		</fieldType>
+		
 		<fieldType name="text_zh" class="solr.TextField"
 			positionIncrementGap="100">
 			<analyzer>
@@ -585,7 +593,7 @@
 		<field name="autosuggest_zh" type="text_spell" indexed="true" stored="true" multiValued="true" />
 		<field name="autosuggest_pt" type="text_spell_pt" indexed="true" stored="true" multiValued="true" />
 		<field name="autosuggest_it" type="text_spell_it" indexed="true" stored="true" multiValued="true" />
-		<field name="autosuggest_zh_tw" type="text_spell_zh_TW" indexed="true" stored="true" multiValued="true" />
+		<field name="autosuggest_zh_tw" type="text_spell" indexed="true" stored="true" multiValued="true" />
 
 		<copyField source="autosuggest" dest="autosuggest_de" />
 		<copyField source="autosuggest" dest="autosuggest_en" />
@@ -604,7 +612,7 @@
 		<field name="spellcheck_zh" type="text_spell" indexed="true" stored="true" multiValued="true" />
 		<field name="spellcheck_pt" type="text_spell_pt" indexed="true" stored="true" multiValued="true" />
 		<field name="spellcheck_it" type="text_spell_it" indexed="true" stored="true" multiValued="true" />
-		<field name="spellcheck_zh_tw" type="text_spell_zh_TW" indexed="true" stored="true" multiValued="true" />
+		<field name="spellcheck_zh_tw" type="text_spell" indexed="true" stored="true" multiValued="true" />
 		
 		<copyField source="spellcheck" dest="spellcheck_de" />
 		<copyField source="spellcheck" dest="spellcheck_en" />
@@ -638,9 +646,9 @@
 
 		<dynamicField name="*_text_it" type="text_it" indexed="true" stored="true" />
 		<dynamicField name="*_text_it_mv" type="text_it" indexed="true" stored="true" multiValued="true"/>
-
-		<dynamicField name="*_text_zh_tw" type="text_it" indexed="true" stored="true" />
-		<dynamicField name="*_text_zh_tw_mv" type="text_it" indexed="true" stored="true" multiValued="true"/>
+		
+		<dynamicField name="*_text_zh_tw" type="text_zh_tw" indexed="true" stored="true" />
+		<dynamicField name="*_text_zh_tw_mv" type="text_zh_tw" indexed="true" stored="true" multiValued="true"/>
 
 		<copyField source="*_text_de" dest="fulltext_de" />
 		<copyField source="*_text_en" dest="fulltext_en" />
@@ -658,7 +666,7 @@
 		<field name="fulltext_zh" type="text_zh" indexed="true" stored="false" multiValued="true" />
 		<field name="fulltext_pt" type="text_pt" indexed="true" stored="false" multiValued="true" />
 		<field name="fulltext_it" type="text_it" indexed="true" stored="false" multiValued="true" />
-		<field name="fulltext_zh_tw" type="text_zh_TW" indexed="true" stored="false" multiValued="true" />
+		<field name="fulltext_zh_tw" type="text_zh_tw" indexed="true" stored="false" multiValued="true" />
 
 		<!--
 			Dynamic field definitions. If a field name is not found,

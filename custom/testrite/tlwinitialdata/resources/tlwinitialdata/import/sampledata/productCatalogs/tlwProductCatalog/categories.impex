@@ -620,3 +620,7 @@ INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
 ;5101;5100
 ;5108;5100
 ;5121;5100
+
+# Insert Brands
+INSERT_UPDATE ECPBrand	;code[unique=true]	;$catalogVersion
+						;brands				;
