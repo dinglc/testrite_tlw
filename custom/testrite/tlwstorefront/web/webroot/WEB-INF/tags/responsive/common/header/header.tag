@@ -148,17 +148,20 @@
 					<div class="btn-group" role="group" aria-label="...">
 						<cms:component component="${component}" />
 					</div>
-				</c:when>
-				<c:otherwise>
-					<cms:component component="${component}" />
-				</c:otherwise>
-				</c:choose>
-			</cms:pageSlot>
-		</div>
+					</div>
 		</div>
 	</div>
 </div>
 </header>
+				</c:when>
+				<c:otherwise>
+				<div class="container" id="wrapper"> 
+					<cms:component component="${component}" />
+				</div>
+				</c:otherwise>
+				</c:choose>
+			</cms:pageSlot>
+		
 
 
 

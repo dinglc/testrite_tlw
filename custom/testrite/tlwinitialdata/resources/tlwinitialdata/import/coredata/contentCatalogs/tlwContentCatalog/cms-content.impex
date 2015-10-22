@@ -250,10 +250,17 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
 ;Section1B;;;narrow
 ;Section1C;;;narrow
 ;Section1D;;;narrow
+;Section1E;;;narrow
 ;Section2;;;wide
 ;Section3;;;wide
 ;Section4;;;wide
 ;Section5;;;wide
+;Section6;;;wide
+;Section7;;;wide
+;Section8;;;wide
+;Section9;;;wide
+;Section10;;;wide
+;Section11;;;wide
 ;Footer;;;footer
 ;TopHeaderSlot;;;wide
 ;BottomHeaderSlot;;;wide
@@ -453,8 +460,8 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
 ;;TopHeaderSlot;Top Header;true
 ;;BottomHeaderSlot;Bottom Header;true
 ;;ProductLeftRefinements;Refinements;true
-;;ProductGridSlot;Product List;true
-;;ProductListSlot;Product Grid;true
+;;ProductGridSlot;Product Grid;true
+;;ProductListSlot;Product List;true
 ;;SearchResultsListSlot;Search Result List;true
 ;;SearchResultsGridSlot;Search Result Grid;true
 ;;MiddleContentSlot;Middle Content Slot;true
@@ -465,8 +472,10 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
 ;;CenterRightContentSlot;Center Right Content Slot;true
 ;;EmptyCartMiddleContent;Empty CartMiddle Content Slot;true
 ;;PlaceholderContentSlot;Placeholder for Addon tag files;true
+;;LeftCategoriesListContentSlot;Categories List Content Slot at left;true
 ;;BrandLinksContentSlot;Brand Links Content Slot;true
 ;;HotProductContentSlot;Hot Product Content Slot;true
+;;LeftAdContentSlot;Ad Content Slot at left;true
 
 # Bind Content Slots to Page Templates
 INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='ProductDetailsPageTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
@@ -562,9 +571,11 @@ INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];po
 ;;BottomHeaderSlot-LandingPage2;BottomHeaderSlot;;BottomHeaderSlot;true
 ;;PlaceholderContentSlot-LandingPage2;PlaceholderContentSlot;;PlaceholderContentSlot;true
 
-INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true]			;position[unique=true]	;pageTemplate(uid,$contentCV)[unique=true][default='LandingPage3Template']	;contentSlot(uid,$contentCV)[unique=true]	;allowOverwrite
-									;						;BrandLinks-LandingPage3	;Section1B				;																			;BrandLinksContentSlot						;true
-									;						;HotProduct-LandingPage3	;Section1C				;																			;HotProductContentSlot						;true
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true]					;position[unique=true]	;pageTemplate(uid,$contentCV)[unique=true][default='LandingPage3Template']	;contentSlot(uid,$contentCV)[unique=true]	;allowOverwrite
+									;						;LeftCategoriesList-LandingPage3	;Section1A				;																			;LeftCategoriesListContentSlot				;true
+									;						;BrandLinks-LandingPage3			;Section1B				;																			;BrandLinksContentSlot						;true
+									;						;HotProduct-LandingPage3			;Section1C				;																			;HotProductContentSlot						;true
+									;						;LeftAd-LandingPage3				;Section1D				;																			;LeftAdContentSlot							;true
 ;;SiteLogo-LandingPage3;SiteLogo;;SiteLogoSlot;true
 ;;HomepageLink-LandingPage3;HomepageNavLink;;HomepageNavLinkSlot;true
 ;;NavigationBar-LandingPage3;NavigationBar;;NavigationBarSlot;true
@@ -820,13 +831,13 @@ INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name				;
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]					;name								;active[default='true']
 							;							;RotatingBannerSlot-shopping		;Rotating Banner Slot for shopping	;
 							;							;ProductCarouselSlot-shopping		;Product Carousel Slot for shopping	;
-
+							;							;AdContentSlot-shopping				;Ad Content Slot for shopping		;
 
 # Bind Content Slots to Shopping Page
 INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ShoppingPage']	;contentSlot(uid,$contentCV)[unique=true]
 									;							;RotatingBannerSlot-shopping	;Section2				;															;RotatingBannerSlot-shopping			
-									;							;ProductCarouselSlot-shopping	;Section3				;															;ProductCarouselSlot-shopping			
-
+									;							;AdContentSlot-shopping			;Section4				;															;AdContentSlot-shopping			
+									;							;ProductCarouselSlot-shopping	;Section6				;															;ProductCarouselSlot-shopping			
 
 ##### SubCategoryTemplate : ���p������ Template
 INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true]   ;name                     ;frontendTemplateName  ;restrictedPageTypes(code);active[default=true]
@@ -866,13 +877,13 @@ INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];po
 ;;BottomHeaderSlot-SubCategoryPage;BottomHeaderSlot;;BottomHeaderSlot;true
 ;;PlaceholderContentSlot-SubCategoryPage;PlaceholderContentSlot;;PlaceholderContentSlot;true
 
-INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]   ;name               ;masterTemplate(uid,$contentCV);label             ;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)[default='ContentPageModel__function_preview']
-                         ;                       ;SubCategoryPage-2  ;SubCategoryPage-2  ;SubCategoryTemplate           ;SubCategoryPage-2
-                         ;                       ;SubCategoryPage-195;SubCategoryPage-195;SubCategoryTemplate           ;SubCategoryPage-195
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]   ;name               ;masterTemplate(uid,$contentCV)	;label             ;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)[default='ContentPageModel__function_preview']
+                         ;                       ;SubCategoryPage-2  ;SubCategoryPage-2  ;LandingPage3Template           	;SubCategoryPage-2
+                         ;                       ;SubCategoryPage-195;SubCategoryPage-195;LandingPage3Template           	;SubCategoryPage-195
 
 # SubCategoryTemplate 共用 Slot
-INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true]         ;position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='SubCategoryTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
-                                    ;                       ;SubCategoryPage-Section1A;Section1A            ;                                                                        ;SubCategoryPage-Section1A-contentSlot   ;true
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true]         	;position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='SubCategoryTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+                                    ;                       ;SubCategoryPage-Section1A	;Section1A            ;                                                                        ;SubCategoryPage-Section1A-contentSlot   ;true
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]                        ;name                                    ;active
                          ;                       ;SubCategoryPage-Section1A-contentSlot   ;SubCategoryPage-Section1A-contentSlot   ;true
 
@@ -884,3 +895,12 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]              
 #                                ;                       ;SubCategoryPage-2-Section1A ;Section1A            ;                                                               ;SubCategoryPage-2-Section1A-contentSlot
 
 # End SubCategoryTemplate
+
+############################# Product List Page 
+# Create Content Page
+INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name				;masterTemplate(uid,$contentCV)		;label			;defaultPage[default='true']	;approvalStatus(code)[default='approved']	;homepage[default='false']
+							;							;ProductListPage		;Product List Page	;LandingPage3Template				;ProductList	;								;											;
+
+# Bind Content Slots to Product List Page
+INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ProductListPage']	;contentSlot(uid,$contentCV)[unique=true]
+									;							;ProductListSlot				;Section2				;																;ProductListSlot			

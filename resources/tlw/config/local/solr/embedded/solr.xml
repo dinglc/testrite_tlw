@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <solr persistent="true" sharedLib="hybris">
   <cores adminPath="/admin/cores">
-  
-  <core name="master_tlw_Product" instanceDir="E:\workspace\HAT\hybris5_6_tlw\hybris\config\solr\embedded" dataDir="E:\workspace\HAT\hybris5_6_tlw\hybris\data\solrfacetsearch\MASTER\tlw_Product"/>
+    <core name="master_tlw_Product" instanceDir="E:\workspace\HAT\hybris5_6_tlw\hybris\config\solr\embedded" dataDir="E:\workspace\HAT\hybris5_6_tlw\hybris\data\solrfacetsearch\MASTER\tlw_Product"/>
 
     <core name="master_tlw_Product_1" instanceDir="E:\workspace\HAT\hybris5_6_tlw\hybris\config\solr\embedded" dataDir="E:\workspace\HAT\hybris5_6_tlw\hybris\data\solrfacetsearch\MASTER\tlw_Product_1"/>
-  
-    </cores>
+</cores>
 </solr>

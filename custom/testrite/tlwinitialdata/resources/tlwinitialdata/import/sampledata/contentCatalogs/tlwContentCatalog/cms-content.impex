@@ -186,11 +186,24 @@ INSERT_UPDATE ComponentTypeGroups2ComponentType	;source(code)[unique=true];targe
 INSERT_UPDATE HotProductComponent	;$contentCV[unique=true]	;uid[unique=true]	;name		;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
 									;							;HotProduct			;HotProduct	;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;HotProduct
 
+# Simple Banner Component
+INSERT_UPDATE SimpleBannerComponent	;$contentCV[unique=true]	;uid[unique=true]			;name					;&componentRef				;urlLink
+									;							;leftAdBanner1Component		;Ad Banner1 at left		;leftAdBanner1Component		;/
+									;							;leftAdBanner2Component		;Ad Banner2 at left		;leftAdBanner2Component		;/
+									;							;leftAdBanner3Component		;Ad Banner3 at left		;leftAdBanner3Component		;/
+									;							;AdBanner1Component			;Ad Banner1 			;AdBanner1Component			;/
+									;							;AdBanner2Component			;Ad Banner2 			;AdBanner2Component			;/
+									;							;AdBanner3Component			;Ad Banner3 			;AdBanner3Component			;/
+									;							;AdBanner4Component			;Ad Banner4 			;AdBanner4Component			;/
+
 # Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
 						 	;							;ProductLeftRefinements					;RefinementFacetComponent
 						 	;							;BrandLinksContentSlot					;LinkCollectionComponent
 						 	;							;HotProductContentSlot					;HotProduct
+						 	;							;LeftAdContentSlot						;leftAdBanner1Component,leftAdBanner2Component,leftAdBanner3Component
+						 	;							;AdContentSlot-shopping					;AdBanner1Component,AdBanner2Component,AdBanner3Component,AdBanner4Component
+						 	;							;LeftCategoriesListContentSlot			;RefinementFacetComponent
 
 ###########	Right Content
 # Medias for Rotating Images
@@ -224,7 +237,7 @@ INSERT_UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
                          	;                       	;RotatingBannerSlot-shopping	     	; RotatingImagesComponent
 						 	;							;ProductCarouselSlot-shopping			;Suggestion
-						 	;							;ProductListSlot						;ProductListComponent
+						 	;							;ProductListSlot						;ProductGridComponent
 
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef

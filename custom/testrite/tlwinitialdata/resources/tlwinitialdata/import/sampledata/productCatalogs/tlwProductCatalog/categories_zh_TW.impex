@@ -252,6 +252,7 @@ UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
 ;2466;;毯類;
 ;2467;;寢具配件;
 ;2468;;嬰童寢具;
+;2469;;美食
 ;2470;;天然食品;
 ;2471;;沖調飲品;
 ;2472;;其他食品;
