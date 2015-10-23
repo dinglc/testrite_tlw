@@ -27,6 +27,7 @@ import de.hybris.platform.cms2.model.contents.components.CMSLinkComponentModel;
 import de.hybris.platform.cms2lib.model.components.ProductCarouselComponentModel;
 
 import com.testritegroup.ec.core.model.cms2.components.CategoryNavigationBarComponentModel;
+import com.testritegroup.ec.core.model.cms2.components.HotProductComponentModel;
 import com.testritegroup.ec.core.model.cms2.components.LeftNavigationBarComponentModel;
 
 
@@ -66,6 +67,7 @@ public interface ControllerConstants
 			String DynamicBannerComponent = _Prefix + DynamicBannerComponentModel._TYPECODE + _Suffix;
 			String SubCategoryListComponent = _Prefix + SubCategoryListComponentModel._TYPECODE + _Suffix;
 			String SimpleResponsiveBannerComponent = _Prefix + SimpleResponsiveBannerComponentModel._TYPECODE + _Suffix;
+			String HotProductComponent = _Prefix + HotProductComponentModel._TYPECODE + _Suffix;
 		}
 	}
 

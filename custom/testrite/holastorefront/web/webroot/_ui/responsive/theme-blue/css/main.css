@@ -168,27 +168,41 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 */
 
-/*mainSlider*/
+/*mainSlider
 .mainSlider{position:relative;}
 .mainSlider a.btnPrev{position:absolute;left:5px;top:48%;z-index:99;}
 .mainSlider a.btnNext{position:absolute;right:5px;top:48%;z-index:99;}
 .mainSlider ul.mainSliderImg{z-index:0;}
 .mainSlider ul.mainSliderImg li img{width:100%;}
-
 .mainSliderDotted{position:absolute;right:10px;top:10px;z-index:99;}
 .mainSliderDotted li{margin:0 3px;padding:0;}
 .mainSliderDotted a{width:8px;height:8px;background-color:#ccc;display:block;border-radius:50%;}
-.mainSliderDotted a:hover,.mainSliderDotted a.active{background-color:#666}
+.mainSliderDotted a:hover,.mainSliderDotted a.active{background-color:#666}*/
+
+/*mainSlider*/
+.mainSlider{margin-bottom:20px;}
 
 /*prds*/
-.prdList{font-size:12px;text-align:center;margin:10px auto;}
-.prdList div{margin-bottom:25px;}
-.prdList div>a{height:180px;display:block;}
-.prdList div>a:before{content:"";vertical-align:middle;display:inline-block;height:100%;}
-.prdList div>a img{vertical-align:middle;display:inline-block;}
-.prdList div img{transition:all .5s;cursor:pointer;}
-.prdList div img:hover{transform:scale(.9)}
-.prdList div h3{font-size:14px;}
+.prdList{font-size:12px;text-align:center;margin-bottom:10px;}
+.prdList div{}
+.prdList section{border:1px solid #BDBDBD;height:220px;margin:0 auto 15px;position:relative;padding:0px 10px;}
+.prdList section.bigItem{width:98.5%;height:440px;}
+.prdList section.bigItem a{height:350px;display:block;}
+.prdList section.bigItem a img{}
+.prdList section.sellPrd{width:100%;padding:0;position:relative;}
+.prdList section.sellPrd a{}
+.prdList section.sellPrd div{position:absolute;bottom:0;left:0;width:100%;padding:15px 0;color:#fff;}
+.prdList section.sellPrd div span{color:#fff;}
+.prdList section a{height:150px;display:block;}
+.prdList section a:before{content:"";vertical-align:middle;display:inline-block;height:100%;}
+.prdList section a img{vertical-align:middle;display:inline-block;max-height:75%;}
+.prdList section img{transition:all .5s;cursor:pointer;}
+.prdList section img:hover{transform:scale(.9)}
+.prdList section p{padding:0 2px;color:#999;}
+.prdList section h3{font-size:14px;}
+.prdList section hr{border:none;border-left:3px solid #235c63;position:absolute;left:0;bottom:-20px;height:70px;}
+.prdList section.noContent{border:none;padding:0;}
+.prdList section.noContent a{height:auto;display:block;}
 .prdList.noBG,.prdList.noBG div{background:none;}
 
 
@@ -204,25 +218,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .prdList3 div{margin-bottom:25px;}
 .prdList3 div a{width:275px;height:235px;display:block;margin:auto;margin-bottom:20px;position:relative;}
 .prdList3 div a img{transition:all .5s;cursor:pointer;width:100%;box-sizing:border-box;z-index:0;}
-.prdList3 div a section{width:100%;height:100%;background:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:99;text-align:center;opacity:0;transition:all .7s}
+.prdList3 div a section{background:rgba(0,0,0,.7);width:100%;height:100%;background:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:99;text-align:center;opacity:0;transition:all .7s}
 .prdList3 div a:hover section{opacity:1}
-
 .prdList3 div a section span{color:#fff;padding:5px 20px;border:1px solid #fff;letter-spacing:5px;display:inline-block;vertical-align:middle;}
 .prdList3 div a section:before{display:inline-block;vertical-align:middle;height:100%;content:"";}
 
 /*itemHotList*/
 .itemHotList{position:relative;}
+.itemHotList .row{}
 
-.itemHotList a.btnPrev{position:absolute;left:5px;top:48%;z-index:99;}
-.itemHotList a.btnNext{position:absolute;right:5px;top:48%;z-index:99;}
+.itemHotList a.btnPrev{position:absolute;left:-20px;top:50%;margin-top:-17px;z-index:99;}
+.itemHotList a.btnNext{position:absolute;right:-20px;top:50%;margin-top:-17px;z-index:99;}
 
 .itemHotListDotted{position:absolute;right:0px;top:10px;z-index:99;background:#fff;padding:0 10px}
 .itemHotListDotted li{margin:0 3px;padding:0;}
 .itemHotListDotted a{width:8px;height:8px;background-color:#ccc;display:block;border-radius:50%;}
 .itemHotListDotted a:hover,.itemHotListDotted a.active{background-color:#666}
-
-.itemHotList .prdList div:first-child{background:none;}
-.itemHotList .prdList{background:none;}
 
 /*sub-itemGategory*/
 .sub-itemGategory{}

@@ -36,27 +36,31 @@ INSERT_UPDATE ECPDimension;code[unique=true];$contentCV[unique=true];length ;wid
                           
 # Insert Products
 INSERT_UPDATE Product	;code[unique=true]	;$productCV		;$approved	;backendInfo(code)	;productDimension(code)	;packageDimension(code)	;ean		;$supercategories
-						;130				;				;			;test				;test					;test					;009100130	;42
-						;322				;				;			;test				;test					;test					;009100325	;74
-						;1193;;;test;test;test;009101260;3685
-						;2516;;;test;test;test;009102553;75
-						;6663;;;test;test;test;009106599;73
-						;7880;;;test;test;test;009107822;58
-						;9129;;;test;test;test;009109034;36
-						;10481;;;test;test;test;009110340;70
-						;10491;;;test;test;test;009110351;71
-						;10857;;;test;test;test;009110722;74
-						;10972;;;test;test;test;009110832;67
+						;130				;				;			;test				;test					;test					;009100130	;2462
+						;322				;				;			;test				;test					;test					;009100325	;2464
+						;564557				;				;			;test				;test					;test					;016058999	;2460
+						;557910				;				;			;test				;test					;test					;016057544	;2460						
+						;1193;;;test;test;test;009101260;5216
+						;2516;;;test;test;test;009102553;2475
+						;6663;;;test;test;test;009106599;2463
+						;7880;;;test;test;test;009107822;2468
+						;9129;;;test;test;test;009109034;2466
+						;10481;;;test;test;test;009110340;2470
+						;10491;;;test;test;test;009110351;2471
+						;10857;;;test;test;test;009110722;2464
+						;10972;;;test;test;test;009110832;2467
 						
 INSERT_UPDATE Product	;code[unique=true]	;$productCVON		;$approved	;backendInfo(code)	;productDimension(code)	;packageDimension(code)	;ean		;$supercategoriesonline
-						;130				;					;			;test				;test					;test					;009100130	;42
-						;322				;					;			;test				;test					;test					;009100325	;74
-						;1193;;;test;test;test;009101260;3685
-						;2516;;;test;test;test;009102553;75
-						;6663;;;test;test;test;009106599;73
-						;7880;;;test;test;test;009107822;58
-						;9129;;;test;test;test;009109034;36
-						;10481;;;test;test;test;009110340;70
-						;10491;;;test;test;test;009110351;71
-						;10857;;;test;test;test;009110722;74
-						;10972;;;test;test;test;009110832;67
+						;130				;					;			;test				;test					;test					;009100130	;2462
+						;322				;					;			;test				;test					;test					;009100325	;2464
+						;564557				;					;			;test				;test					;test					;016058999	;2460
+						;557910				;					;			;test				;test					;test					;016057544	;2460						
+						;1193;;;test;test;test;009101260;5216
+						;2516;;;test;test;test;009102553;2475
+						;6663;;;test;test;test;009106599;2463
+						;7880;;;test;test;test;009107822;2468
+						;9129;;;test;test;test;009109034;2466
+						;10481;;;test;test;test;009110340;2470
+						;10491;;;test;test;test;009110351;2471
+						;10857;;;test;test;test;009110722;2464
+						;10972;;;test;test;test;009110832;2467
