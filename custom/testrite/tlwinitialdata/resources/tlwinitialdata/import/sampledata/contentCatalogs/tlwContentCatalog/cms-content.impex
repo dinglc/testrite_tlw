@@ -202,8 +202,8 @@ INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsCo
 						 	;							;BrandLinksContentSlot					;LinkCollectionComponent
 						 	;							;HotProductContentSlot					;HotProduct
 						 	;							;LeftAdContentSlot						;leftAdBanner1Component,leftAdBanner2Component,leftAdBanner3Component
-						 	;							;AdContentSlot-shopping					;AdBanner1Component,AdBanner2Component,AdBanner3Component,AdBanner4Component
 						 	;							;LeftCategoriesListContentSlot			;RefinementFacetComponent
+						 	;						 	;CategoryPage-Section1A-contentSlot  	;HotProduct
 
 ###########	Right Content
 # Medias for Rotating Images
@@ -235,9 +235,10 @@ INSERT_UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true
 
 # Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
-                         	;                       	;RotatingBannerSlot-shopping	     	; RotatingImagesComponent
+                         	;                       	;RotatingBannerSlot-shopping	     	;RotatingImagesComponent
 						 	;							;ProductCarouselSlot-shopping			;Suggestion
 						 	;							;ProductListSlot						;ProductGridComponent
+						 	;							;AdContentSlot-shopping					;AdBanner1Component,AdBanner2Component,AdBanner3Component,AdBanner4Component
 
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef
@@ -574,6 +575,5 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ########### subcategory
 
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
-						 	;						 	;SubCategoryPage-Section1A-contentSlot  ;HotProduct
 
 

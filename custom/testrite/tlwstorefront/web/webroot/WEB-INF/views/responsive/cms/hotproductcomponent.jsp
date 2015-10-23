@@ -6,11 +6,10 @@
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product" %>
 <%@ taglib prefix="component" tagdir="/WEB-INF/tags/shared/component" %>
 
-<div class="hotItem">
-	<div class="title-3">
-		<h4 class="text-left">${title}</h4>
-		<hr>
-	</div>
+<div class="title-3">
+	<h4 class="text-left">${title}</h4>
+	<hr>
+</div>
 
 <c:choose>
 	<c:when test="${not empty productData}">
@@ -38,6 +37,4 @@
 		<component:emptyComponent/>
 	</c:otherwise>
 </c:choose>
-
-</div>
 

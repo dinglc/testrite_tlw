@@ -60,7 +60,7 @@ public class CategoryPageController extends AbstractCategoryPageController
 {
 	protected static final Logger LOG = Logger.getLogger(CategoryPageController.class);
 
-	protected static final String SUBCATEGORYPAGE = "SubCategoryPage-";
+	protected static final String SUBCATEGORYPAGE = "CategoryPage-";
 	protected static final String PRODUCT_LIST_LAND_PAGE = "ProductListPage";
 
 	@RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)

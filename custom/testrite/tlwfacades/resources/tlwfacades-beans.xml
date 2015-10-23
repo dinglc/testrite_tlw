@@ -12,12 +12,35 @@
 -->
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
 
+	<enum class="de.hybris.platform.commercefacades.product.ProductOption">
+		<value>DIMENSION</value>
+	</enum>
+	
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="genders" type="java.util.List&lt;com.testritegroup.ec.tlw.facades.product.data.GenderData>"/>
+		<property name="productDimension" type="com.testritegroup.ec.tlw.facades.product.data.DimensionData"/>
+		<property name="allowOnlineSell" type="java.lang.Boolean"/>
 	</bean>
 
 	<bean class="com.testritegroup.ec.tlw.facades.product.data.GenderData">
 		<property name="code" type="String"/>
 		<property name="name" type="String"/>
+	</bean>
+
+    <bean class="com.testritegroup.ec.tlw.facades.category.data.ECPBrandData">
+        <property name="code" type="String"/>
+        <property name="name" type="String"/>
+        <property name="story" type="String"/>
+    </bean>
+    
+    <bean class="com.testritegroup.ec.tlw.facades.product.data.PriceData">
+		<property name="listPrice" type="String"></property>
+		<property name="storePrice" type="String"></property>
+	</bean>
+	
+	<bean class="com.testritegroup.ec.tlw.facades.product.data.DimensionData">
+		<property name="length" type="java.lang.Integer"/>
+		<property name="width" type="java.lang.Integer"/>
+		<property name="height" type="java.lang.Integer"/>
 	</bean>
 </beans>

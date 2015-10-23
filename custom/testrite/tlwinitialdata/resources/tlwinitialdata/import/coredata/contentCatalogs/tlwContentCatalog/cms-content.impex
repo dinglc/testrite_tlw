@@ -251,6 +251,9 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
 ;Section1C;;;narrow
 ;Section1D;;;narrow
 ;Section1E;;;narrow
+;ProductListSlot;;;wide
+;RotatingImagesSlot;;;wide
+;AdSlot;;;wide
 ;Section2;;;wide
 ;Section3;;;wide
 ;Section4;;;wide
@@ -258,9 +261,6 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
 ;Section6;;;wide
 ;Section7;;;wide
 ;Section8;;;wide
-;Section9;;;wide
-;Section10;;;wide
-;Section11;;;wide
 ;Footer;;;footer
 ;TopHeaderSlot;;;wide
 ;BottomHeaderSlot;;;wide
@@ -476,6 +476,8 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
 ;;BrandLinksContentSlot;Brand Links Content Slot;true
 ;;HotProductContentSlot;Hot Product Content Slot;true
 ;;LeftAdContentSlot;Ad Content Slot at left;true
+;;AdContentSlot;Ad Content Slot;true
+;;RotatingImagesSlot;RotatingImages Slot;true
 
 # Bind Content Slots to Page Templates
 INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='ProductDetailsPageTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
@@ -822,6 +824,7 @@ INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterT
 ;;productGrid;Product Grid;ProductGridPageTemplate;false;
 ;;category;Default Category Page;CategoryPageTemplate;false;
 
+
 ################# Shopping Page
 # Create Content Page
 INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name				;masterTemplate(uid,$contentCV)		;label		;defaultPage[default='true']	;approvalStatus(code)[default='approved']	;homepage[default='false']
@@ -835,66 +838,24 @@ INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]					;name		
 
 # Bind Content Slots to Shopping Page
 INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ShoppingPage']	;contentSlot(uid,$contentCV)[unique=true]
-									;							;RotatingBannerSlot-shopping	;Section2				;															;RotatingBannerSlot-shopping			
-									;							;AdContentSlot-shopping			;Section4				;															;AdContentSlot-shopping			
-									;							;ProductCarouselSlot-shopping	;Section6				;															;ProductCarouselSlot-shopping			
+									;							;RotatingBannerSlot-shopping	;RotatingImagesSlot		;															;RotatingBannerSlot-shopping			
+									;							;AdContentSlot-shopping			;AdSlot					;															;AdContentSlot-shopping			
+									;							;ProductCarouselSlot-shopping	;Section2				;															;ProductCarouselSlot-shopping			
 
-##### SubCategoryTemplate : ���p������ Template
-INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true]   ;name                     ;frontendTemplateName  ;restrictedPageTypes(code);active[default=true]
-                          ;                       ;SubCategoryTemplate;SubCategory Page Template;category/subCategoryPage;ContentPage
 
-UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true]   ;velocityTemplate[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
-                   ;                       ;SubCategoryTemplate;$jarResourceCms/structure-view/structure_subCategoryTemplate.vm
+########################### Category Page
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]  	;name               ;masterTemplate(uid,$contentCV)		;label             ;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)[default='ContentPageModel__function_preview']
+                         ;                       ;CategoryPage-2  		;CategoryPage-2  	;LandingPage3Template           	;CategoryPage-2
+                         ;                       ;CategoryPage-132		;CategoryPage-132	;LandingPage3Template           	;CategoryPage-132
 
-INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='SubCategoryTemplate'];validComponentTypes(code);compTypeGroup(code)
-;SiteLogo;;;logo
-;HeaderLinks;;;headerlinks
-;SearchBox;;;searchbox
-;MiniCart;;;minicart
-;NavigationBar;;;navigation
-;Section1A;;;narrow
-;Section2A;;;narrow
-;Section3A;;;narrow
-;Section4A;;;narrow
-;Section5A;;;narrow
-;Section6A;;;narrow
-;Section1B;;;wide
-;Section2B;;;wide
-;Footer;;;footer
-;TopHeaderSlot;;;wide
-;BottomHeaderSlot;;;wide
-;PlaceholderContentSlot;;;
+#CategoryPage-2 ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]                        	;name                                    			;active
+                         ;                       ;RotatingBannerSlot-categoryPage-2			;Rotating Banner Slot for categoryPage-2	  		;true
 
-INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='SubCategoryTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
-;;SiteLogo-SubCategoryPage;SiteLogo;;SiteLogoSlot;true
-;;HomepageLink-SubCategoryPage;HomepageNavLink;;HomepageNavLinkSlot;true
-;;NavigationBar-SubCategoryPage;NavigationBar;;NavigationBarSlot;true
-;;MiniCart-SubCategoryPage;MiniCart;;MiniCartSlot;true
-;;Footer-SubCategoryPage;Footer;;FooterSlot;true
-;;HeaderLinks-SubCategoryPage;HeaderLinks;;HeaderLinksSlot;true
-;;SearchBox-SubCategoryPage;SearchBox;;SearchBoxSlot;true
-;;TopHeaderSlot-SubCategoryPage;TopHeaderSlot;;TopHeaderSlot;true
-;;BottomHeaderSlot-SubCategoryPage;BottomHeaderSlot;;BottomHeaderSlot;true
-;;PlaceholderContentSlot-SubCategoryPage;PlaceholderContentSlot;;PlaceholderContentSlot;true
+#CategoryPage-2 ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true]            			;position[unique=true]		;page(uid,$contentCV)[unique=true][default='CategoryPage-2'] 		;contentSlot(uid,$contentCV)[unique=true]
+                                ;                       ;RotatingBannerSlot-categoryPage-2 		;RotatingImagesSlot         ;                                                               	;RotatingBannerSlot-categoryPage-2
 
-INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]   ;name               ;masterTemplate(uid,$contentCV)	;label             ;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)[default='ContentPageModel__function_preview']
-                         ;                       ;SubCategoryPage-2  ;SubCategoryPage-2  ;LandingPage3Template           	;SubCategoryPage-2
-                         ;                       ;SubCategoryPage-195;SubCategoryPage-195;LandingPage3Template           	;SubCategoryPage-195
-
-# SubCategoryTemplate 共用 Slot
-INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true]         	;position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='SubCategoryTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
-                                    ;                       ;SubCategoryPage-Section1A	;Section1A            ;                                                                        ;SubCategoryPage-Section1A-contentSlot   ;true
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]                        ;name                                    ;active
-                         ;                       ;SubCategoryPage-Section1A-contentSlot   ;SubCategoryPage-Section1A-contentSlot   ;true
-
-#SubCategoryPage-2 ContentSlot
-#INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]                        ;name                                    ;active
-#                         ;                       ;SubCategoryPage-2-Section1A-contentSlot;SubCategoryPage-2-Section1A-contentSlot  ;true
-#SubCategoryPage-2 ContentSlotForPage
-#INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true]            ;position[unique=true];page(uid,$contentCV)[unique=true][default='SubCategoryPage-2'] ;contentSlot(uid,$contentCV)[unique=true]
-#                                ;                       ;SubCategoryPage-2-Section1A ;Section1A            ;                                                               ;SubCategoryPage-2-Section1A-contentSlot
-
-# End SubCategoryTemplate
 
 ############################# Product List Page 
 # Create Content Page
@@ -903,4 +864,9 @@ INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name				;
 
 # Bind Content Slots to Product List Page
 INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ProductListPage']	;contentSlot(uid,$contentCV)[unique=true]
-									;							;ProductListSlot				;Section2				;																;ProductListSlot			
+									;							;ProductListSlot				;ProductListSlot		;																;ProductListSlot			
+
+############################# Product Detail Page 
+# Create Content Page
+INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name					;masterTemplate(uid,$contentCV)		;label			;defaultPage[default='true']	;approvalStatus(code)[default='approved']	;homepage[default='false']
+							;							;ProductDetailPage		;Product Detail Page	;LandingPage3Template				;ProductDetail	;								;											;

@@ -20,6 +20,7 @@ import de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.Abstrac
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.ReviewForm;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.validation.ReviewValidator;
+import de.hybris.platform.acceleratorstorefrontcommons.util.MetaSanitizerUtil;
 import de.hybris.platform.acceleratorstorefrontcommons.util.XSSFilterUtil;
 import de.hybris.platform.acceleratorstorefrontcommons.variants.VariantSortStrategy;
 import de.hybris.platform.catalog.enums.ProductReferenceTypeEnum;
@@ -38,8 +39,6 @@ import de.hybris.platform.commerceservices.url.UrlResolver;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.product.ProductService;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
-import com.testritegroup.ec.tlw.storefront.controllers.ControllerConstants;
-import de.hybris.platform.acceleratorstorefrontcommons.util.MetaSanitizerUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -68,6 +67,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.testritegroup.ec.tlw.storefront.controllers.ControllerConstants;
+
 
 /**
  * Controller for product details page
@@ -87,6 +88,7 @@ public class ProductPageController extends AbstractPageController
 	 */
 	private static final String PRODUCT_CODE_PATH_VARIABLE_PATTERN = "/{productCode:.*}";
 	private static final String REVIEWS_PATH_VARIABLE_PATTERN = "{numberOfReviews:.*}";
+	protected static final String PRODUCT_DETAIL_PAGE = "ProductDetailPage";
 
 	@Resource(name = "productModelUrlResolver")
 	private UrlResolver<ProductModel> productModelUrlResolver;
@@ -121,12 +123,19 @@ public class ProductPageController extends AbstractPageController
 			return redirection;
 		}
 
+
+		LOG.info(":::::::::::::::::productModelgetSupercategories::::::::::::::::::" + productModel.getSupercategories().size());
+		if (productModel.getSupercategories().iterator().hasNext())
+		{
+			LOG.info(":::::::::::::::::productModelgetSupercategories::::::::::::::::::"
+					+ productModel.getSupercategories().iterator().next().getCode());
+		}
 		updatePageTitle(productModel, model);
 		populateProductDetailForDisplay(productModel, model, request);
 		model.addAttribute(new ReviewForm());
 		final List<ProductReferenceData> productReferences = productFacade.getProductReferencesForCode(productCode,
 				Arrays.asList(ProductReferenceTypeEnum.SIMILAR, ProductReferenceTypeEnum.ACCESSORIES),
-				Arrays.asList(ProductOption.BASIC,ProductOption.PRICE), null);
+				Arrays.asList(ProductOption.BASIC, ProductOption.PRICE), null);
 		model.addAttribute("productReferences", productReferences);
 		model.addAttribute("pageType", PageType.PRODUCT.name());
 
@@ -144,7 +153,7 @@ public class ProductPageController extends AbstractPageController
 		final ProductData productData = productFacade.getProductForOptions(productModel,
 				Collections.singleton(ProductOption.GALLERY));
 		final List<Map<String, ImageData>> images = getGalleryImages(productData);
-		populateProductData(productData,model);
+		populateProductData(productData, model);
 		if (galleryPosition != null)
 		{
 			try
@@ -155,7 +164,7 @@ public class ProductPageController extends AbstractPageController
 			{
 				model.addAttribute("zoomImageUrl", "");
 			}
-        }
+		}
 		return ControllerConstants.Views.Fragments.Product.ZoomImagesPopup;
 	}
 
@@ -166,7 +175,8 @@ public class ProductPageController extends AbstractPageController
 		final ProductModel productModel = productService.getProductForCode(productCode);
 		final ProductData productData = productFacade.getProductForOptions(productModel, Arrays.asList(ProductOption.BASIC,
 				ProductOption.PRICE, ProductOption.SUMMARY, ProductOption.DESCRIPTION, ProductOption.CATEGORIES,
-				ProductOption.PROMOTIONS, ProductOption.STOCK, ProductOption.REVIEW, ProductOption.VARIANT_FULL, ProductOption.DELIVERY_MODE_AVAILABILITY));
+				ProductOption.PROMOTIONS, ProductOption.STOCK, ProductOption.REVIEW, ProductOption.VARIANT_FULL,
+				ProductOption.DELIVERY_MODE_AVAILABILITY));
 
 		sortVariantOptionData(productData);
 		populateProductData(productData, model);
@@ -175,7 +185,8 @@ public class ProductPageController extends AbstractPageController
 		return ControllerConstants.Views.Fragments.Product.QuickViewPopup;
 	}
 
-	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/review", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/review", method =
+	{ RequestMethod.GET, RequestMethod.POST })
 	public String postReview(@PathVariable final String productCode, final ReviewForm form, final BindingResult result,
 			final Model model, final HttpServletRequest request, final RedirectAttributes redirectAttrs)
 			throws CMSItemNotFoundException
@@ -234,8 +245,7 @@ public class ProductPageController extends AbstractPageController
 	}
 
 	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/writeReview", method = RequestMethod.GET)
-	public String writeReview(@PathVariable final String productCode, final Model model)
-			throws CMSItemNotFoundException
+	public String writeReview(@PathVariable final String productCode, final Model model) throws CMSItemNotFoundException
 	{
 		final ProductModel productModel = productService.getProductForCode(productCode);
 		model.addAttribute(new ReviewForm());
@@ -255,7 +265,7 @@ public class ProductPageController extends AbstractPageController
 
 	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN + "/writeReview", method = RequestMethod.POST)
 	public String writeReview(@PathVariable final String productCode, final ReviewForm form, final BindingResult result,
-										final Model model, final HttpServletRequest request, final RedirectAttributes redirectAttrs)
+			final Model model, final HttpServletRequest request, final RedirectAttributes redirectAttrs)
 			throws CMSItemNotFoundException
 	{
 		getReviewValidator().validate(form, result);
@@ -301,11 +311,11 @@ public class ProductPageController extends AbstractPageController
 		final ProductData productData = productFacade.getProductForOptions(productModel, Arrays.asList(ProductOption.BASIC,
 				ProductOption.PRICE, ProductOption.SUMMARY, ProductOption.DESCRIPTION, ProductOption.GALLERY,
 				ProductOption.CATEGORIES, ProductOption.REVIEW, ProductOption.PROMOTIONS, ProductOption.CLASSIFICATION,
-				ProductOption.VARIANT_FULL, ProductOption.STOCK, ProductOption.VOLUME_PRICES,
+				ProductOption.VARIANT_FULL, ProductOption.STOCK, ProductOption.VOLUME_PRICES, ProductOption.DIMENSION,
 				ProductOption.DELIVERY_MODE_AVAILABILITY));
 
 		sortVariantOptionData(productData);
-		storeCmsPageInModel(model, getPageForProduct(productModel));
+		storeCmsPageInModel(model, getContentPageForLabelOrId(PRODUCT_DETAIL_PAGE));
 		populateProductData(productData, model);
 		model.addAttribute(WebConstants.BREADCRUMBS_KEY, productBreadcrumbBuilder.getBreadcrumbs(productModel));
 	}

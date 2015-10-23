@@ -3,14 +3,16 @@
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<div class="col-md-9 col-lg-10">
+<!-- <div class="col-md-9 col-lg-10"> -->
 <%-- 	<nav:pagination top="true" supportShowPaged="${isShowPageAllowed}" supportShowAll="${isShowAllAllowed}" searchPageData="${searchPageData}" searchUrl="${searchPageData.currentQuery.url}" numberPagesShown="${numberPagesShown}"/> --%>
-
-	<ul class="product-listing product-grid">
+	<h3 class="primaryColor MB30">${categoryName}</h3>
+	<div class="row prdList">
+<!-- 	<ul class="product-listing product-grid"> -->
 		<c:forEach items="${searchPageData.results}" var="product" varStatus="status">
 			<product:productListerGridItem product="${product}" />
 		</c:forEach>
-	</ul>
+<!-- 	</ul> -->
+	</div>
 
 	<div id="addToCartTitle" style="display:none">
 		<div class="add-to-cart-header">
@@ -21,4 +23,4 @@
 	</div>
 
 <%-- 	<nav:pagination top="false"  supportShowPaged="${isShowPageAllowed}" supportShowAll="${isShowAllAllowed}"  searchPageData="${searchPageData}" searchUrl="${searchPageData.currentQuery.url}"  numberPagesShown="${numberPagesShown}"/> --%>
-</div>
+<!-- </div> -->

@@ -8,7 +8,7 @@
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product" %>
 
 
-<div class="image-gallery js-gallery">
+<!-- <div class="image-gallery js-gallery"> -->
     <c:choose>
         <c:when test="${galleryImages == null || galleryImages.size() == 0}">
             <div class="carousel gallery-image js-gallery-image">
@@ -29,19 +29,16 @@
             </div>
         </c:when>
         <c:otherwise>
-
-            <div class="carousel gallery-image js-gallery-image">
-                <c:forEach items="${galleryImages}" var="container" varStatus="varStatus">
-                    <div class="item">
-                        <div class="thumb">
-                            <img class="lazyOwl" data-src="${container.product.url}"
-                                 data-zoom-image="${container.superZoom.url}"
-                                 alt="${container.thumbnail.altText}" >
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-            <product:productGalleryThumbnail galleryImages="${galleryImages}" />
+			<c:forEach items="${galleryImages}" var="container" varStatus="varStatus">
+	         <section class="itemImg">
+	         	<c:if test="${varStatus.count == 1}">
+	             <img src="${container.product.url}"
+	                  zoom-image="${container.superZoom.url}"
+	                  alt="${container.thumbnail.altText}" >
+	          </c:if>
+	         </section>
+         </c:forEach>
+         <product:productGalleryThumbnail galleryImages="${galleryImages}" />
         </c:otherwise>
     </c:choose>
-</div>
+<!-- </div> -->

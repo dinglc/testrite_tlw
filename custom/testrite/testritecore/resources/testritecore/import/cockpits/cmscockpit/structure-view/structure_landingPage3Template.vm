@@ -34,13 +34,13 @@
 					<cockpit code="Section1A" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section2" />
+					<cockpit code="ProductListSlot" />
 				</td>
 				
 			</tr>
 			<tr>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section3" />
+					<cockpit code="RotatingImagesSlot" />
 				</td>
 			</tr>
 			<tr>
@@ -48,12 +48,12 @@
 					<cockpit code="Section1B" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section4" />
+					<cockpit code="AdSlot" />
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section5" />
+					<cockpit code="Section2" />
 				</td>
 			</tr>
 			<tr>
@@ -61,12 +61,12 @@
 					<cockpit code="Section1C" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section6" />
+					<cockpit code="Section3" />
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section7" />
+					<cockpit code="Section4" />
 				</td>
 			</tr>
 			<tr>
@@ -74,12 +74,12 @@
 					<cockpit code="Section1D" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section8" />
+					<cockpit code="Section5" />
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section9" />
+					<cockpit code="Section6" />
 				</td>
 			</tr>
 			<tr>
@@ -87,12 +87,12 @@
 					<cockpit code="Section1E" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section10" />
+					<cockpit code="Section7" />
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section11" />
+					<cockpit code="Section8" />
 				</td>
 			</tr>
 			<tr>
