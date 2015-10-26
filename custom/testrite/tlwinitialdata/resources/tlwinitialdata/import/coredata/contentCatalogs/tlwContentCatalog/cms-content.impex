@@ -850,11 +850,13 @@ INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]  	;name      
 
 #CategoryPage-2 ContentSlot
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]                        	;name                                    			;active
-                         ;                       ;RotatingBannerSlot-categoryPage-2			;Rotating Banner Slot for categoryPage-2	  		;true
+                         ;                       ;RotatingBannerSlot-CategoryPage-2			;Rotating Banner Slot for CategoryPage-2	  		;true
+                         ;                       ;ProductCarouselSlot-CategoryPage-2		;Product Carousel Slot for CategoryPage-2	  		;true
 
 #CategoryPage-2 ContentSlotForPage
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true]            			;position[unique=true]		;page(uid,$contentCV)[unique=true][default='CategoryPage-2'] 		;contentSlot(uid,$contentCV)[unique=true]
-                                ;                       ;RotatingBannerSlot-categoryPage-2 		;RotatingImagesSlot         ;                                                               	;RotatingBannerSlot-categoryPage-2
+                                ;                       ;RotatingBannerSlot-CategoryPage-2 		;RotatingImagesSlot         ;                                                               	;RotatingBannerSlot-CategoryPage-2
+                                ;                       ;ProductCarouselSlot-CategoryPage-2 	;Section2					;                                                               	;ProductCarouselSlot-CategoryPage-2
 
 
 ############################# Product List Page 

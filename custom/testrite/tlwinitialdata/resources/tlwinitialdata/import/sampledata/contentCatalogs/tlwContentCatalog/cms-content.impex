@@ -239,6 +239,21 @@ INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsCo
 						 	;							;ProductCarouselSlot-shopping			;Suggestion
 						 	;							;ProductListSlot						;ProductGridComponent
 						 	;							;AdContentSlot-shopping					;AdBanner1Component,AdBanner2Component,AdBanner3Component,AdBanner4Component
+#中小分類頁-2
+INSERT_UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;&componentRef			;urlLink
+								;							;mBN1BannerComponent-2	;mBN1 Banner Component	;mBN1BannerComponent-2	;/-2
+								;							;mBN2BannerComponent-2	;mBN2 Banner Component	;mBN2BannerComponent-2	;/-2
+								;							;mBN3BannerComponent-2	;mBN3 Banner Component	;mBN3BannerComponent-2	;/-2
+INSERT_UPDATE RotatingImagesComponent	;$contentCV[unique=true]	;uid[unique=true]			;name						;banners(&componentRef)												;&componentRef
+										;							;RotatingImagesComponent-2	;Rotating Images Component	;mBN1BannerComponent-2,mBN2BannerComponent-2,mBN3BannerComponent-2	;RotatingImagesComponent-2
+
+INSERT_UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;name			;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
+										;							;Suggestion-2		;Suggestion-2	;10481,10491,10857,10972						;allVisible		;false		;Suggestion-2
+
+INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
+                         	;                       	;RotatingBannerSlot-CategoryPage-2     	;RotatingImagesComponent-2
+						 	;							;ProductCarouselSlot-CategoryPage-2		;Suggestion-2
+
 
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef

@@ -30,7 +30,7 @@ UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]
  ;;storefinderPage;"店铺搜索器"
  ;;updatePassword;"更新忘记的密码"
 
-# SubCategoryTemplate : 中小分類頁 Template
+# Category Page : 中小分類頁
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true]  ;title[lang=$lang]
-                  ;                       ;SubCategoryPage-2;"2中小分類"
-                  ;                       ;SubCategoryPage-195;"195中小分類"
+                  ;                       ;CategoryPage-2;"窗簾/壁飾/家飾/白板"
+                  ;                       ;CategoryPage-132;"五金用品/電料"
