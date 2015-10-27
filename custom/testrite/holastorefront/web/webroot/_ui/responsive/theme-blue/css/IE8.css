@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+.btn,button{filter:alpha(opacity=100);}
+#subNav .btn{color:#fff;background:none;}
+
+.title-3{position:relative;padding-bottom:10px;}
+.title-3 hr{position:absolute;left:0;bottom:0px;}
+
+.brandGalleryImg section{height:25%;}
+
+.brandGalleryImg section,
+.itemImg div,
+.brandSlider ul.brandSliderButton
+{background:#000;filter:alpha(opacity=80);}
+
+.moreItem .row>div div section,
+.brandArticle .row a section,
+.prdList3 div a section{
+background:#000;filter:alpha(opacity=0);
+}
+.moreItem .row>div:hover section,
+.brandArticle .row a:hover section,
+.prdList3 div a:hover section
+{
+filter:alpha(opacity=80);
+}
+
+.moreItem .row>div div b img{width:95%;}

@@ -24,20 +24,29 @@ import de.hybris.platform.acceleratorstorefrontcommons.util.MetaSanitizerUtil;
 import de.hybris.platform.acceleratorstorefrontcommons.util.XSSFilterUtil;
 import de.hybris.platform.acceleratorstorefrontcommons.variants.VariantSortStrategy;
 import de.hybris.platform.catalog.enums.ProductReferenceTypeEnum;
+import de.hybris.platform.category.CategoryService;
+import de.hybris.platform.category.model.CategoryModel;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.cms2.model.pages.AbstractPageModel;
 import de.hybris.platform.cms2.servicelayer.services.CMSPageService;
 import de.hybris.platform.commercefacades.product.ProductFacade;
 import de.hybris.platform.commercefacades.product.ProductOption;
 import de.hybris.platform.commercefacades.product.data.BaseOptionData;
+import de.hybris.platform.commercefacades.product.data.CategoryData;
 import de.hybris.platform.commercefacades.product.data.ImageData;
 import de.hybris.platform.commercefacades.product.data.ImageDataType;
 import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.commercefacades.product.data.ProductReferenceData;
 import de.hybris.platform.commercefacades.product.data.ReviewData;
+import de.hybris.platform.commercefacades.search.ProductSearchFacade;
+import de.hybris.platform.commercefacades.search.data.SearchStateData;
+import de.hybris.platform.commerceservices.category.CommerceCategoryService;
+import de.hybris.platform.commerceservices.product.CommerceProductService;
+import de.hybris.platform.commerceservices.search.facetdata.ProductCategorySearchPageData;
 import de.hybris.platform.commerceservices.url.UrlResolver;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.product.ProductService;
+import de.hybris.platform.servicelayer.dto.converter.Converter;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 
 import java.io.UnsupportedEncodingException;
@@ -67,6 +76,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.testritegroup.ec.tlw.storefront.BreadcrumbBuilder.SearchCategoryPageBreadcrumbBuilder;
 import com.testritegroup.ec.tlw.storefront.controllers.ControllerConstants;
 
 
@@ -88,7 +98,6 @@ public class ProductPageController extends AbstractPageController
 	 */
 	private static final String PRODUCT_CODE_PATH_VARIABLE_PATTERN = "/{productCode:.*}";
 	private static final String REVIEWS_PATH_VARIABLE_PATTERN = "{numberOfReviews:.*}";
-	protected static final String PRODUCT_DETAIL_PAGE = "ProductDetailPage";
 
 	@Resource(name = "productModelUrlResolver")
 	private UrlResolver<ProductModel> productModelUrlResolver;
@@ -111,6 +120,24 @@ public class ProductPageController extends AbstractPageController
 	@Resource(name = "reviewValidator")
 	private ReviewValidator reviewValidator;
 
+	@Resource(name = "categoryService")
+	private CategoryService categoryService;
+
+	@Resource(name = "productSearchFacade")
+	private ProductSearchFacade productSearchFacade;
+
+	@Resource(name = "categoryConverter")
+	private Converter<CategoryModel, CategoryData> categoryConverter;
+
+	@Resource(name = "searchCategoryPageBreadcrumbBuilder")
+	private SearchCategoryPageBreadcrumbBuilder searchCategoryPageBreadcrumbBuilder;
+
+	@Resource(name = "commerceProductService")
+	private CommerceProductService commerceProductService;
+
+	@Resource(name = "commerceCategoryService")
+	private CommerceCategoryService commerceCategoryService;
+
 	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
 	public String productDetail(@PathVariable("productCode") final String productCode, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response) throws CMSItemNotFoundException,
@@ -123,13 +150,24 @@ public class ProductPageController extends AbstractPageController
 			return redirection;
 		}
 
+		final Map<String, List<CategoryData>> categoryList = new HashMap<String, List<CategoryData>>();
+		final CategoryModel category = commerceProductService.getSuperCategoriesExceptClassificationClassesForProduct(productModel)
+				.iterator().next();
 
-		LOG.info(":::::::::::::::::productModelgetSupercategories::::::::::::::::::" + productModel.getSupercategories().size());
-		if (productModel.getSupercategories().iterator().hasNext())
+		final String mainCategoryCode = commerceCategoryService.getPathsForCategory(category).iterator().next().get(1).getCode();
+		final ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> mainSearchPageData = productSearchFacade
+				.categorySearch(mainCategoryCode);
+		for (final CategoryData categorydata : mainSearchPageData.getSubCategories())
 		{
-			LOG.info(":::::::::::::::::productModelgetSupercategories::::::::::::::::::"
-					+ productModel.getSupercategories().iterator().next().getCode());
+			final String midCategoryCode = categorydata.getCode();
+
+			final ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> midSearchPageData = productSearchFacade
+					.categorySearch(midCategoryCode);
+			categoryList.put(categorydata.getName(), midSearchPageData.getSubCategories());
 		}
+
+		model.addAttribute("midcategories", categoryList);
+
 		updatePageTitle(productModel, model);
 		populateProductDetailForDisplay(productModel, model, request);
 		model.addAttribute(new ReviewForm());
@@ -315,9 +353,9 @@ public class ProductPageController extends AbstractPageController
 				ProductOption.DELIVERY_MODE_AVAILABILITY));
 
 		sortVariantOptionData(productData);
-		storeCmsPageInModel(model, getContentPageForLabelOrId(PRODUCT_DETAIL_PAGE));
+		storeCmsPageInModel(model, getPageForProduct(productModel));
 		populateProductData(productData, model);
-		model.addAttribute(WebConstants.BREADCRUMBS_KEY, productBreadcrumbBuilder.getBreadcrumbs(productModel));
+		model.addAttribute(WebConstants.BREADCRUMBS_KEY, searchCategoryPageBreadcrumbBuilder.getBreadcrumbs(productModel));
 	}
 
 	protected void populateProductData(final ProductData productData, final Model model)
@@ -399,7 +437,6 @@ public class ProductPageController extends AbstractPageController
 	{
 		return cmsPageService.getPageForProduct(product);
 	}
-
 
 
 }

@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 @charset "utf-8";
-
+/*HOLA*/
 /****************** Layout ****************************/
 
 body{font-family:Arial,"微軟正黑體";margin:0;padding:0;background:#fff;font-size:13px;}
@@ -15,8 +15,6 @@ body{font-family:Arial,"微軟正黑體";margin:0;padding:0;background:#fff;font
 
 /*Header*/
 header{margin:auto;}
-header .logo{padding:25px 0}
-
 
 .subLogo{}
 .subLogo img{padding:0 5px}
@@ -41,10 +39,18 @@ header .logo{padding:25px 0}
 .title-2 h3{display:inline-block;background:#fff;padding:0 10px;}
 .title-2 hr{border-color:#BDBDBD;margin-top:-15px;}
 
+/*title-3*/
+.title-3{border-bottom:1px solid #eee;text-align:left;margin-bottom:5px;padding-bottom:5px;}
+
 
 /*breadCrumbs*/
-.breadCrumbs{background:#FAFAFA;padding:5px;border-bottom:1px solid #BDBDBD;}
-.breadCrumbs select{background-color:#E0E0E0;border:none}
+
+.breadcrumb li{list-style:none;background:none;}
+.breadcrumb > li + li:before{content:">"}
+.breadcrumb > li.hotItem{float:right;margin:0px 10px 0 0}
+.breadcrumb > li.hotItem>a{text-decoration:underline;}
+.breadcrumb > li.hotItem>a,.breadcrumb > li.hotItem>span{vertical-align:middle;}
+.breadcrumb > li.hotItem:before{content:normal}
 
 /*Nav*/
 #mainNav{margin:10px 0;}
@@ -55,13 +61,13 @@ header .logo{padding:25px 0}
 #mainNav li a:hover,#loginNav li a:hover{color:#7D5816;}
 
 #mobileNav{display:none;border-bottom:2px solid #333;}
-#mobileNav li {border-bottom:1px solid #eee;width:49%;display:inline-block;
-#mobileNav li a{padding:8px 0;padding-left:10px;}}
+#mobileNav li {border-bottom:1px solid #eee;width:49%;display:inline-block;}
+#mobileNav li a{padding:8px 0;padding-left:10px;}
 
-#loginNav{margin:10px 0;float:right;}
 
-.mobileMenu{font-size:30px;}
-.mobileMenu a{color:#7D5816}
+
+.mobileMenu{font-size:30px;margin-top:5px;}
+.mobileMenu a{color:#ab6121}
 .mobileMenu a:hover{color:#bdbdbd}
 
 #subNav{border-top:1px solid #BDBDBD;border-bottom:2px solid #616161;}
@@ -73,8 +79,8 @@ header .logo{padding:25px 0}
 #footerFN .safe_icons{vertical-align:bottom;}
 
 #footerFN ul{vertical-align:top;text-align:center;height:150px;box-sizing:border-box;}
-#footerFN ul li{font-size:14px;margin-bottom:15px;}
-#footerFN ul li a:hover{text-decoration:underline;}
+#footerFN ul li{font-size:14px;}
+#footerFN ul li a:hover{}
 
 #footerFN .co_icons{text-align:left;padding-left:20px}
 #footerFN .co_icons hr{border:none;border-bottom:1px solid #ccc;margin:15px auto}
@@ -85,7 +91,7 @@ header .logo{padding:25px 0}
 
 /*footer*/
 footer{background:#616161;width:100%;padding:10px 0;}
-footer p{margin:auto;color:#eee;font-size:80%;text-align:center;}
+footer p{margin:auto;color:#eee;text-align:center;}
 footer span{display:inline-block}
 
 
@@ -144,18 +150,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .rightZone{vertical-align:top;display:table-cell;padding-left:30px;}
 */
 
+/*主題分類*/
+.mainCategory{}
+.mainCategory .nav a{padding-left:30px;font-size:18px;}
+.mainCategory .nav li{border-bottom:1px dashed #eee;}
+.mainCategory .nav a span{font-size:15px;vertical-align:middle;margin-right:10px;}
+
+/*smallBn*/
+.smallBn{margin-top:20px;}
+.smallBn .row div{margin-bottom:10px;text-align:center;}
+.smallBn .row div img{width:100%;}
+
 /*leftNav*/
-.leftNav{margin-bottom:50px;}
+.leftNav{}
 .leftNav ul{margin:0 20px;font-size:15px;}
 .leftNav li{margin:0px;}
 .leftNav li a,.leftNav li span{vertical-align:middle;margin-right:5px;}
+.leftNav li a{padding-top:5px;padding-bottom:5px;}
 .leftNav h5{border-bottom:1px #ccc dotted;padding-bottom:10px;font-size:120%;}
 
 /*leftBN*/
 .leftBN{clear:both;}
 .leftBN .row>div{margin-bottom:20px;}
 .leftBN a {display:block;margin:auto;}
-.leftBN a img{display:block;margin:auto;}
+.leftBN a img{display:block;margin:auto;width:100%;}
 
 /*categoryTxt*/
 .categoryTxt{}
@@ -174,35 +192,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .mainSlider a.btnNext{position:absolute;right:5px;top:48%;z-index:99;}
 .mainSlider ul.mainSliderImg{z-index:0;}
 .mainSlider ul.mainSliderImg li img{width:100%;}
+
 .mainSliderDotted{position:absolute;right:10px;top:10px;z-index:99;}
 .mainSliderDotted li{margin:0 3px;padding:0;}
 .mainSliderDotted a{width:8px;height:8px;background-color:#ccc;display:block;border-radius:50%;}
-.mainSliderDotted a:hover,.mainSliderDotted a.active{background-color:#666}*/
-
-/*mainSlider*/
-.mainSlider{margin-bottom:20px;}
+.mainSliderDotted a:hover,.mainSliderDotted a.active{background-color:#666}
+*/
 
 /*prds*/
-.prdList{font-size:12px;text-align:center;margin-bottom:10px;}
-.prdList div{}
-.prdList section{border:1px solid #BDBDBD;height:220px;margin:0 auto 15px;position:relative;padding:0px 10px;}
-.prdList section.bigItem{width:98.5%;height:440px;}
-.prdList section.bigItem a{height:350px;display:block;}
-.prdList section.bigItem a img{}
-.prdList section.sellPrd{width:100%;padding:0;position:relative;}
-.prdList section.sellPrd a{}
-.prdList section.sellPrd div{position:absolute;bottom:0;left:0;width:100%;padding:15px 0;color:#fff;}
-.prdList section.sellPrd div span{color:#fff;}
-.prdList section a{height:150px;display:block;}
-.prdList section a:before{content:"";vertical-align:middle;display:inline-block;height:100%;}
-.prdList section a img{vertical-align:middle;display:inline-block;max-height:75%;}
-.prdList section img{transition:all .5s;cursor:pointer;}
-.prdList section img:hover{transform:scale(.9)}
-.prdList section p{padding:0 2px;color:#999;}
-.prdList section h3{font-size:14px;}
-.prdList section hr{border:none;border-left:3px solid #235c63;position:absolute;left:0;bottom:-20px;height:70px;}
-.prdList section.noContent{border:none;padding:0;}
-.prdList section.noContent a{height:auto;display:block;}
+.prdList{font-size:12px;text-align:center;margin:10px auto;}
+.prdList div{margin-bottom:25px;}
+.prdList div>a{height:180px;display:block;width:180px;margin:auto;}
+.prdList div>a:before{content:"";vertical-align:middle;display:inline-block;height:100%;}
+.prdList div>a img{vertical-align:middle;display:inline-block;max-height:75%;max-width:75%;}
+.prdList div img{transition:all .5s;cursor:pointer;}
+.prdList div img:hover{transform:scale(.9)}
+.prdList div h3{font-size:14px;}
 .prdList.noBG,.prdList.noBG div{background:none;}
 
 
@@ -218,22 +223,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .prdList3 div{margin-bottom:25px;}
 .prdList3 div a{width:275px;height:235px;display:block;margin:auto;margin-bottom:20px;position:relative;}
 .prdList3 div a img{transition:all .5s;cursor:pointer;width:100%;box-sizing:border-box;z-index:0;}
-.prdList3 div a section{background:rgba(0,0,0,.7);width:100%;height:100%;background:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:99;text-align:center;opacity:0;transition:all .7s}
+.prdList3 div a section{width:100%;height:100%;background:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:99;text-align:center;opacity:0;transition:all .7s}
 .prdList3 div a:hover section{opacity:1}
+
 .prdList3 div a section span{color:#fff;padding:5px 20px;border:1px solid #fff;letter-spacing:5px;display:inline-block;vertical-align:middle;}
 .prdList3 div a section:before{display:inline-block;vertical-align:middle;height:100%;content:"";}
 
 /*itemHotList*/
 .itemHotList{position:relative;}
-.itemHotList .row{}
 
-.itemHotList a.btnPrev{position:absolute;left:-20px;top:50%;margin-top:-17px;z-index:99;}
-.itemHotList a.btnNext{position:absolute;right:-20px;top:50%;margin-top:-17px;z-index:99;}
+.itemHotList a.btnPrev{position:absolute;left:5px;top:48%;z-index:99;}
+.itemHotList a.btnNext{position:absolute;right:5px;top:48%;z-index:99;}
 
 .itemHotListDotted{position:absolute;right:0px;top:10px;z-index:99;background:#fff;padding:0 10px}
 .itemHotListDotted li{margin:0 3px;padding:0;}
 .itemHotListDotted a{width:8px;height:8px;background-color:#ccc;display:block;border-radius:50%;}
 .itemHotListDotted a:hover,.itemHotListDotted a.active{background-color:#666}
+
+.itemHotList .prdList div:first-child{background:none;}
+.itemHotList .prdList{background:none;}
 
 /*sub-itemGategory*/
 .sub-itemGategory{}
@@ -242,6 +250,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 /*similarItem*/
 .similarItem .prdList{background:none;}
 
+.hitoPrd  .nav li{border-bottom:1px solid #eee;}
 
 /*newItem*/
 .newItem{margin-bottom:50px;position:relative;}
@@ -255,7 +264,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .newItem .icon_discount{left:0;top:60px;}
 
 /*hotItem*/
-.hotItem{margin-bottom:30px;}
+.hotItem{margin:30px 0;}
 .hotItem ul{text-align:center;width:100%;}
 .hotItem ul a{margin-bottom:10px;vertical-align:middle;display:inline-block;margin-right:6px}
 .hotItem ul section{vertical-align:middle;display:inline-block;}
@@ -286,6 +295,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .itemImg div p{color:#fff;text-align:center;font-size:15px;display:inline-block;vertical-align:middle;width:100%;}
 
 .itemIcon{}
+.itemIcon li{width:70px;}
+.itemIcon li img{width:100%;border:2px solid #eee;cursor:pointer;}
+.itemIcon li img.active{border:2px solid #ab6121;}
 
 .itemDetail{font-size:15px;letter-spacing:1px;}
 .itemDetail li{margin-bottom:10px;}
@@ -336,8 +348,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .brandSlider a.btnNext{position:absolute;right:5px;top:48%;z-index:99;}
 .brandSlider ul.brandSliderImg{z-index:0;}
 .brandSlider ul.brandSliderImg li img{width:100%;}
-.brandSlider ul.brandSliderButton{background:rgba(0,0,0,.7);z-index:50;position:absolute;bottom:0;width:100%;left:0;}
-.brandSlider ul.brandSliderButton li{width:20%;color:#fff;text-align:center;font-size:14px;}
+.brandSlider ul.brandSliderButton{background:rgba(0,0,0,.7);z-index:50;bottom:0;width:100%;left:0;}
+.brandSlider ul.brandSliderButton li{color:#fff;text-align:center;font-size:14px;display:inline-block;}
 .brandSlider ul.brandSliderButton li a{color:#fff;position:relative;display:block;padding:10px 0;text-decoration:none;}
 .brandSlider ul.brandSliderButton li a:hover{color:#FFF1B3}
 .brandSlider ul.brandSliderButton li a i{background:url(../images/arrow_up.png) no-repeat;position:absolute;top:-13px;width:21px;height:13px;left:50%;margin-left:-10px;display:none;}
@@ -349,21 +361,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .brandBtn .btn i{display:none;width:100%;height:13px;position:absolute;background:url(../images/icon_arrow_white.png) center no-repeat;bottom:-12px;left:0;}
 .brandBtn .btn:hover i,.brandBtn .btn.active i{display:block}
 
+.brandSub .nav{border-top:2px solid #333;}
+.brandSub .nav li{border-bottom:1px solid #eee;}
+
 .brandList{}
-.brandList a{font-size:14px;border-right:1px solid #ccc;display:block;}
-.brandList .row div{margin-bottom:10px;}
+.brandList a{font-size:14px;display:block;}
+.brandList .row div{border-right:1px solid #ccc;margin-bottom:10px;text-align:center;}
 
 .brandArticle{margin-bottom:20px;}
+.brandArticle .row>div{margin-bottom:10px;}
 .brandArticle .row a{width:215px;display:block;margin:auto;position:relative;}
 .brandArticle .row a section{width:100%;height:100%;background:rgba(0,0,0,.7);position:absolute;left:0;top:0;z-index:99;text-align:center;opacity:0;transition:all .7s}
 .brandArticle .row a:hover section{opacity:1}
 .brandArticle .row a section span{color:#fff;padding:5px;width:95%;text-align:left;display:inline-block;vertical-align:middle;}
 .brandArticle .row a section:before{display:inline-block;vertical-align:middle;height:100%;content:"";}
 
-
-.brandStory .storyCt{display:table;width:100%;}
-.brandStory .storyCt article{display:table-cell;padding:0 50px;vertical-align:top;}
-.brandStory .storyImg1,.brandStory .storyImg2{display:table-cell;width:215px;vertical-align:top;}
+.brandStory .storyCt{}
+.brandStory .storyImg1,.brandStory .storyImg2{width:215px;}
 .brandStory .storyImg1 img,.brandStory .storyImg2 img{border:1px solid #ccc}
 .brandStory h3{margin-bottom:20px;}
 .brandStory p{margin-bottom:15px;}
@@ -374,12 +388,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 .brand_notice section ul{white-space:nowrap;}
 .brand_notice ul li{margin:0 6px;}
 
-.brandHito section{display:table;width:100%;}
-.brandHito .HitoLeft{padding-right:30px;display:table-cell;vertical-align:top;}
-.brandHito .HitoRight{display:table-cell;width:220px;vertical-align:top;}
-.brandHito .HitoRight date{background:url(../images/bg_time.png);width:220px;height:53px;color:#fff;text-align:center;line-height:39px;font-size:15px;display:block;margin-top:10px;}
+.brandHito section{}
+.brandHito  .date{background:url(../images/bg_time.png);width:220px;height:53px;color:#fff;text-align:center;line-height:39px;font-size:15px;display:block;margin:10px auto;}
+.brandHito .row>div:nth-child(2){}
 
-.brandGalleryImg{position:relative;max-width:460px}
+.brandGalleryImg{position:relative;max-width:460px;margin:auto;}
 .brandGalleryImg section{position:absolute;width:100%;left:0;bottom:0;color:#fff;height:50%;padding:15px;z-index:999;
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0+0,0.65+100 */
 background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
@@ -392,7 +405,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 }
 .brandGalleryImg section div{bottom:20px;position:absolute;}
 
+.brandSmallBn .row>div{margin-bottom:10px;}
+
 .eventTitle{font-size:15px;}
 
 /*網購獨享*/
 .personalGet{margin:20px auto;}
+
+/*topBrand*/
+.topBrand{text-align:center;}
+.topBrand li{margin-bottom:10px;padding-bottom:10px;border-bottom:1px dotted #ccc;}
+.topBrand li a{height:100px;display:block;margin:10px 0;}
+.topBrand li a:before{content:"";vertical-align:middle;display:inline-block;height:100%;}
+.topBrand li img{max-width:150px;max-height:90%;vertical-align:middle;display:inline-block;}
+.topBrand li img:hover{transform:scale(.9)}
+
+/*brandList*/
+.brandList{margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid #eee;}
+.brandList div{margin-bottom:10px}
+
+/*active*/
+.pagination > .active > a{background:#bb804d;border-color:#bb804d}

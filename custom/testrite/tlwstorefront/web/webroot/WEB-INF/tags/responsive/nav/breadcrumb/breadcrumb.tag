@@ -14,7 +14,7 @@
 	<c:forEach items="${breadcrumbs}" var="breadcrumb" varStatus="status">
 		<c:url value="${breadcrumb.url}" var="breadcrumbUrl" />
 		<c:choose>
-			<c:when test="${status.last}">
+			<c:when test="${status.last || empty breadcrumb.url}">
 				<li class="active">${breadcrumb.name}</li>
 			</c:when>
 			<c:when test="${breadcrumb.url eq '#'}">

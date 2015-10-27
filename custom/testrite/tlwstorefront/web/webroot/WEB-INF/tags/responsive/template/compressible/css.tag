@@ -13,8 +13,8 @@
 
 
 <%-- Theme CSS files --%>
-<%-- <link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/style.css"/> --%>
-<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/style_tlw.css"/>
+<%-- <link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/style_ori.css"/> --%>
+<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/style.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/rwd.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/responsiveslides.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/normalize.css"/>

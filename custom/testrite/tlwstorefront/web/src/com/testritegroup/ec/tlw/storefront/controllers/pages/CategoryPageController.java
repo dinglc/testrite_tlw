@@ -34,6 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -49,6 +50,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.testritegroup.ec.tlw.storefront.BreadcrumbBuilder.SearchCategoryPageBreadcrumbBuilder;
+
 
 /**
  * Controller for a category page
@@ -62,6 +65,9 @@ public class CategoryPageController extends AbstractCategoryPageController
 
 	protected static final String SUBCATEGORYPAGE = "CategoryPage-";
 	protected static final String PRODUCT_LIST_LAND_PAGE = "ProductListPage";
+
+	@Resource(name = "searchCategoryPageBreadcrumbBuilder")
+	private SearchCategoryPageBreadcrumbBuilder searchCategoryPageBreadcrumbBuilder;
 
 	@RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
 	public String category(@PathVariable("categoryCode") final String categoryCode,
@@ -99,7 +105,7 @@ public class CategoryPageController extends AbstractCategoryPageController
 			}
 
 			model.addAttribute(WebConstants.BREADCRUMBS_KEY,
-					getSearchBreadcrumbBuilder().getBreadcrumbs(categoryCode, searchPageData));
+					searchCategoryPageBreadcrumbBuilder.getBreadcrumbs(categoryCode, searchPageData));
 			model.addAttribute("midcategories", categoryList);
 			updatePageTitle(category, searchPageData.getBreadcrumbs(), model);
 			return getViewForPage(model);
@@ -178,7 +184,8 @@ public class CategoryPageController extends AbstractCategoryPageController
 		model.addAttribute("midcategories", categoryList);
 
 		populateModel(model, searchPageData, showMode);
-		model.addAttribute(WebConstants.BREADCRUMBS_KEY, getSearchBreadcrumbBuilder().getBreadcrumbs(categoryCode, searchPageData));
+		model.addAttribute(WebConstants.BREADCRUMBS_KEY,
+				searchCategoryPageBreadcrumbBuilder.getBreadcrumbs(categoryCode, searchPageData));
 		model.addAttribute("showCategoriesOnly", Boolean.valueOf(showCategoriesOnly));
 		model.addAttribute("categoryName", category.getName());
 		//model.addAttribute("pageType", PageType.Category);

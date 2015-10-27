@@ -82,8 +82,8 @@
 .callbacks_nav {
   top: 50%;
   margin-top:-20px;
-  height: 48px;
-  width: 48px;  
+  height: 41px;
+  width: 41px;  
   position: absolute;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   left: 1%;

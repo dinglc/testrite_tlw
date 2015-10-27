@@ -10,20 +10,12 @@
 <!-- </div> -->
 <div class="row MB20">
 	<div class="col-md-6">
-		<h2 class="primaryColor MB20">
+		<h2 class="primaryColor">
 			<ycommerce:testId
 				code="productDetails_productNamePrice_label_${product.code}">
-				<div class="name">${product.name}</div>
+				${product.name}
 			</ycommerce:testId>
 		</h2>
-	</div>
-	<div class="col-md-6">
-		<ul class="prdtopBtn list-inline">
-			<li><a href="#"><img src="/images/icon_heart.png"
-					class="MR10"><spring:theme code="product.icon.heart" /></a></li>
-			<li><a href="#"><img src="/images/icon_park.png" class="MR10"><spring:theme code="product.icon.park" /></a></li>
-			<li><a href="#"><img src="/images/icon_dw.png" class="MR10"><spring:theme code="product.icon.dw" /></a></li>
-		</ul>
 	</div>
 </div>
 <div class="row mainItem">
@@ -62,12 +54,6 @@
 			<span class="ML10"><spring:theme code="product.moreWebPriceProduct"/></span></div>
 	    </li>
 	    
-	    <li class="topBorder">
-		    <b><spring:theme code="product.volumePrices.column.storeprice"/></b><span class="storePrice">${product.price.storePrice}</span>
-		    <div>
-		    	<button class="blueBtn"><spring:theme code="product.storePrice"/></button>
-		    </div>
-	    </li>
 	    </c:when>
 	    <c:otherwise>
 	    	</li>

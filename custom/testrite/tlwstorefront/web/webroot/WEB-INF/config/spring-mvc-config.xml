@@ -267,7 +267,9 @@
 		<property name="i18nService" ref="i18nService" />
 		<property name="parentBreadcrumbResourceKey" value="checkout.multi.breadcrumb"/>
 	</bean>
-
+	
+	<bean id="searchCategoryPageBreadcrumbBuilder" class="com.testritegroup.ec.tlw.storefront.BreadcrumbBuilder.SearchCategoryPageBreadcrumbBuilder" parent="searchBreadcrumbBuilder"/>
+	
 	<!-- -->
 	<alias name="defaultPreviewUrlResolverPageMappings" alias="previewUrlResolverPageMappings" />
 	<util:map id="defaultPreviewUrlResolverPageMappings">

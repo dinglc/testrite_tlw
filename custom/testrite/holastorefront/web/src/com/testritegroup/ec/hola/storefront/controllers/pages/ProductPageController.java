@@ -423,6 +423,4 @@ public class ProductPageController extends AbstractPageController
 		return cmsPageService.getPageForProduct(product);
 	}
 
-
-
 }

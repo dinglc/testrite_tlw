@@ -31,6 +31,7 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Required;
 
 
@@ -40,6 +41,7 @@ import org.springframework.beans.factory.annotation.Required;
  */
 public class SearchBreadcrumbBuilder
 {
+	protected static final Logger LOG = Logger.getLogger(SearchBreadcrumbBuilder.class);
 	private static final String LAST_LINK_CLASS = "active";
 
 	private CommerceCategoryService commerceCategoryService;

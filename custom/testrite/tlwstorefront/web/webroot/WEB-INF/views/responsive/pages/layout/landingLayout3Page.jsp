@@ -4,7 +4,6 @@
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="nav" tagdir="/WEB-INF/tags/responsive/nav"%>
-<%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product"%>
 
 <template:page pageTitle="${pageTitle}">
 
@@ -33,6 +32,11 @@
 					</nav>
 				</c:otherwise>
 			</c:choose>
+			
+			<cms:pageSlot position="Section1A" var="feature">
+				<cms:component component="${feature}" />
+			</cms:pageSlot>
+			
 			<!--品牌專區-->
 			<div class="brandZone">
 			    <div class="title-3">
@@ -43,32 +47,40 @@
 			    </div>
 			    
 			    <nav class="leftNav">
-					<cms:pageSlot position="Section1B" var="feature" element="ul" class="nav">
+					<cms:pageSlot position="BrandSlot" var="feature" element="ul" class="nav">
 						<cms:component component="${feature}" />
 					</cms:pageSlot>
 			    </nav>
 			</div>
 			
+			<cms:pageSlot position="Section1B" var="feature">
+				<cms:component component="${feature}" />
+			</cms:pageSlot>
+			
 			<!--熱銷排行-->
-			<cms:pageSlot position="Section1C" var="feature" element="div" class="hotItem">
+			<cms:pageSlot position="HotSellingSlot" var="feature" element="div" class="hotItem">
+				<cms:component component="${feature}" />
+			</cms:pageSlot>
+			
+			<cms:pageSlot position="Section1C" var="feature">
 				<cms:component component="${feature}" />
 			</cms:pageSlot>
 			
 			<!--左側廣告-->
 			<div class="leftBN MB20 hidden-xs">
-    			<cms:pageSlot position="Section1D" var="feature" element="div" class="row">
+    			<cms:pageSlot position="LeftAdSlot" var="feature" element="div" class="row">
     				<cms:component component="${feature}" element="div" class="col-xs-6 col-sm-12"/>
     			</cms:pageSlot>
     		</div>
+    		
+    		<cms:pageSlot position="Section1D" var="feature">
+				<cms:component component="${feature}" />
+			</cms:pageSlot>
 		</section>
 	</div><!--左版位End-->
 	
 	<!--右版位-->
 	<div class="col-sm-8 col-md-9">
-		
-		<c:if test="${not empty product}">
-			<product:productDetailsPanel />
-		</c:if>
 		
 		<cms:pageSlot position="ProductListSlot" var="feature" element="div" class="sub-itemGategory">
 			<cms:component component="${feature}" />

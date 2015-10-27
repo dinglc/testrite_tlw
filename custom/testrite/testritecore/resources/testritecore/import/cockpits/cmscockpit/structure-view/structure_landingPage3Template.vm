@@ -30,7 +30,7 @@
 			</tr>
 			
 			<tr>
-				<td rowspan="2" style="vertical-align:top;" class="structureViewSection">
+				<td style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section1A" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
@@ -39,12 +39,15 @@
 				
 			</tr>
 			<tr>
+				<td style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="BrandSlot" />
+				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="RotatingImagesSlot" />
 				</td>
 			</tr>
 			<tr>
-				<td rowspan="2" style="vertical-align:top;" class="structureViewSection">
+				<td style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section1B" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
@@ -52,26 +55,30 @@
 				</td>
 			</tr>
 			<tr>
+				<td rowspan="2" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="HotSellingSlot" />
+				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section2" />
 				</td>
 			</tr>
 			<tr>
-				<td rowspan="2" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section1C" />
-				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section3" />
 				</td>
 			</tr>
 			<tr>
+				<td style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section1C" />
+				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section4" />
 				</td>
 			</tr>
 			<tr>
+				
 				<td rowspan="2" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section1D" />
+					<cockpit code="LeftAdSlot" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section5" />
@@ -84,7 +91,7 @@
 			</tr>
 			<tr>
 				<td rowspan="2" style="vertical-align:top;" class="structureViewSection">
-					<cockpit code="Section1E" />
+					<cockpit code="Section1D" />
 				</td>
 				<td colspan="3" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section7" />
