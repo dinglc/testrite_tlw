@@ -9,32 +9,23 @@
 <c:choose>
 	<c:when test="${not empty productData}">
 
-			<h3 class="MB20  letter_3px">${title}</h3>
+			<div class="title-1 MT30"><h3>${title}</h3><section><hr></section></div>
 
 			<c:choose>
 				<c:when test="${component.popup}">
 					<div class="row prdList">
-					
-					
-						<!--  <div id="quickViewTitle" class="quickView-header" style="display:none">
-							<div class="headline">		
-								<span class="headline-text"><spring:theme code="popup.quick.view.select"/></span>
-							</div>
-						</div> -->
 						<c:forEach items="${productData}" var="product">
-
-							<!--<c:url value="${product.url}/quickView" var="productQuickViewUrl"/>-->
-							<div class="col-sm-6 col-md-4 col-lg-3">
+							<div class="col-sm-6 col-md-3">
                             <section>
-                            <hr>
 								<a href="${productQuickViewUrl}">
 									
 								    <product:productPrimaryReferenceImage product="${product}" format="product"/>
-									
-									<h3>${product.name}</h3>
-									<p><span class="MR5"></span><span class="orangeColor"></span><span class="orangeColor font_20"><format:fromPrice priceData="${product.price}"/></span></p>
 								</a>	
-								
+									<h3>${product.name}</h3>
+									<p><span class="redColor font_15"><spring:theme code="product.volumePrices.column.specialprice"/></span>
+					                   <span class="redColor"><format:fromPrice priceData="${product.price}"/></span>
+					                </p>
+									
 							</section>
 							</div>
 						</c:forEach>
@@ -46,16 +37,16 @@
 
 							<c:url value="${product.url}" var="productUrl"/>
 
-							<div class="col-sm-6 col-md-4 col-lg-3">
+							<div class="col-sm-6 col-md-3">
 								<section>
-              						<hr>
 									<a href="${productUrl}">
-<!-- 									<div class="thumb"> -->
 										<product:productPrimaryImage product="${product}" format="product"/>
-<!-- 									</div> -->
-									<h3>${product.name}</h3>
-									<p><span class="MR5"><format:fromPrice priceData="${product.price}"/></span>
 									</a>
+									<h3>${product.name}</h3>
+									<p><span class="redColor  font_15"><spring:theme code="product.volumePrices.column.specialprice"/></span>
+					                   <span class="redColor"><format:fromPrice priceData="${product.price}"/></span>
+					                </p>
+									
 								</section>
 							</div>
 						</c:forEach>

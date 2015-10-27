@@ -7,10 +7,8 @@
 <%@ taglib prefix="component" tagdir="/WEB-INF/tags/shared/component" %>
 
 <div class="hotItem">
-	<div class="title-3">
-		<h4 class="text-left">${title}</h4>
-		<hr>
-	</div>
+		<h3 class="text-left">${title}</h3>
+        <hr>
 
 <c:choose>
 	<c:when test="${not empty productData}">
@@ -24,8 +22,8 @@
 					</a>
 					<section>
 					<h3>${product.name}</h3>
-					<p><span class="orangeColor"><spring:theme code="product.volumePrices.column.specialprice"/></span>
-					   <span class="orangeColor font_20"><format:fromPrice priceData="${product.price}"/></span>
+					<p><span class="redColor"><spring:theme code="product.volumePrices.column.specialprice"/></span>
+					   <span class="redColor font_20"><format:fromPrice priceData="${product.price}"/></span>
 					</p>
 					</section>
 

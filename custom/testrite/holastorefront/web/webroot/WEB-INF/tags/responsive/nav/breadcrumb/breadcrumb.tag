@@ -5,7 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <c:url value="/" var="homeUrl" />
-
+<div class="container" id="wrapper"> 
 <ol class="breadcrumb">
 	<li>
 		<a href="${homeUrl}"><spring:theme code="breadcrumb.home" /></a>

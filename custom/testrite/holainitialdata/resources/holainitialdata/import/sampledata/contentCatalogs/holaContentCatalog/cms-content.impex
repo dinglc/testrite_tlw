@@ -23,31 +23,41 @@ UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);default
 			  ;tlw;            ;
 
 ########## Header
-
-# Header Media
-INSERT_UPDATE Media	;$contentCV[unique=true]	;code[unique=true]									;realfilename			;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]	;mime[default='image/jpeg']		;altText	;&imageRef	;folder(qualifier)[default='images']
-                    ;                         	;/images/theme/logo.png                       	 	;logo.png          	  	; $siteResource/images/theme/logo.png                             	     	; image/png                   	; Logo 	  	;logo		;
-					;							;/images/theme/btn_top.png 							;btn_top.png			;$siteResource/images/theme/btn_top.png										;image/png						;Top		;top		;
-
-# Top Header Banner
-INSERT_UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;name			;&componentRef				;urlLink
-								;							;TopBannerComponent		;Top Banner		;TopBannerComponent			;#
+# Site Logo
+INSERT_UPDATE Media	;$contentCV[unique=true]	;code[unique=true]								 ;realfilename				;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator] ;mime[default='image/jpeg']		;altText	;&imageRef	;folder(qualifier)[default='images']
+                    ;                         	;/images/theme/logo.png                       	 ;logo.png          	  	; $siteResource/images/theme/logo.png                             	     	; image/png                   	; Logo 	  	;logo		;
+                    ;                         	;/images/theme/logo_casa.png                   	 ;logo_casa.png        	  	; $siteResource/images/theme/logo_casa.png                         	     	; image/png                   	; Casa 	  	;logo_casa	;
+                    ;                         	;/images/theme/logo_hola_s.png                   ;logo_hola_s.png        	; $siteResource/images/theme/logo_hola_s.png                       	     	; image/png                   	; Holas 	;logo_holas	;
 
 # Site Logo Component
 INSERT_UPDATE SimpleBannerComponent	;$contentCV[unique=true]	;uid[unique=true]			;name					;&componentRef				;urlLink
 									;							;SimpleBannerComponent		;Simple Banner			;SimpleBannerComponent		;/
+									;							;CasaSimpleBannerComponent	;Casa Simple Banner		;CasaSimpleBannerComponent	;/
+									;							;HolasSimpleBannerComponent	;Holas Simple Banner	;HolasSimpleBannerComponent	;/
 
 # CMS SearchBox Components
 INSERT_UPDATE SearchBoxComponent;$contentCV[unique=true];uid[unique=true]	;name		;&componentRef
 								;						;SearchBoxComponent	;Search Box	;SearchBoxComponent
 
 # Navigation Bar Collection Component
-INSERT_UPDATE NavigationBarCollectionComponent	;$contentCV[unique=true]	;uid[unique=true]	;name										;components(uid, $contentCV)																																	;&componentRef
-												;							;MainNavBarComponent;Main Navigation Bar Collection Component	;ShoppingBarComponent,ExclusiveBarComponent,ClearBarComponent,TeamshopingBarComponent,PreorderingBarComponent,HotsellingBarComponent,BrandsBarComponent			;MainNavBarComponent
-												;							;SubNavBarComponent	;Sub Navigation Bar Collection Component	;FindPrdBarComponent,FindMtdBarComponent,FindNewsBarComponent,FindSrvcBarComponent																				;SubNavBarComponent
+INSERT_UPDATE NavigationBarCollectionComponent	;$contentCV[unique=true]	;uid[unique=true]	;name										;components(uid, $contentCV)																																																									;&componentRef
+												;							;MainNavBarComponent;Main Navigation Bar Collection Component	;ShoppingBarComponent,ExclusiveBarComponent,ClearBarComponent,TeamshopingBarComponent,PreorderingBarComponent,HotsellingBarComponent,BrandsBarComponent,CategoryBarComponent,ProposalBarComponent,InformationBarComponent,AdvisoryBarComponent,GiftBarComponent	;MainNavBarComponent
+												;							;NavBarComponent	;Navigation Bar Collection Component		;FurnitureBarComponent,RoomBarComponent,BathroomBarComponent,KitchenBarComponent,TablewareBarComponent,StorageBarComponent,DecorativeBarComponent,CarpetBarComponent,CleanBarComponent,LightingBarComponent,FoodBarComponent,EletricBarComponent				;NavBarComponent
 
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true]	;uid[unique=true]		;name						;wrapAfter	;link(uid, $contentCV)	;styleClass	;navigationNode(uid,$contentCV)	;dropDownLayout(code)[default='AUTO']	;&componentRef
+									;							;FurnitureBarComponent	;Furniture Bar Component	;10			;FurnitureLink			;			;								;										;FurnitureBarComponent
+									;							;RoomBarComponent		;Room Bar Component			;10			;RoomLink				;			;								;										;RoomBarComponent
+									;							;BathroomBarComponent	;Bathroom Bar Component		;10			;BathroomLink			;			;								;										;BathroomBarComponent
+									;							;KitchenBarComponent	;Kitchen Bar Component		;10			;KitchenLink			;			;								;										;KitchenBarComponent
+									;							;TablewareBarComponent	;Tableware Bar Component	;10			;TablewareLink			;			;								;										;TablewareBarComponent
+									;							;StorageBarComponent	;Storage Bar Component		;10			;StorageLink			;			;								;										;StorageBarComponent
+									;							;DecorativeBarComponent	;Decorative Bar Component	;10			;DecorativeLink			;			;								;										;DecorativeBarComponent
+									;							;CarpetBarComponent		;Carpet Bar Component		;10			;CarpetLink				;			;								;										;CarpetBarComponent
+									;							;CleanBarComponent		;Clean Bar Component		;10			;CleanLink				;			;								;										;CleanBarComponent
+									;							;LightingBarComponent	;Lighting Bar Component		;10			;LightingLink			;			;								;										;LightingBarComponent
+									;							;FoodBarComponent		;Food Bar Component			;10			;FoodLink				;			;								;										;FoodBarComponent
+									;							;EletricBarComponent	;Eletric Bar Component		;10			;EletricLink			;			;								;										;EletricBarComponent
 									;							;ShoppingBarComponent	;Shopping Bar Component		;10			;ShoppingLink			;			;								;										;ShoppingBarComponent
 									;							;ExclusiveBarComponent	;Exclusive Bar Component	;10			;ExclusiveLink			;			;								;										;ExclusiveBarComponent
 									;							;ClearBarComponent		;Clear Bar Component		;10			;ClearLink				;			;								;										;ClearBarComponent
@@ -55,23 +65,27 @@ INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true]	;uid[unique=true]		
 									;							;PreorderingBarComponent;Preordering Bar Component	;10			;PreorderingLink		;			;								;										;PreorderingBarComponent
 									;							;HotsellingBarComponent	;Hotselling Bar Component	;10			;HotsellingLink			;			;								;										;HotsellingBarComponent
 									;							;BrandsBarComponent		;Brands Bar Component		;10			;BrandsLink				;			;								;										;BrandsBarComponent
-									;							;FindPrdBarComponent	;Find Product Bar Component	;10			;FindPrd1Link			;			;FindPrdNode					;										;FindPrdBarComponent		
-									;							;FindMtdBarComponent	;Find Method Bar Component	;10			;FindMtd1Link			;			;FindMtdNode					;										;FindMtdBarComponent		
-									;							;FindNewsBarComponent	;Find News Bar Component	;10			;FindNews1Link			;			;FindNewsNode					;										;FindNewsBarComponent		
-									;							;FindSrvcBarComponent	;Find Service Bar Component	;10			;FindSrvc1Link			;			;FindSrvcNode					;										;FindSrvcBarComponent		
-
-# CMS Navigation Nodes
-INSERT_UPDATE CMSNavigationNode	;uid[unique=true]		;$contentCV[unique=true]	;name					;parent(uid, $contentCV)	;links(&linkRef)				;&nodeRef
-                               	;HeaderNode				;							;HeaderNode				;SiteRootNode				;								;HeaderNode
-                               	;NavigationBarNode		;							;NavigationBarNode		;HeaderNode					;								;NavigationBarNode
-								;FindPrdNode			;							;Find Product Node		;NavigationBarNode			;FindPrd1Link,FindPrd2Link		;FindPrdNode
-								;FindMtdNode			;							;Find Method Node		;NavigationBarNode			;FindMtd1Link,FindMtd2Link		;FindMtdNode
-								;FindNewsNode			;							;Find News Node			;NavigationBarNode			;FindNews1Link,FindNews2Link	;FindNewsNode
-								;FindSrvcNode			;							;Find Service Node		;NavigationBarNode			;FindSrvc1Link,FindSrvc2Link	;FindSrvcNode
+									;							;CategoryBarComponent	;Category Bar Component		;10			;CategoryLink			;			;								;										;CategoryBarComponent
+									;							;ProposalBarComponent	;Proposal Bar Component		;10			;ProposalLink			;			;								;										;ProposalBarComponent
+									;							;InformationBarComponent;Information Bar Component	;10			;InformationLink		;			;								;										;InformationBarComponent
+									;							;AdvisoryBarComponent	;Advisory Bar Component		;10			;AdvisoryLink			;			;								;										;AdvisoryBarComponent
+									;							;GiftBarComponent		;Gift Bar Component			;10			;GiftLink				;			;								;										;GiftBarComponent
 
 # CMS Link Components
 INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]	;name       		;url                  								   				;&linkRef  			;&componentRef		;target(code)[default='sameWindow'] 
                               ;                       ;HomeLink      	;Home Link			;/													   				;HomeLink			;HomeLink   		;                         
+							  ;						  ;FurnitureLink	;Furniture Link		;/																	;FurnitureLink		;FurnitureLink		;
+							  ;						  ;RoomLink			;Room Link			;/																	;RoomLink			;RoomLink			;
+							  ;						  ;BathroomLink		;Bathroom Link		;/																	;BathroomLink		;BathroomLink		;
+							  ;						  ;KitchenLink		;Kitchen Link		;/																	;KitchenLink		;KitchenLink		;
+							  ;						  ;TablewareLink	;Tableware Link		;/																	;TablewareLink		;TablewareLink		;
+							  ;						  ;StorageLink		;Storage Link		;/																	;StorageLink		;StorageLink		;
+							  ;						  ;DecorativeLink	;Decorative Link	;/																	;DecorativeLink		;DecorativeLink		;
+							  ;						  ;CarpetLink		;Carpet Link		;/																	;CarpetLink			;CarpetLink			;
+							  ;						  ;CleanLink		;Clean Link			;/																	;CleanLink			;CleanLink			;
+							  ;						  ;LightingLink		;Lighting Link		;/																	;LightingLink		;LightingLink		;
+							  ;						  ;FoodLink			;Food Link			;/																	;FoodLink			;FoodLink			;
+							  ;						  ;EletricLink		;Eletric Link		;/																	;EletricLink		;EletricLink		;
 							  ;						  ;ShoppingLink		;Shopping Link		;/shopping															;ShoppingLink		;ShoppingLink		;
 							  ;						  ;ExclusiveLink	;Exclusive Link		;/																	;ExclusiveLink		;ExclusiveLink		;
 							  ;						  ;ClearLink		;Clear Link			;/																	;ClearLink			;ClearLink			;
@@ -79,21 +93,18 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]	;name   
 							  ;						  ;PreorderingLink	;Preordering Link	;/																	;PreorderingLink	;PreorderingLink	;
 							  ;						  ;HotsellingLink	;Hotselling Link	;/																	;HotsellingLink		;HotsellingLink		;
 							  ;						  ;BrandsLink		;Brands Link		;/																	;BrndsLink			;BrandsLink			;
-							  ;						  ;FindPrd1Link		;FindPrd1 Link		;/																	;FindPrd1Link		;FindPrd1Link		;
-							  ;						  ;FindPrd2Link		;FindPrd2 Link		;/																	;FindPrd2Link		;FindPrd2Link		;
-							  ;						  ;FindMtd1Link		;FindMtd1 Link		;/																	;FindMtd1Link		;FindMtd1Link		;
-							  ;						  ;FindMtd2Link		;FindMtd2 Link		;/																	;FindMtd2Link		;FindMtd2Link		;
-							  ;						  ;FindNews1Link	;FindNews1 Link		;/																	;FindNews1Link		;FindNews1Link		;
-							  ;						  ;FindNews2Link	;FindNews2 Link		;/																	;FindNews2Link		;FindNews2Link		;
-							  ;						  ;FindSrvc1Link	;FindSrvc1 Link		;/																	;FindSrvc1Link		;FindSrvc1Link		;
-							  ;						  ;FindSrvc2Link	;FindSrvc2 Link		;/																	;FindSrvc2Link		;FindSrvc2Link		;
+							  ;						  ;CategoryLink		;Category Link		;/																	;CategoryLink		;CategoryLink		;
+							  ;						  ;ProposalLink		;Proposal Link		;/																	;ProposalLink		;ProposalLink		;
+							  ;						  ;InformationLink	;Information Link	;/																	;InformationLink	;InformationLink	;
+							  ;						  ;AdvisoryLink		;Advisory Link		;/																	;AdvisoryLink		;AdvisoryLink		;
+							  ;						  ;GiftLink			;Gift Link			;/																	;GiftLink			;GiftLink			;
+
+# CMS Mini Cart Component
+INSERT_UPDATE MiniCartComponent	;$contentCV[unique=true]	;uid[unique=true]	;name		;&componentRef	;totalDisplay(code)	;shownProductCount	;lightboxBannerComponent(&componentRef)
+								;							;MiniCart			;Mini Cart	;MiniCart		;SUBTOTAL			;3					;										;
 
 # Lightbox Banner for Mini Cart
 INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink
-
-# CMS Mini Cart Component
-INSERT_UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;totalDisplay(code);shownProductCount;lightboxBannerComponent(&componentRef)
-								;							;MiniCart			;Mini Cart	;MiniCart		;SUBTOTAL			;3					;										;
 
 # Breadcrumb Component
 INSERT_UPDATE BreadcrumbComponent	;$contentCV[unique=true]	;uid[unique=true]		;name						;&componentRef
@@ -102,16 +113,16 @@ INSERT_UPDATE BreadcrumbComponent	;$contentCV[unique=true]	;uid[unique=true]		;n
 # Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]		;cmsComponents(&componentRef)
 						 	;						 	; SiteLogoSlot			;SimpleBannerComponent
+						 	;						 	; TopHeaderSlot			;CasaSimpleBannerComponent,HolasSimpleBannerComponent
 						 	;						 	; SearchBoxSlot			;SearchBoxComponent
-						 	;							;NavigationBarSlot		;MainNavBarComponent
+						 	;							;NavigationBarSlot		;MainNavBarComponent,NavBarComponent,breadcrumbComponent
 						 	;							;MiniCartSlot			;MiniCart
-						 	;							;TopHeaderSlot			;TopBannerComponent
-						 	;							;BottomHeaderSlot		;SubNavBarComponent,breadcrumbComponent
 
 ###########	Footer
 # CMS Footer Component
+#INSERT_UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];wrapAfter;&componentRef
 INSERT_UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true]	;wrapAfter	;navigationNodes(uid,$contentCV)						;&componentRef;;;
-							 ;                       ;FooterComponent 	;4        	;tlwLeftFooterNode,tlwFooterNode,tlwRightFooterNode  	;FooterComponent;;;
+							 ;                       ;FooterComponent 	;4        	;HolaLeftFooterNode,HolaFooterNode,HolaRightFooterNode  ;FooterComponent;;;
 
 # Footer Image
 INSERT_UPDATE Media ; $contentCV[unique=true] ; code[unique=true]                                    ; realfilename               ; @media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]   ; mime[default='image/jpeg']  ; altText  ;&imageRef    ; folder(qualifier)[default='images']
@@ -120,6 +131,43 @@ INSERT_UPDATE Media ; $contentCV[unique=true] ; code[unique=true]               
                     ;                         ; /images/theme/logo_dp.png                       	 ; logo_dp.png          	  ; $siteResource/images/theme/logo_dp.png                             	    	 ; image/png                   ; Dp 	  ;logo_dp		;
                     ;                         ; /images/theme/icon_fb.png                       	 ; icon_fb.png          	  ; $siteResource/images/theme/icon_fb.png                             	    	 ; image/png                   ; Fb 	  ;icon_fb		;
                     ;                         ; /images/theme/icon_u2b.png                       	 ; icon_u2b.png          	  ; $siteResource/images/theme/icon_u2b.png                             	     ; image/png                   ; U2b 	  ;icon_u2b		;
+                    ;                         ; /images/theme/icon_plurk.png                       	 ; icon_plurk.png          	  ; $siteResource/images/theme/icon_plurk.png                             	     ; image/png                   ; Plurk 	  ;icon_plurk	;
+                    ;                         ; /images/theme/icon_dp.png                       	 ; icon_dp.png          	  ; $siteResource/images/theme/icon_dp.png                             	    	 ; image/png                   ; Dp 	  ;icon_dp		;
+                    ;                         ; /images/theme/icon_hola.png                       	 ; icon_hola.png          	  ; $siteResource/images/theme/icon_hola.png                             	     ; image/png                   ; Hola 	  ;icon_hola	;
+
+# create cms navigation entry with image for navigation child nodes
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true]	;$contentCV[unique=true]	;name      		;navigationNode(&nodeRef)		;item(&imageRef)
+								;NortonEntry      	;                       	;NortonEntry	;HolaLeftFooterNode          	;logo_norton
+								;SosaEntry      	;                       	;SosaEntry		;HolaLeftFooterNode          	;logo_sosa
+								;DpLogoEntry      	;                       	;DpLogoEntry	;HolaLeftFooterNode          	;logo_dp
+								;FbEntry    	  	;                       	;FbEntry		;HolaRightFooterNode          	;icon_fb
+								;U2bEntry    	  	;                       	;U2bEntry		;HolaRightFooterNode          	;icon_u2b
+								;PlurkEntry    	  	;                       	;PlurkEntry		;HolaRightFooterNode          	;icon_plurk
+								;DpEntry    	  	;                       	;DpEntry		;HolaRightFooterNode          	;icon_dp
+								;HolaEntry    	  	;                       	;HolaEntry		;HolaRightFooterNode          	;icon_hola
+
+# create cms navigation entry with link for navigation child nodes
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true]	;$contentCV[unique=true]	;name      		;navigationNode(&nodeRef)		;item(&linkRef)
+								;AboutMeEntry      	;                       	;AboutMeEntry	;AboutMeNode		          	;AboutMeLink
+
+# CMS Link Components
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]	;name       		;url                  								   				;&linkRef  			;&componentRef		;target(code)[default='sameWindow'] 
+                              ;                       ;NortonLink      	;Norton Link		;http://tw.norton.com/								   				;NortonLink			;NortonLink   		;newWindow                         
+                              ;                       ;SosaLink        	;Sosa Link  		;http://www.sosa.org.tw/ec/ec_info.asp?markid=(89390488)			;SosaLink  			;SosaLink   		;newWindow                         
+							  ;						  ;DpLink		   	;Dp Link    		;https://www.tpipas.org.tw/DPmark/ShowCertData.aspx?id=B000008(01)	;DpLink				;DpLink				;newWindow
+							  ;						  ;BrandLink	   	;Brand Link    		;/mk/aboutme/brand													;BrandLink			;BrandLink			;
+							  ;						  ;AboutMeLink		;About me Link		;/mk/aboutme														;AboutMeLink		;AboutMeLink		;
+							  ;						  ;StoreLink	   	;Store Link    		;/																	;StoreLink			;StoreLink			;
+							  ;						  ;CategoryLink	   	;Category Link 		;/																	;CategoryLink		;CategoryLink		;
+							  ;						  ;CooperateLink	;Cooperate Link		;/																	;CooperateLink		;CooperateLink		;
+							  ;						  ;ServiceLink		;Service Link		;/																	;ServiceLink		;ServiceLink		;
+							  ;						  ;SecurityLink		;Security Link		;/																	;SecurityLink		;SecurityLink		;
+							  ;						  ;PrivacyLink		;Privacy Link		;/																	;PrivacyLink		;PrivacyLink		;
+							  ;						  ;FbLink			;Fb Link			;https://zh-tw.facebook.com/										;FbLink				;FbLink				;newWindow
+							  ;						  ;U2bLink			;U2b Link			;https://www.youtube.com/?gl=TW&hl=zh-TW							;U2bLink			;U2bLink			;newWindow
+							  ;						  ;PlurkLink		;Plurk Link			;http://www.plurk.com/												;PlurkLink			;PlurkLink			;newWindow
+							  ;						  ;HolaLink			;Hola Link			;/																	;HolaLink			;HolaLink			;
+							  ;						  ;SweetLink		;Sweet Link			;/mk/aboutme/sweet													;SweetLink			;SweetLink			;
 
 # CMS Navigation Nodes #
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;children(uid,$contentCV)[mode=append]
@@ -127,37 +175,14 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;ch
 
 # CMS Navigation Nodes
 INSERT_UPDATE CMSNavigationNode;uid[unique=true]		;$contentCV[unique=true];name					;parent(uid, $contentCV)	;links(&linkRef)																		;&nodeRef
-                               ;SiteRootNode   			;                       ; SiteRootNode 			;root        				;               																		;SiteRootNode
+                               ; SiteRootNode   		;                       ; SiteRootNode 			;root        				;               																		;SiteRootNode
 							   ;FooterNode				;						;FooterNode				;SiteRootNode				;																						;FooterNode
-                               ;tlwLeftFooterNode 		;                       ;tlwLeftFooterNode		;FooterNode					;NortonLink,SosaLink,DpLink																;tlwLeftFooterNode
-                               ;tlwFooterNode 			;                       ;tlwFooterNode			;FooterNode					;AboutMeLink,StoreLink,ReportLink,WebMapLink,CopyrightLink								;tlwFooterNode
-                               ;tlwRightFooterNode 		;                       ;tlwRightFooterNode		;FooterNode					;FbLink,U2bLink																			;tlwRightFooterNode
-                               ;AboutMeNode				;						;AboutMeNode			;tlwFooterNode				;																						;AboutMeNode
-
-# create cms navigation entry with image for navigation child nodes
-INSERT_UPDATE CMSNavigationEntry;uid[unique=true]	;$contentCV[unique=true]	;name      		;navigationNode(&nodeRef)		;item(&imageRef)
-								;NortonEntry      	;                       	;NortonEntry	;tlwLeftFooterNode          	;logo_norton
-								;SosaEntry      	;                       	;SosaEntry		;tlwLeftFooterNode          	;logo_sosa
-								;DpLogoEntry      	;                       	;DpLogoEntry	;tlwLeftFooterNode          	;logo_dp
-								;FbEntry    	  	;                       	;FbEntry		;tlwRightFooterNode          	;icon_fb
-								;U2bEntry    	  	;                       	;U2bEntry		;tlwRightFooterNode          	;icon_u2b
-
-# create cms navigation entry with link for navigation child nodes
-INSERT_UPDATE CMSNavigationEntry;uid[unique=true]	;$contentCV[unique=true]	;name      		;navigationNode(&nodeRef)		;item(&linkRef)
-								;AboutMeEntry      	;                       	;AboutMeEntry	;AboutMeNode		          	;AboutMeLink
-
-# CMS Link Components
-INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]	;name				;url																;external[default='false']	;&linkRef			;&componentRef		;target(code)[default='sameWindow']
-                              ;                       ;NortonLink      	;Norton Link		;http://tw.norton.com/								   				;true						;NortonLink			;NortonLink   		;newWindow                         
-                              ;                       ;SosaLink        	;Sosa Link  		;http://www.sosa.org.tw/ec/ec_info.asp?markid=(89390488)			;true						;SosaLink  			;SosaLink   		;newWindow                         
-							  ;						  ;DpLink		   	;Dp Link    		;https://www.tpipas.org.tw/DPmark/ShowCertData.aspx?id=B000008(01)	;true						;DpLink				;DpLink				;newWindow
-							  ;						  ;AboutMeLink		;About me Link		;/mk/aboutme														;							;AboutMeLink		;AboutMeLink		;
-							  ;						  ;StoreLink	   	;Store Link    		;/																	;							;StoreLink			;StoreLink			;
-							  ;						  ;ReportLink	   	;Report Link   		;/																	;							;ReportLink			;ReportLink			;
-							  ;						  ;WebMapLink	   	;WebMap Link    	;/																	;							;WebMapLink			;WebMapLink			;
-							  ;						  ;CopyrightLink	;Copyright Link		;/																	;							;CopyrightLink		;CopyrightLink		;
-							  ;						  ;FbLink			;Fb Link			;https://zh-tw.facebook.com/										;true						;FbLink				;FbLink				;newWindow
-							  ;						  ;U2bLink			;U2b Link			;https://www.youtube.com/?gl=TW&hl=zh-TW							;true						;U2bLink			;U2bLink			;newWindow
+                               ; HolaLeftFooterNode 	;                       ; HolaLeftFooterNode	;FooterNode					;NortonLink,SosaLink,DpLink																;HolaLeftFooterNode
+                               ; HolaFooterNode 		;                       ; HolaFooterNode		;FooterNode					;AboutMeLink,StoreLink,CategoryLink,CooperateLink,ServiceLink,SecurityLink,PrivacyLink	;HolaFooterNode
+                               ; HolaRightFooterNode 	;                       ; HolaRightFooterNode	;FooterNode					;FbLink,U2bLink,PlurkLink,DpLink,HolaLink												;HolaRightFooterNode
+                               ;AboutMeNode				;						;AboutMeNode			;HolaFooterNode				;BrandLink,SweetLink																	;AboutMeNode
+                               ;HeaderNode				;						;HeaderNode				;SiteRootNode				;																						;HeaderNode
+                               ;NavigationBarNode		;						;NavigationBarNode		;HeaderNode					;																						;NavigationBarNode
 
 # Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]		;cmsComponents(&componentRef)
@@ -186,6 +211,7 @@ INSERT_UPDATE ComponentTypeGroups2ComponentType	;source(code)[unique=true];targe
 INSERT_UPDATE HotProductComponent	;$contentCV[unique=true]	;uid[unique=true]	;name		;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
 									;							;HotProduct			;HotProduct	;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;HotProduct
 
+
 # Simple Banner Component
 INSERT_UPDATE SimpleBannerComponent	;$contentCV[unique=true]	;uid[unique=true]			;name					;&componentRef				;urlLink
 									;							;leftAdBanner1Component		;Ad Banner1 at left		;leftAdBanner1Component		;/
@@ -211,15 +237,19 @@ INSERT_UPDATE Media	;$contentCV[unique=true]	;code[unique=true]								 ;realfil
                     ;                         	;/images/sample/mBN_1.jpg                      	 ;mBN_1.jpg          	  	;$siteResource/images/sample/mBN_1.jpg                             	     	;image/jpg                   	;mBN_1 	  	;mBN_1		;
                     ;                         	;/images/sample/mBN_2.jpg             	      	 ;mBN_2.jpg	        	  	;$siteResource/images/sample/mBN_2.jpg                         		     	;image/jpg                   	;mBN_2 	  	;mBN_2		;
                     ;                         	;/images/sample/mBN_3.jpg                		 ;mBN_3.jpg		        	;$siteResource/images/sample/mBN_3.jpg                       	   		 	;image/jpg                   	;mBN_3	 	;mBN_3		;
+                    ;                         	;/images/sample/BN_1.jpg                      	 ;BN_1.jpg          	  	;$siteResource/images/sample/BN_1.jpg                             	     	;image/jpg                   	;BN_1 	  	;BN_1		;
+                    ;                         	;/images/sample/BN_5.jpg             	      	 ;BN_5.jpg	        	  	;$siteResource/images/sample/BN_5.jpg                         		     	;image/jpg                   	;BN_5 	  	;BN_5		;
 
 #BannerComponent for Rotating Images
 INSERT_UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;&componentRef			;urlLink
 								;							;mBN1BannerComponent	;mBN1 Banner Component	;mBN1BannerComponent	;/
 								;							;mBN2BannerComponent	;mBN2 Banner Component	;mBN2BannerComponent	;/
 								;							;mBN3BannerComponent	;mBN3 Banner Component	;mBN3BannerComponent	;/
+								;							;BN1BannerComponent	    ;BN1 Banner Component	;BN1BannerComponent	    ;/
+                                ;							;BN2BannerComponent	    ;BN2 Banner Component	;BN2BannerComponent	    ;/																
 
 INSERT_UPDATE RotatingImagesComponent	;$contentCV[unique=true]	;uid[unique=true]			;name						;banners(&componentRef)											;&componentRef
-										;							;RotatingImagesComponent	;Rotating Images Component	;mBN1BannerComponent,mBN2BannerComponent,mBN3BannerComponent	;RotatingImagesComponent
+										;							;RotatingImagesComponent	;Rotating Images Component	;BN1BannerComponent,BN2BannerComponent                 	        ;RotatingImagesComponent
 
 # CMS Product List Component
 INSERT_UPDATE CMSProductListComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;actions(uid,$contentCV)						;&componentRef
@@ -233,16 +263,29 @@ INSERT_UPDATE ProductGridComponent	;$contentCV[unique=true]	;uid[unique=true]		;
 INSERT_UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	    ;name		             ;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
 										;							;Suggestion			    ;Suggestion	             ;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;Suggestion
                                         ;							;CategoryPageSuggestion ;CategoryPageSuggestion	 ;10481,10491,10857,10972           			;allVisible		;false		;CategoryPageSuggestion
-                                        ;							;CategoryPage1Suggestion;CategoryPage1Suggestion ;10972,6663,2516,322			                ;allVisible		;false		;CategoryPage1Suggestion
+                                        ;			                ;CategoryPage1Suggestion;CategoryPage1Suggestion ;10972,6663,2516,322			                ;allVisible		;false		;CategoryPage1Suggestion
+                                        
+#create Product Carousel Component and has title icon
+#INSERT_UPDATE IconProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	    ;name		             ;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
+#                                            ;			                ;CategoryPage1Suggestion;CategoryPage1Suggestion ;10972,6663,2516,322			                ;allVisible		;false		;CategoryPage1Suggestion                       
                                         
 # Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
+                         	;                       	;FooterSlot	     		                ; FooterComponent
                          	;                       	;RotatingBannerSlot-shopping	     	;RotatingImagesComponent
 						 	;							;ProductCarouselSlot-shopping			;Suggestion
 						 	;							;ProductListSlot						;ProductGridComponent
 					        ;                       	;RotatingBannerSlot-categoryPage	    ;RotatingImagesComponent
 						 	;							;ProductCarouselSlot-categoryPage		;CategoryPageSuggestion
 						 	;							;ProductCarouselSlot1-categoryPage		;CategoryPage1Suggestion
+
+# Create Left Navigation Bar Component
+INSERT_UPDATE LeftNavigationBarComponent;$contentCV[unique=true]	;uid[unique=true]			;name							;wrapAfter	;link(uid, $contentCV)	;styleClass	;navigationNode(uid,$contentCV)	;dropDownLayout(code)[default='AUTO']	;&componentRef
+										;							;LeftNavigationBarComponent	;Left Navigation Bar Component	;10			;HomeLink				;			;SiteRootNode					;										;LeftNavigationBarComponent
+										
+# Create Category Navigation Bar Component
+INSERT_UPDATE CategoryNavigationBarComponent;$contentCV[unique=true]	;uid[unique=true]				;name								;wrapAfter	;link(uid, $contentCV)	;styleClass	;navigationNode(uid,$contentCV)	;dropDownLayout(code)[default='AUTO']	;&componentRef
+											;							;CategoryNavigationBarComponent	;Category Navigation Bar Component	;10			;HomeLink				;			;								;										;CategoryNavigationBarComponent						 	
 						 	
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef

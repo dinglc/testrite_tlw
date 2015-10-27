@@ -19,30 +19,48 @@ UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true]			;$pictur
 UPDATE BannerComponent		;$contentCV[unique=true]	;uid[unique=true]		;headline[lang=$lang]	;$picture[lang=$lang]		;content[lang=$lang]
 							;							;TopBannerComponent		;						;/images/theme/btn_top.png	;回上方
 
-# CMS Navigation Nodes
-UPDATE CMSNavigationNode	;$contentCV[unique=true];uid[unique=true]	;title[lang=$lang]
-							;						;FindPrdNode		;找商品
-							;						;FindMtdNode		;找方法
-							;						;FindNewsNode		;新消息
-							;						;FindSrvcNode		;找服務
+# Site Logo Component
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true]			;$picture[lang=$lang]
+							;						;SimpleBannerComponent		;/images/theme/logo.png
+							;						;CasaSimpleBannerComponent	;/images/theme/logo_casa.png
+							;						;HolasSimpleBannerComponent	;/images/theme/logo_hola_s.png
 
 # CMS Link Components
 UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lang=$lang]
+					   	;							;NortonLink      	;諾頓
+					   	;							;BrandLink      	;品牌簡介
+					   	;							;AboutMeLink		;關於HOLA
+					   	;							;StoreLink      	;全台門市
+					   	;							;CategoryLink    	;線上型錄
+					   	;							;CooperateLink  	;異業合作
+					   	;							;ServiceLink    	;客服中心
+					   	;							;SecurityLink   	;交易安全
+					   	;							;PrivacyLink    	;隱私權保護
+					   	;						  	;FurnitureLink		;傢具
+					  	;						  	;RoomLink			;寢室
+						;						  	;BathroomLink		;浴室
+						;						  	;KitchenLink		;廚房
+						;						  	;TablewareLink		;餐具
+						;						  	;StorageLink		;收納
+						;							;DecorativeLink		;裝飾
+						;							;CarpetLink			;地毯
+						;							;CleanLink			;清潔
+						;							;LightingLink		;燈飾
+						;							;FoodLink			;美食
+						;							;EletricLink		;家電
 						;							;ShoppingLink		;線上購物
 						;							;ExclusiveLink		;網購獨享
 						;							;ClearLink			;出清
 						;							;TeamshopingLink	;團購
-						;							;PreorderingLink	;新品預購
+						;							;PreorderingLink	;預購
 						;							;HotsellingLink		;熱銷排行
 						;							;BrandsLink			;品牌總覽
-						;							;FindPrd1Link		;找商品1
-						;							;FindPrd2Link		;找商品2
-						;							;FindMtd1Link		;找方法1
-						;							;FindMtd2Link		;找方法2
-						;							;FindNews1Link		;新消息1
-						;							;FindNews2Link		;新消息2
-						;							;FindSrvc1Link		;找服務1
-						;							;FindSrvc2Link		;找服務2
+						;							;CategoryLink		;線上型錄
+						;							;ProposalLink		;生活提案
+						;							;InformationLink	;活動情報
+						;							;AdvisoryLink		;服務諮詢
+						;							;GiftLink			;Gift
+						;							;SweetLink			;貼心服務
 						
 ############# Footer
 # CMS Footer Component
@@ -51,11 +69,7 @@ UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];notice[lang=$lan
 
 # CMS Link Components
 UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lang=$lang]
-					   	;							;AboutMeLink		;關於我們
-					   	;							;StoreLink      	;門市資訊
-					   	;							;ReportLink  	  	;媒體報導
-					   	;							;WebMapLink  	 	;網站地圖
-					   	;							;CopyrightLink    	;版權申明
+
 
 ############## Content
 # Banner Component
@@ -63,6 +77,8 @@ UPDATE BannerComponent		;$contentCV[unique=true]	;uid[unique=true]		;headline[la
 							;							;mBN1BannerComponent	;						;/images/sample/mBN_1.jpg	;
 							;							;mBN2BannerComponent	;						;/images/sample/mBN_2.jpg	;
 							;							;mBN3BannerComponent	;						;/images/sample/mBN_3.jpg	;
+							;							;BN1BannerComponent	    ;						;/images/sample/BN_1.jpg	;
+							;							;BN2BannerComponent	    ;						;/images/sample/BN_5.jpg	;							
 
 # Product Carousel Component
 UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	    ;title[lang=$lang]
@@ -104,6 +120,8 @@ UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 
 # CMS Navigation Nodes
 UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+						;						;HolaFooterNode		;和樂頁尾節點
+						;						;AboutMeNode		;關於HOLA
 
 # FAQ Page
 

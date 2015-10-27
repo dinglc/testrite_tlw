@@ -19,7 +19,7 @@
 					<div class="title-3">
 						<h3>
 							<spring:theme code="text.maincategory"/>
-						</h3><hr>
+						</h3>
 					</div>
 					<nav class="leftNav">
 						<ul class="nav">
@@ -38,7 +38,7 @@
 				    <h3>
 				    	<spring:theme code="text.brands"/>
 				    </h3>
-				    <hr>
+				    
 			    </div>
 			    
 			    <nav class="leftNav">
@@ -90,5 +90,5 @@
 	  </div>
 	</div><!--右版位End-->
 </div>
-		
+</div>		
 </template:page>
