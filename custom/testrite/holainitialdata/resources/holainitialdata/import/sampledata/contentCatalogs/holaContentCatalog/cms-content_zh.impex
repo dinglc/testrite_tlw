@@ -16,9 +16,6 @@ $lang=zh_TW
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true]			;$picture[lang=$lang]
 							;						;SimpleBannerComponent		;/images/theme/logo.png
 
-UPDATE BannerComponent		;$contentCV[unique=true]	;uid[unique=true]		;headline[lang=$lang]	;$picture[lang=$lang]		;content[lang=$lang]
-							;							;TopBannerComponent		;						;/images/theme/btn_top.png	;回上方
-
 # Site Logo Component
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true]			;$picture[lang=$lang]
 							;						;SimpleBannerComponent		;/images/theme/logo.png
@@ -67,30 +64,28 @@ UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lan
 UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];notice[lang=$lang]
 					  ;                       ;FooterComponent ;特力屋股份有限公司 版權所有©Copyright 2015 Test Rite Retail Co.,LTD. All Rights Reserved
 
-# CMS Link Components
-UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lang=$lang]
-
-
 ############## Content
 # Banner Component
 UPDATE BannerComponent		;$contentCV[unique=true]	;uid[unique=true]		;headline[lang=$lang]	;$picture[lang=$lang]		;content[lang=$lang]
-							;							;mBN1BannerComponent	;						;/images/sample/mBN_1.jpg	;
-							;							;mBN2BannerComponent	;						;/images/sample/mBN_2.jpg	;
-							;							;mBN3BannerComponent	;						;/images/sample/mBN_3.jpg	;
 							;							;BN1BannerComponent	    ;						;/images/sample/BN_1.jpg	;
 							;							;BN2BannerComponent	    ;						;/images/sample/BN_5.jpg	;							
 
 # Product Carousel Component
 UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	    ;title[lang=$lang]
-								;							;Suggestion			    ;家家家家家家
-								;							;CategoryPageSuggestion ;廚具推薦
-								;							;CategoryPage1Suggestion;廚具出清
-								
+								;							;Suggestion			    ;家家家家家家							
 
 # CMS Link Components
 UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lang=$lang]
 						;							;3MLink				;3M
 						;							;SakuraLink			;櫻花
+#中小分類頁-2
+UPDATE BannerComponent		;$contentCV[unique=true]	;uid[unique=true]		;headline[lang=$lang]	;$picture[lang=$lang]		;content[lang=$lang]
+							;							;mBN1BannerComponent-2	;						;/images/sample/mBN_1.jpg	;
+							;							;mBN2BannerComponent-2	;						;/images/sample/mBN_2.jpg	;
+							;							;mBN3BannerComponent-2	;						;/images/sample/mBN_3.jpg	;
+
+UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]
+								;							;Suggestion-2		;推薦-2
 
 # Lightbox Banner for Mini Cart (banner is not localizable so we must create a separate banner per language)
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText

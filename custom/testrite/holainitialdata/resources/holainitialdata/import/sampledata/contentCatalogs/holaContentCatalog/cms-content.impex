@@ -20,7 +20,7 @@ $jarResourceCms=jar:com.testritegroup.ec.hola.setup.InitialDataSystemSetup&/hola
 
 # CMS Site Settings
 UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV)
-			  ;tlw;            ;
+			  ;hola;           ;
 
 ########## Header
 # Site Logo
@@ -109,6 +109,10 @@ INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];nam
 # Breadcrumb Component
 INSERT_UPDATE BreadcrumbComponent	;$contentCV[unique=true]	;uid[unique=true]		;name						;&componentRef
 									;							;breadcrumbComponent	;Breadcrumb CMS Component	;breadcrumbComponent
+										
+# Create Category Navigation Bar Component
+INSERT_UPDATE CategoryNavigationBarComponent;$contentCV[unique=true]	;uid[unique=true]				;name								;wrapAfter	;link(uid, $contentCV)	;styleClass	;navigationNode(uid,$contentCV)	;dropDownLayout(code)[default='AUTO']	;&componentRef
+											;							;CategoryNavigationBarComponent	;Category Navigation Bar Component	;10			;HomeLink				;			;								;										;CategoryNavigationBarComponent						 	
 
 # Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]		;cmsComponents(&componentRef)
@@ -204,8 +208,16 @@ INSERT_UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;name	
 
 #Bind ComponentTypeGroups to ComponentType
 INSERT_UPDATE ComponentTypeGroups2ComponentType	;source(code)[unique=true];target(code)[unique=true]
+												;narrow;LeftNavigationBarComponent
+												;wide;LeftNavigationBarComponent
+												;narrow;CategoryNavigationBarComponent
+												;wide;CategoryNavigationBarComponent
 												;narrow;LinkCollectionComponent
 												;wide;LinkCollectionComponent
+												;narrow;HotProductComponent
+												;wide;HotProductComponent
+												;narrow;ProductCarouselLimitComponent
+												;wide;ProductCarouselLimitComponent
 
 #create Hot Product Component
 INSERT_UPDATE HotProductComponent	;$contentCV[unique=true]	;uid[unique=true]	;name		;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
@@ -228,23 +240,16 @@ INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsCo
 						 	;							;BrandLinksContentSlot					;LinkCollectionComponent
 						 	;							;HotProductContentSlot					;HotProduct
 						 	;							;LeftAdContentSlot						;leftAdBanner1Component,leftAdBanner2Component,leftAdBanner3Component
-						 	;							;AdContentSlot-shopping					;AdBanner1Component,AdBanner2Component,AdBanner3Component,AdBanner4Component
 						 	;							;LeftCategoriesListContentSlot			;RefinementFacetComponent
 
 ###########	Right Content
 # Medias for Rotating Images
 INSERT_UPDATE Media	;$contentCV[unique=true]	;code[unique=true]								 ;realfilename				;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator] ;mime[default='image/jpeg']		;altText	;&imageRef	;folder(qualifier)[default='images']
-                    ;                         	;/images/sample/mBN_1.jpg                      	 ;mBN_1.jpg          	  	;$siteResource/images/sample/mBN_1.jpg                             	     	;image/jpg                   	;mBN_1 	  	;mBN_1		;
-                    ;                         	;/images/sample/mBN_2.jpg             	      	 ;mBN_2.jpg	        	  	;$siteResource/images/sample/mBN_2.jpg                         		     	;image/jpg                   	;mBN_2 	  	;mBN_2		;
-                    ;                         	;/images/sample/mBN_3.jpg                		 ;mBN_3.jpg		        	;$siteResource/images/sample/mBN_3.jpg                       	   		 	;image/jpg                   	;mBN_3	 	;mBN_3		;
                     ;                         	;/images/sample/BN_1.jpg                      	 ;BN_1.jpg          	  	;$siteResource/images/sample/BN_1.jpg                             	     	;image/jpg                   	;BN_1 	  	;BN_1		;
                     ;                         	;/images/sample/BN_5.jpg             	      	 ;BN_5.jpg	        	  	;$siteResource/images/sample/BN_5.jpg                         		     	;image/jpg                   	;BN_5 	  	;BN_5		;
 
 #BannerComponent for Rotating Images
 INSERT_UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;&componentRef			;urlLink
-								;							;mBN1BannerComponent	;mBN1 Banner Component	;mBN1BannerComponent	;/
-								;							;mBN2BannerComponent	;mBN2 Banner Component	;mBN2BannerComponent	;/
-								;							;mBN3BannerComponent	;mBN3 Banner Component	;mBN3BannerComponent	;/
 								;							;BN1BannerComponent	    ;BN1 Banner Component	;BN1BannerComponent	    ;/
                                 ;							;BN2BannerComponent	    ;BN2 Banner Component	;BN2BannerComponent	    ;/																
 
@@ -260,32 +265,35 @@ INSERT_UPDATE ProductGridComponent	;$contentCV[unique=true]	;uid[unique=true]		;
 									;							;ProductGridComponent	;Product Grid Component	;							;ProductGridComponent
 
 #create Product Carousel Component
-INSERT_UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	    ;name		             ;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
-										;							;Suggestion			    ;Suggestion	             ;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;Suggestion
-                                        ;							;CategoryPageSuggestion ;CategoryPageSuggestion	 ;10481,10491,10857,10972           			;allVisible		;false		;CategoryPageSuggestion
-                                        ;			                ;CategoryPage1Suggestion;CategoryPage1Suggestion ;10972,6663,2516,322			                ;allVisible		;false		;CategoryPage1Suggestion
-                                        
-#create Product Carousel Component and has title icon
-#INSERT_UPDATE IconProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	    ;name		             ;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
-#                                            ;			                ;CategoryPage1Suggestion;CategoryPage1Suggestion ;10972,6663,2516,322			                ;allVisible		;false		;CategoryPage1Suggestion                       
-                                        
+INSERT_UPDATE ProductCarouselLimitComponent	;$contentCV[unique=true]	;uid[unique=true]	    ;name		             ;products(code,$productCV)						;scroll(code)	;popup		;size	;&componentRef
+											;							;Suggestion			    ;Suggestion	             ;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;4		;Suggestion
+                                                                               
 # Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
-                         	;                       	;FooterSlot	     		                ; FooterComponent
                          	;                       	;RotatingBannerSlot-shopping	     	;RotatingImagesComponent
 						 	;							;ProductCarouselSlot-shopping			;Suggestion
 						 	;							;ProductListSlot						;ProductGridComponent
 					        ;                       	;RotatingBannerSlot-categoryPage	    ;RotatingImagesComponent
-						 	;							;ProductCarouselSlot-categoryPage		;CategoryPageSuggestion
-						 	;							;ProductCarouselSlot1-categoryPage		;CategoryPage1Suggestion
 
+#中小分類頁-2
+INSERT_UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;&componentRef			;urlLink
+								;							;mBN1BannerComponent-2	;mBN1 Banner Component	;mBN1BannerComponent-2	;/-2
+								;							;mBN2BannerComponent-2	;mBN2 Banner Component	;mBN2BannerComponent-2	;/-2
+								;							;mBN3BannerComponent-2	;mBN3 Banner Component	;mBN3BannerComponent-2	;/-2
+INSERT_UPDATE RotatingImagesComponent	;$contentCV[unique=true]	;uid[unique=true]			;name						;banners(&componentRef)												;&componentRef
+										;							;RotatingImagesComponent-2	;Rotating Images Component	;mBN1BannerComponent-2,mBN2BannerComponent-2,mBN3BannerComponent-2	;RotatingImagesComponent-2
+
+INSERT_UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;name			;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
+										;							;Suggestion-2		;Suggestion-2	;10481,10491,10857,10972						;allVisible		;false		;Suggestion-2
+
+INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
+                         	;                       	;RotatingBannerSlot-CategoryPage-2     	;RotatingImagesComponent-2
+						 	;							;ProductCarouselSlot-CategoryPage-2		;Suggestion-2
+
+###### MkPage
 # Create Left Navigation Bar Component
 INSERT_UPDATE LeftNavigationBarComponent;$contentCV[unique=true]	;uid[unique=true]			;name							;wrapAfter	;link(uid, $contentCV)	;styleClass	;navigationNode(uid,$contentCV)	;dropDownLayout(code)[default='AUTO']	;&componentRef
 										;							;LeftNavigationBarComponent	;Left Navigation Bar Component	;10			;HomeLink				;			;SiteRootNode					;										;LeftNavigationBarComponent
-										
-# Create Category Navigation Bar Component
-INSERT_UPDATE CategoryNavigationBarComponent;$contentCV[unique=true]	;uid[unique=true]				;name								;wrapAfter	;link(uid, $contentCV)	;styleClass	;navigationNode(uid,$contentCV)	;dropDownLayout(code)[default='AUTO']	;&componentRef
-											;							;CategoryNavigationBarComponent	;Category Navigation Bar Component	;10			;HomeLink				;			;								;										;CategoryNavigationBarComponent						 	
 						 	
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef

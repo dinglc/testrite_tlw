@@ -32,6 +32,11 @@
 					</nav>
 				</c:otherwise>
 			</c:choose>
+			
+			<cms:pageSlot position="Section1A" var="feature">
+				<cms:component component="${feature}" />
+			</cms:pageSlot>
+
 			<!--品牌專區-->
 			<div class="brandZone">
 			    <div class="title-3">
@@ -42,53 +47,80 @@
 			    </div>
 			    
 			    <nav class="leftNav">
-			    <ul class="nav">
-				    <cms:pageSlot position="Section1B" var="feature">
+					<cms:pageSlot position="BrandSlot" var="feature" element="ul" class="nav">
 						<cms:component component="${feature}" />
 					</cms:pageSlot>
-				    </ul>
 			    </nav>
 			</div>
 			
+			<cms:pageSlot position="Section1B" var="feature">
+				<cms:component component="${feature}" />
+			</cms:pageSlot>
+			
 			<!--熱銷排行-->
+			<cms:pageSlot position="HotSellingSlot" var="feature" element="div" class="hotItem">
+				<cms:component component="${feature}" />
+			</cms:pageSlot>
+			
 			<cms:pageSlot position="Section1C" var="feature">
 				<cms:component component="${feature}" />
 			</cms:pageSlot>
 			
 			<!--左側廣告-->
-			<div class="leftBN MB20  hidden-xs">
-    			<div class="row">
-    				<cms:pageSlot position="Section1D" var="feature">
-    					<div class="col-xs-6 col-sm-12">
-    						<cms:component component="${feature}" />
-    					</div>
-					</cms:pageSlot>
-    			</div>
+			<div class="leftBN MB20 hidden-xs">
+    			<cms:pageSlot position="LeftAdSlot" var="feature" element="div" class="row">
+    				<cms:component component="${feature}" element="div" class="col-xs-6 col-sm-12"/>
+    			</cms:pageSlot>
     		</div>
+    		
+    		<cms:pageSlot position="Section1D" var="feature">
+				<cms:component component="${feature}" />
+			</cms:pageSlot>
 		</section>
 	</div><!--左版位End-->
 	<!--右版位-->
 	<div class="col-sm-8 col-md-9">
-	
-	<!--分類頁Slider-->
-		<section class="mainSlider">
-			<div class="callbacks_container ">
-		    	<cms:pageSlot position="Section2" var="feature">
-					<cms:component component="${feature}" />
-				</cms:pageSlot>
-		     </div>    
-		</section>
-	  <div class="itemRecommend">
-		<cms:pageSlot position="Section4" var="feature">
-				<cms:component component="${feature}" />
+		
+		<cms:pageSlot position="ProductListSlot" var="feature" element="div" class="sub-itemGategory">
+			<cms:component component="${feature}" />
 		</cms:pageSlot>
-	  </div>
-      <div class="itemFinalSold">
-			<cms:pageSlot position="Section6" var="feature">
+	
+		<!--分類頁Slider-->
+		<section class="mainSlider">
+			<cms:pageSlot position="RotatingImagesSlot" var="feature" element="div" class="callbacks_container">
 				<cms:component component="${feature}" />
 			</cms:pageSlot>
-	  </div>
+		</section>
+
+		
+		<cms:pageSlot position="Section2" var="feature">
+			<cms:component component="${feature}" />
+		</cms:pageSlot>		
+		
+		<cms:pageSlot position="Section3" var="feature">
+			<cms:component component="${feature}" />
+		</cms:pageSlot>
+		
+		<cms:pageSlot position="Section4" var="feature" element="div" class="itemRecommend">
+			<cms:component component="${feature}" />
+		</cms:pageSlot>
+		
+		<cms:pageSlot position="Section5" var="feature" element="div" class="itemFinalSold">
+			<cms:component component="${feature}" />
+		</cms:pageSlot>
+				
+		<cms:pageSlot position="Section6" var="feature">
+			<cms:component component="${feature}" />
+		</cms:pageSlot>		
+		
+		<cms:pageSlot position="Section7" var="feature">
+			<cms:component component="${feature}" />
+		</cms:pageSlot>		
+		
+		<cms:pageSlot position="Section8" var="feature">
+			<cms:component component="${feature}" />
+		</cms:pageSlot>		
+		
 	</div><!--右版位End-->
-</div>
 </div>		
 </template:page>
