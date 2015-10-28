@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/normalize.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/main.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/IE8.css"/>
 
 <%--  AddOn Theme CSS files --%>
 <c:forEach items="${addOnThemeCssPaths}" var="addOnThemeCss">

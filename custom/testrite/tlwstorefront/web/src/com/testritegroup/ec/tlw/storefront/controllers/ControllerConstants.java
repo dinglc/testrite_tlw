@@ -26,8 +26,10 @@ import de.hybris.platform.acceleratorcms.model.components.SubCategoryListCompone
 import de.hybris.platform.cms2.model.contents.components.CMSLinkComponentModel;
 import de.hybris.platform.cms2lib.model.components.ProductCarouselComponentModel;
 
-import com.testritegroup.ec.core.model.cms2.components.LeftNavigationBarComponentModel;
 import com.testritegroup.ec.core.model.cms2.components.HotProductComponentModel;
+import com.testritegroup.ec.core.model.cms2.components.LeftNavigationBarComponentModel;
+import com.testritegroup.ec.core.model.cms2.components.ProductCarouselLimitComponentModel;
+
 
 /**
  */
@@ -64,7 +66,9 @@ public interface ControllerConstants
 			String SubCategoryListComponent = _Prefix + SubCategoryListComponentModel._TYPECODE + _Suffix;
 			String SimpleResponsiveBannerComponent = _Prefix + SimpleResponsiveBannerComponentModel._TYPECODE + _Suffix;
 			String LeftNavigationBarComponent = _Prefix + LeftNavigationBarComponentModel._TYPECODE + _Suffix;
-			String HotProductComponent = _Prefix + HotProductComponentModel._TYPECODE + _Suffix;		}
+			String HotProductComponent = _Prefix + HotProductComponentModel._TYPECODE + _Suffix;
+			String ProductCarouselLimitComponent = _Prefix + ProductCarouselLimitComponentModel._TYPECODE + _Suffix;
+		}
 	}
 
 	/**

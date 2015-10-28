@@ -49,6 +49,52 @@ INSERT_UPDATE Product	;code[unique=true]	;$productCV		;$approved	;backendInfo(co
 						;10491;;;test;test;test;009110351;2471
 						;10857;;;test;test;test;009110722;2464
 						;10972;;;test;test;test;009110832;2467
+						;11481;;;test;test;test;009110340;2470
+						;11482;;;test;test;test;009110340;2470
+						;11483;;;test;test;test;009110340;2470
+						;11484;;;test;test;test;009110340;2470
+						;11485;;;test;test;test;009110340;2470
+						;11486;;;test;test;test;009110340;2470
+						;11487;;;test;test;test;009110340;2470
+						;11488;;;test;test;test;009110340;2470
+						;11489;;;test;test;test;009110340;2470
+						;12481;;;test;test;test;009110340;2470
+						;12482;;;test;test;test;009110340;2470
+						;12483;;;test;test;test;009110340;2470
+						;12484;;;test;test;test;009110340;2470
+						;12485;;;test;test;test;009110340;2470
+						;12486;;;test;test;test;009110340;2470
+						;12487;;;test;test;test;009110340;2470
+						;12488;;;test;test;test;009110340;2470
+						;12489;;;test;test;test;009110340;2470
+						;13481;;;test;test;test;009110340;2470
+						;13482;;;test;test;test;009110340;2470
+						;13483;;;test;test;test;009110340;2470
+						;13484;;;test;test;test;009110340;2470
+						;13485;;;test;test;test;009110340;2470
+						;13486;;;test;test;test;009110340;2470
+						;13487;;;test;test;test;009110340;2470
+						;13488;;;test;test;test;009110340;2470
+						;13489;;;test;test;test;009110340;2470
+						;14481;;;test;test;test;009110340;2470
+						;14482;;;test;test;test;009110340;2470
+						;14483;;;test;test;test;009110340;2470
+						;14484;;;test;test;test;009110340;2470
+						;14485;;;test;test;test;009110340;2470
+						;14486;;;test;test;test;009110340;2470
+						;14487;;;test;test;test;009110340;2470
+						;14488;;;test;test;test;009110340;2470
+						;14489;;;test;test;test;009110340;2470
+						;15481;;;test;test;test;009110340;2470
+						;15482;;;test;test;test;009110340;2470
+						;15483;;;test;test;test;009110340;2470
+						;15484;;;test;test;test;009110340;2470
+						;15485;;;test;test;test;009110340;2470
+						;15486;;;test;test;test;009110340;2470
+						;15487;;;test;test;test;009110340;2470
+						;15488;;;test;test;test;009110340;2470
+						;15489;;;test;test;test;009110340;2470
+
 						
 INSERT_UPDATE Product	;code[unique=true]	;$productCVON		;$approved	;backendInfo(code)	;productDimension(code)	;packageDimension(code)	;ean		;$supercategoriesonline
 						;130				;					;			;test				;test					;test					;009100130	;2462
@@ -64,3 +110,49 @@ INSERT_UPDATE Product	;code[unique=true]	;$productCVON		;$approved	;backendInfo(
 						;10491;;;test;test;test;009110351;2471
 						;10857;;;test;test;test;009110722;2464
 						;10972;;;test;test;test;009110832;2467
+						;11481;;;test;test;test;009110340;2470
+						;11482;;;test;test;test;009110340;2470
+						;11483;;;test;test;test;009110340;2470
+						;11484;;;test;test;test;009110340;2470
+						;11485;;;test;test;test;009110340;2470
+						;11486;;;test;test;test;009110340;2470
+						;11487;;;test;test;test;009110340;2470
+						;11488;;;test;test;test;009110340;2470
+						;11489;;;test;test;test;009110340;2470
+						;12481;;;test;test;test;009110340;2470
+						;12482;;;test;test;test;009110340;2470
+						;12483;;;test;test;test;009110340;2470
+						;12484;;;test;test;test;009110340;2470
+						;12485;;;test;test;test;009110340;2470
+						;12486;;;test;test;test;009110340;2470
+						;12487;;;test;test;test;009110340;2470
+						;12488;;;test;test;test;009110340;2470
+						;12489;;;test;test;test;009110340;2470
+						;13481;;;test;test;test;009110340;2470
+						;13482;;;test;test;test;009110340;2470
+						;13483;;;test;test;test;009110340;2470
+						;13484;;;test;test;test;009110340;2470
+						;13485;;;test;test;test;009110340;2470
+						;13486;;;test;test;test;009110340;2470
+						;13487;;;test;test;test;009110340;2470
+						;13488;;;test;test;test;009110340;2470
+						;13489;;;test;test;test;009110340;2470
+						;14481;;;test;test;test;009110340;2470
+						;14482;;;test;test;test;009110340;2470
+						;14483;;;test;test;test;009110340;2470
+						;14484;;;test;test;test;009110340;2470
+						;14485;;;test;test;test;009110340;2470
+						;14486;;;test;test;test;009110340;2470
+						;14487;;;test;test;test;009110340;2470
+						;14488;;;test;test;test;009110340;2470
+						;14489;;;test;test;test;009110340;2470
+						;15481;;;test;test;test;009110340;2470
+						;15482;;;test;test;test;009110340;2470
+						;15483;;;test;test;test;009110340;2470
+						;15484;;;test;test;test;009110340;2470
+						;15485;;;test;test;test;009110340;2470
+						;15486;;;test;test;test;009110340;2470
+						;15487;;;test;test;test;009110340;2470
+						;15488;;;test;test;test;009110340;2470
+						;15489;;;test;test;test;009110340;2470
+						

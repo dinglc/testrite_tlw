@@ -47,6 +47,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -58,6 +59,8 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 	 * contains on or more '.' characters. Please see https://jira.springsource.org/browse/SPR-6164 for a discussion on
 	 * the issue and future resolution.
 	 */
+	protected static final Logger LOG = Logger.getLogger(AbstractCategoryPageController.class);
+
 	protected static final String CATEGORY_CODE_PATH_VARIABLE_PATTERN = "/{categoryCode:.*}";
 	protected static final String PRODUCT_GRID_PAGE = "category/productGridPage";
 
@@ -92,6 +95,7 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 			final HttpServletResponse response) throws UnsupportedEncodingException
 	{
 		final CategoryModel category = getCommerceCategoryService().getCategoryForCode(categoryCode);
+		LOG.info("category.getCode()=" + category.getCode());
 
 		final String redirection = checkRequestUrl(request, response, getCategoryModelUrlResolver().resolve(category));
 		if (StringUtils.isNotEmpty(redirection))
@@ -100,15 +104,19 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 		}
 
 		final CategoryPageModel categoryPage = getCategoryPage(category);
+		LOG.info("categoryPage.getTitle()=" + categoryPage.getTitle());
 
 		final CategorySearchEvaluator categorySearch = new CategorySearchEvaluator(categoryCode, XSSFilterUtil.filter(searchQuery),
 				page, showMode, sortCode, categoryPage);
+		LOG.info("categorySearch=" + categorySearch.toString());
 		categorySearch.doSearch();
 
 		final ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> searchPageData = categorySearch
 				.getSearchPageData();
+		LOG.info("searchPageData=" + searchPageData.toString());
+		//LOG.info("searchPageData.getSubCategories().size()=" + searchPageData.getSubCategories().size());
 		final boolean showCategoriesOnly = categorySearch.isShowCategoriesOnly();
-		LOG.info(":::::::::::::search::::" + searchPageData.getCategoryCode());
+
 		storeCmsPageInModel(model, categorySearch.getCategoryPage());
 		storeContinueUrl(request);
 
@@ -135,6 +143,8 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 		final String metaDescription = MetaSanitizerUtil.sanitizeDescription(category.getDescription());
 		setUpMetaData(model, metaKeywords, metaDescription);
 
+		LOG.info("categorySearch.getCategoryPage().getCatalogVersion()="
+				+ categorySearch.getCategoryPage().getCatalogVersion().getVersion());
 		return getViewPage(categorySearch.getCategoryPage());
 
 	}
@@ -242,8 +252,8 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 		private boolean showCategoriesOnly;
 		private ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> searchPageData;
 
-		public CategorySearchEvaluator(final String categoryCode, final String searchQuery, final int page,
-				final ShowMode showMode, final String sortCode, final CategoryPageModel categoryPage)
+		public CategorySearchEvaluator(final String categoryCode, final String searchQuery, final int page, final ShowMode showMode,
+				final String sortCode, final CategoryPageModel categoryPage)
 		{
 			this.categoryCode = categoryCode;
 			this.searchQueryData.setValue(searchQuery);
@@ -258,17 +268,23 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 			showCategoriesOnly = false;
 			if (searchQueryData.getValue() == null)
 			{
+				LOG.info("1111111111111111111111");
 				// Direct category link without filtering
+				LOG.info("11111...categoryCode=" + categoryCode);
 				searchPageData = getProductSearchFacade().categorySearch(categoryCode);
+				LOG.info("11111...searchPageData.getCategoryCode()=" + searchPageData.getCategoryCode());
+				LOG.info("###11111...categoryHasDefaultPage(categoryPage)=" + categoryHasDefaultPage(categoryPage));
+				LOG.info("###11111...searchPageData.getSubCategories()=" + searchPageData.getSubCategories().size());
+
 				if (categoryPage != null)
 				{
-					//					LOG.info(":::::::::::::searchSubCategoriessize::::" + searchPageData.getSubCategories().size());
 					showCategoriesOnly = !categoryHasDefaultPage(categoryPage)
 							&& CollectionUtils.isNotEmpty(searchPageData.getSubCategories());
 				}
 			}
 			else
 			{
+				LOG.info("2222222222222222222");
 				// We have some search filtering
 				if (categoryPage == null || !categoryHasDefaultPage(categoryPage))
 				{

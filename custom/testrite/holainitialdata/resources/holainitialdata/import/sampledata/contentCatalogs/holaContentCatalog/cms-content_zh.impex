@@ -80,9 +80,8 @@ UPDATE CMSLinkComponent	;$contentCV[unique=true]	;uid[unique=true]	;linkName[lan
 						;							;SakuraLink			;櫻花
 #中小分類頁-2
 UPDATE BannerComponent		;$contentCV[unique=true]	;uid[unique=true]		;headline[lang=$lang]	;$picture[lang=$lang]		;content[lang=$lang]
-							;							;mBN1BannerComponent-2	;						;/images/sample/mBN_1.jpg	;
-							;							;mBN2BannerComponent-2	;						;/images/sample/mBN_2.jpg	;
-							;							;mBN3BannerComponent-2	;						;/images/sample/mBN_3.jpg	;
+							;							;BN1BannerComponent-2	;						;/images/sample/BN_1.jpg	;
+							;							;BN2BannerComponent-2	;						;/images/sample/BN_5.jpg	;							
 
 UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]
 								;							;Suggestion-2		;推薦-2

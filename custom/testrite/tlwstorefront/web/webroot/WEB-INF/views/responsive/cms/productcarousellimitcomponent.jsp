@@ -6,27 +6,10 @@
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product" %>
 <%@ taglib prefix="component" tagdir="/WEB-INF/tags/shared/component" %>
 
-<div class="itemRecommend">
 <c:choose>
 	<c:when test="${not empty productData}">
-		<c:choose>
-			<c:when test="${component.size == 4}">
-				<div class="title-1 MT30">
-					<h3>${title}</h3><section><hr></section>
-				</div>
-			</c:when>
-			<c:when test="${component.size == 5}">
-				<div class="title-2">
-					<h3 class="letter_3px">${title}</h3><hr>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="title-1 MT30">
-					<h3>${title}</h3><section><hr></section>
-				</div>
-			</c:otherwise>
-		</c:choose>
-
+		<div class="itemRecommend">
+			<h3 class="MB20  letter_3px">${title}</h3>
 
 			<c:choose>
 				<c:when test="${component.popup}">
@@ -52,35 +35,56 @@
 					</div>
 				</c:when>
 				<c:otherwise>
-					<div class="row prdList">
+				${component.size}
+					<c:choose>
+						<c:when test="${component.size == 3}">
+							<div class="row prdList List5">
+						</c:when>
+						<c:when test="${component.size == 4}">
+							<div class="row prdList">
+						</c:when>
+						<c:when test="${component.size == 5}">
+							<div class="row prdList List5">
+						</c:when>
+						<c:otherwise>
+							<div class="row prdList">
+						</c:otherwise>
+					</c:choose>
 					
 						<c:forEach items="${productData}" var="product">
 
 							<c:url value="${product.url}" var="productUrl"/>
 
 							<c:choose>
+								<c:when test="${component.size == 3}">
+									<div class="col-lg-4 col-md-6  col-sm-4">
+								</c:when>
 								<c:when test="${component.size == 4}">
-									<div class="col-sm-6 col-md-3">
+									<div class="col-sm-6 col-md-4 col-lg-3">
 								</c:when>
 								<c:when test="${component.size == 5}">
-									<div class="col-md-1-5">
+									<div class="col-lg-1-5 col-md-3 col-sm-4 col-xs-12">
 								</c:when>
 								<c:otherwise>
-									<div class="col-md-1-5 col-xs-12 col-sm-6">
+									<div class="col-sm-6 col-md-4 col-lg-3">
 								</c:otherwise>
 							</c:choose>
+								<section>
+              						<hr>
 									<a href="${productUrl}">
 <!-- 									<div class="thumb"> -->
 										<product:productPrimaryImage product="${product}" format="product"/>
 <!-- 									</div> -->
 									<h3>${product.name}</h3>
-									<p><span class="redColor"><format:fromPrice priceData="${product.price}"/></span></p>
+									<p><span class="MR5"><format:fromPrice priceData="${product.price}"/></span>
 									</a>
+								</section>
 							</div>
 						</c:forEach>
 					</div>
 				</c:otherwise>
 			</c:choose>
+		</div>
 	</c:when>
 
 	<c:otherwise>
@@ -88,5 +92,4 @@
 		<component:emptyComponent/>
 	</c:otherwise>
 </c:choose>
-</div>
 

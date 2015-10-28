@@ -12,15 +12,18 @@
 <c:url value="${product.url}" var="productUrl"/>
 <c:set value="${not empty product.potentialPromotions}" var="hasPromotion"/>
 
-<li class="product-item">
+<!-- <li class="product-item"> -->
+<div class="col-sm-6 col-lg-4">
+	
 	<ycommerce:testId code="product_wholeProduct">
-		<a class="thumb" href="${productUrl}" title="${product.name}">
+		<section>
+		<a href="${productUrl}" title="${product.name}">
 			<product:productPrimaryImage product="${product}" format="product"/>
 		</a>
-		<div class="details">
+<!-- 		<div class="details"> -->
 
-			<ycommerce:testId code="product_productName"><a class="name" href="${productUrl}">${product.name}</a></ycommerce:testId>
-		
+<%-- 			<ycommerce:testId code="product_productName"><a class="name" href="${productUrl}">${product.name}</a></ycommerce:testId> --%>
+		<h3>${product.name}</h3>
 
 			<c:if test="${not empty product.potentialPromotions}">
 				<div class="promo">
@@ -31,12 +34,13 @@
 			</c:if>
 
 			<ycommerce:testId code="product_productPrice">
-				<div class="price"><format:price priceData="${product.price}"/></div>
+				<span class="MR5"><format:price priceData="${product.price}"/></span>
 			</ycommerce:testId>
 
-		</div>
+<!-- 		</div> -->
 
 
+	</section>
 		<c:set var="product" value="${product}" scope="request"/>
 		<c:set var="addToCartText" value="${addToCartText}" scope="request"/>
 		<c:set var="addToCartUrl" value="${addToCartUrl}" scope="request"/>
@@ -47,5 +51,6 @@
 			</div>
 		</div>
 	</ycommerce:testId>
-</li>
+</div>	
+<!-- </li> -->
 

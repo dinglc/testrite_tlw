@@ -21,11 +21,11 @@
 							<spring:theme code="text.maincategory"/>
 						</h3>
 					</div>
-					<nav class="leftNav">
+					<nav class="leftNav MB20">
 						<ul class="nav">
 							<c:if test="${not empty subcategories}">
 								<c:forEach items="${subcategories}" var="sub">
-									<li><a href="<c:url value="${sub.url}"/>">${sub.name}</a></li>
+									<li><a href="<c:url value="${sub.url}"/>"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>${sub.name}</a></li>
 								</c:forEach>
 							</c:if>
 						</ul>
