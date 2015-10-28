@@ -628,5 +628,79 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='checkout-login'];contentSlot(uid,$contentCV)[unique=true];;;
 
 
+####### Homepage by Ronald #######
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true]           ;mime              ;realfilename       ;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];&imageRef          ;altText         ;folder(qualifier)[default='images']
+                   ;                       ;/images/sample/BN_0.jpg     ;image/jpeg        ;BN_0.jpg           ;$siteResource/images/sample/BN_0.jpg                                                       ;BN_0.jpg           ;BN_0.jpg        ;
+                   ;                       ;/images/sample/BN_1.jpg     ;image/jpeg        ;BN_1.jpg           ;$siteResource/images/sample/BN_1.jpg                                                       ;BN_1.jpg           ;BN_1.jpg        ;
+                   ;                       ;/images/sample/room_1.jpg   ;image/jpeg        ;room_1.jpg         ;$siteResource/images/sample/room_1.jpg                                                     ;room_1.jpg         ;room_1.jpg      ;
+                   ;                       ;/images/sample/room_2.jpg   ;image/jpeg        ;room_2.jpg         ;$siteResource/images/sample/room_2.jpg                                                     ;room_2.jpg         ;room_2.jpg      ;
+                   ;                       ;/images/sample/brand_1.jpg  ;image/jpeg        ;brand_1.jpg        ;$siteResource/images/sample/brand_1.jpg                                                    ;brand_1.jpg        ;brand_1.jpg     ;
+                   ;                       ;/images/sample/brand_2.jpg  ;image/jpeg        ;brand_2.jpg        ;$siteResource/images/sample/brand_2.jpg                                                    ;brand_2.jpg        ;brand_2.jpg     ;
+                   ;                       ;/images/sample/brand_3.jpg  ;image/jpeg        ;brand_3.jpg        ;$siteResource/images/sample/brand_3.jpg                                                    ;brand_3.jpg        ;brand_3.jpg     ;
+                   ;                       ;/images/sample/brand_4.jpg  ;image/jpeg        ;brand_4.jpg        ;$siteResource/images/sample/brand_4.jpg                                                    ;brand_4.jpg        ;brand_4.jpg     ;
+                   ;                       ;/images/sample/brand_5.jpg  ;image/jpeg        ;brand_5.jpg        ;$siteResource/images/sample/brand_5.jpg                                                    ;brand_5.jpg        ;brand_5.jpg     ;
+                   ;                       ;/images/sample/room_s_1.jpg ;image/jpeg        ;room_s_1.jpg       ;$siteResource/images/sample/room_s_1.jpg                                                   ;room_s_1.jpg       ;room_s_1.jpg    ;
+                   ;                       ;/images/sample/room_s_2.jpg ;image/jpeg        ;room_s_2.jpg       ;$siteResource/images/sample/room_s_2.jpg                                                   ;room_s_2.jpg       ;room_s_2.jpg    ;
+                   ;                       ;/images/sample/room_s_3.jpg ;image/jpeg        ;room_s_3.jpg       ;$siteResource/images/sample/room_s_3.jpg                                                   ;room_s_3.jpg       ;room_s_3.jpg    ;
+                   ;                       ;/images/sample/room_s_4.jpg ;image/jpeg        ;room_s_4.jpg       ;$siteResource/images/sample/room_s_4.jpg                                                   ;room_s_4.jpg       ;room_s_4.jpg    ;                   
+                   ;                       ;/images/sample/BN_2.jpg     ;image/jpeg        ;BN_2.jpg           ;$siteResource/images/sample/BN_2.jpg                                                       ;BN_2.jpg           ;BN_2.jpg        ;
+                   
+
+INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true]					;name    						 ;&componentRef					;urlLink
+                             ;                       ;BN_0            					;BN_0    						 ;BN_0        					;http://BN_0
+                             ;                       ;HomeBannerComponent2     			;HomeBannerComponent2			 ;HomeBannerComponent2		 	;http://BN_1
+                             ;                       ;HomeBannerComponent3A    			;HomeBannerComponent3A  		 ;HomeBannerComponent3A         ;http://room_1
+                             ;                       ;HomeBannerComponent3B 			;HomeBannerComponent3B 		     ;HomeBannerComponent3B         ;http://room_2
+                             ;                       ;HomeBannerComponent6A1  		    ;HomeBannerComponent6A1  		 ;HomeBannerComponent6A1        ;http://brand_1
+                             ;                       ;HomeBannerComponent6A2  		    ;HomeBannerComponent6A2  		 ;HomeBannerComponent6A2        ;http://brand_2
+                             ;                       ;HomeBannerComponent6A3  		    ;HomeBannerComponent6A3  		 ;HomeBannerComponent6A3        ;http://brand_3
+                             ;                       ;HomeBannerComponent6A4  		    ;HomeBannerComponent6A4  		 ;HomeBannerComponent6A4        ;http://brand_4
+                             ;                       ;HomeBannerComponent6A5  		    ;HomeBannerComponent6A5  		 ;HomeBannerComponent6A5        ;http://brand_5
+                             ;                       ;HomeBannerComponent7A  		    ;HomeBannerComponent7A  		 ;HomeBannerComponent7A         ;http://room_s_1
+                             ;                       ;HomeBannerComponent7B  		    ;HomeBannerComponent7B 			 ;HomeBannerComponent7B         ;http://room_s_2
+                             ;                       ;HomeBannerComponent7C   		    ;HomeBannerComponent7C  		 ;HomeBannerComponent7C         ;http://room_s_3
+                             ;                       ;HomeBannerComponent7D   		    ;HomeBannerComponent7D  		 ;HomeBannerComponent7D         ;http://room_s_4
+                             ;                       ;HomeBannerComponent8   		    ;HomeBannerComponent8   		 ;HomeBannerComponent8		    ;http://BN_2
+                             
+INSERT_UPDATE RotatingImagesComponent;$contentCV[unique=true];uid[unique=true]              ;name                          ;banners(&componentRef)       ;&componentRef
+                                     ;                       ;HomeRotatingImagesComponent   ;HomeRotatingImagesComponent   ;BN_0,BN_0                    ;HomeRotatingImagesComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]        ;cmsComponents(&componentRef)
+                         ;                       ;Section1Slot            ;HomeRotatingImagesComponent
+                         ;                       ;Section2Slot            ;HomeBannerComponent2
+                         ;                       ;Section3Slot            ;HomeCMSParagraphComponent3
+                         ;                       ;Section3ASlot           ;HomeBannerComponent3A
+                         ;                       ;Section3BSlot           ;HomeBannerComponent3B
+                         ;                       ;Section4Slot            ;HomeProductCarouselLimitComponent4
+                         ;                       ;Section5Slot            ;HomeProductCarouselLimitComponent5
+                         ;                       ;Section6Slot            ;HomeCMSParagraphComponent6
+                         ;                       ;Section6ASlot           ;HomeBannerComponent6A1,HomeBannerComponent6A2,HomeBannerComponent6A3,HomeBannerComponent6A4,HomeBannerComponent6A5
+                         ;                       ;Section6BSlot           ;HomeProductCarouselLimitComponent6B
+                         ;                       ;Section6CSlot           ;HomeProductCarouselLimitComponent6C
+                         ;                       ;Section6DSlot           ;HomeProductCarouselLimitComponent6D
+                         ;                       ;Section6ESlot           ;HomeProductCarouselLimitComponent6E
+                         ;                       ;Section6FSlot           ;HomeProductCarouselLimitComponent6F
+                         ;                       ;Section7Slot            ;HomeCMSParagraphComponent7
+                         ;                       ;Section7ASlot           ;HomeBannerComponent7A
+                         ;                       ;Section7BSlot           ;HomeBannerComponent7B
+                         ;                       ;Section7CSlot           ;HomeBannerComponent7C
+                         ;                       ;Section7DSlot           ;HomeBannerComponent7D
+                         ;                       ;Section8Slot            ;HomeBannerComponent8
+
+# CMSParagraphComponent
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true]              ;name                         ;&componentRef;;;;
+                                   ;                       ;HomeCMSParagraphComponent3    ;HomeCMSParagraphComponent3   ;HomeCMSParagraphComponent3
+                                   ;                       ;HomeCMSParagraphComponent6    ;HomeCMSParagraphComponent6   ;HomeCMSParagraphComponent6
+                                   ;                       ;HomeCMSParagraphComponent7    ;HomeCMSParagraphComponent7   ;HomeCMSParagraphComponent7
+# ProductCarouselLimitComponent
+INSERT_UPDATE ProductCarouselLimitComponent	;$contentCV[unique=true]	;uid[unique=true]							;name									;products(code,$productCV)						;scroll(code)	;popup		;&componentRef							;size
+									    	;							;HomeProductCarouselLimitComponent4			;HomeProductCarouselLimitComponent4		;10481,10491,10857,10972,6663       			;allVisible		;false		;HomeProductCarouselLimitComponent4   	;5
+									    	;							;HomeProductCarouselLimitComponent5			;HomeProductCarouselLimitComponent5		;6663,10972,10857,10491,10481       			;allVisible		;false		;HomeProductCarouselLimitComponent5   	;5
+									    	;							;HomeProductCarouselLimitComponent6B		;HomeProductCarouselLimitComponent6B	;10491,10857,10972,6663,10481       			;allVisible		;false		;HomeProductCarouselLimitComponent6B   	;5
+									    	;							;HomeProductCarouselLimitComponent6C		;HomeProductCarouselLimitComponent6C	;10857,10972,6663,10481,10491       			;allVisible		;false		;HomeProductCarouselLimitComponent6C   	;5
+									    	;							;HomeProductCarouselLimitComponent6D		;HomeProductCarouselLimitComponent6D	;10972,6663,10481,10491,10857       			;allVisible		;false		;HomeProductCarouselLimitComponent6D   	;5
+									    	;							;HomeProductCarouselLimitComponent6E		;HomeProductCarouselLimitComponent6E	;6663,10481,10491,10857,10972       			;allVisible		;false		;HomeProductCarouselLimitComponent6E   	;5
+									    	;							;HomeProductCarouselLimitComponent6F		;HomeProductCarouselLimitComponent6F	;10481,10491,10857,10972,6663       			;allVisible		;false		;HomeProductCarouselLimitComponent6F   	;5
+									    	
 
 

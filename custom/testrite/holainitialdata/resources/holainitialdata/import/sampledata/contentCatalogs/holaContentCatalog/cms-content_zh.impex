@@ -166,7 +166,33 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
 
 UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=$lang]
-
 ##### category left hotselling product
 UPDATE HotProductComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
                           ;                       ;HotProduct      ;"熱銷排行"
+
+####### Home page by Ronald #######
+UPDATE ProductCarouselLimitComponent	;$contentCV[unique=true]	;uid[unique=true]	      		      ;title[lang=$lang]
+										;							;HomeProductCarouselLimitComponent4	  ;今日最Hito
+										;							;HomeProductCarouselLimitComponent5	  ;個人推薦
+
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true]             ;content[lang=$lang]							
+                            ;                       ;HomeCMSParagraphComponent3   ;<h3 class=" letter_3px">我的夢想客廳</h3><hr>		
+                            ;                       ;HomeCMSParagraphComponent6   ;<h3 class=" letter_3px">嚴選品牌</h3><hr>		
+                            ;                       ;HomeCMSParagraphComponent7   ;<h3 class=" letter_3px">生活提案</h3><hr>		
+                            
+#HomePage的輪播   by Ronald#############################################
+UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true]		  ;$picture[lang=$lang]			;content[lang=$lang]								;headline[lang=$lang]
+                      ;                       ;BN_0          		  ;/images/sample/BN_0.jpg		;													;
+                      ;                       ;HomeBannerComponent2   ;/images/sample/BN_1.jpg		;													;
+                      ;                       ;HomeBannerComponent3A  ;/images/sample/room_1.jpg	;<section><h3>暖色微光</h3></section>					;
+                      ;                       ;HomeBannerComponent3B  ;/images/sample/room_2.jpg	;<section><h3>暖色微光</h3></section>					;
+					  ;                       ;HomeBannerComponent6A1 ;/images/sample/brand_1.jpg	;<i></i><section><h3>英國KENWOOD</h3></section>		;
+					  ;                       ;HomeBannerComponent6A2 ;/images/sample/brand_2.jpg	;<i></i><section><h3>義大利DELONGHI</h3></section>		;
+					  ;                       ;HomeBannerComponent6A3 ;/images/sample/brand_3.jpg	;<i></i><section><h3>Joseph Joseph</h3></section>	;
+					  ;                       ;HomeBannerComponent6A4 ;/images/sample/brand_4.jpg	;<i></i><section><h3>Umbra</h3></section>			;
+					  ;                       ;HomeBannerComponent6A5 ;/images/sample/brand_5.jpg	;<i></i><section><h3>德國雙人牌</h3></section>			;
+					  ;                       ;HomeBannerComponent7A  ;/images/sample/room_s_1.jpg	;<section><h3>裝飾</h3></section>						;
+					  ;                       ;HomeBannerComponent7B  ;/images/sample/room_s_2.jpg	;<section><h3>寢具</h3></section>						;
+					  ;                       ;HomeBannerComponent7C  ;/images/sample/room_s_3.jpg	;<section><h3>地毯</h3></section>						;
+					  ;                       ;HomeBannerComponent7D  ;/images/sample/room_s_4.jpg	;<section><h3>餐茶</h3></section>						;
+                      ;                       ;HomeBannerComponent8   ;/images/sample/BN_2.jpg		;													;
