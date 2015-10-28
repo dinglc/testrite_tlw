@@ -487,12 +487,14 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
 ;;LeftAdContentSlot;Ad Content Slot at left;true
 ;;AdContentSlot;Ad Content Slot;true
 ;;RotatingImagesSlot;RotatingImages Slot;true
+;;ParagraphSlot;Paragraph Slot;true
 
 # Bind Content Slots to Page Templates
 INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true]					;position[unique=true]	;pageTemplate(uid,$contentCV)[unique=true][default='ProductDetailsPageTemplate'];contentSlot(uid,$contentCV)[unique=true]	;allowOverwrite
 									;						;BrandLinks-ProductDetails			;BrandSlot				;																				;BrandLinksContentSlot						;true
 									;						;HotProduct-ProductDetails			;HotSellingSlot			;																				;HotProductContentSlot						;true
 									;						;LeftAd-ProductDetails				;LeftAdSlot				;																				;LeftAdContentSlot							;true
+									;						;Paragraph-ProductDetails			;Section4				;																				;ParagraphSlot								;true
 
 ;;SiteLogo-ProductDetails;SiteLogo;;SiteLogoSlot;true
 ;;HomepageLink-ProductDetails;HomepageNavLink;;HomepageNavLinkSlot;true
@@ -879,8 +881,3 @@ INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name				;
 # Bind Content Slots to Product List Page
 INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ProductListPage']	;contentSlot(uid,$contentCV)[unique=true]
 									;							;ProductListSlot				;ProductListSlot		;																;ProductListSlot			
-
-############################# Product Detail Page 
-# Create Content Page
-INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name					;masterTemplate(uid,$contentCV)		;label			;defaultPage[default='true']	;approvalStatus(code)[default='approved']	;homepage[default='false']
-							;							;ProductDetailPage		;Product Detail Page	;LandingPage3Template				;ProductDetail	;								;											;

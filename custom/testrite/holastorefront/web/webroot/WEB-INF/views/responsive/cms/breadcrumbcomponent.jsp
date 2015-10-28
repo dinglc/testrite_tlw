@@ -6,8 +6,8 @@
 
 <c:if test="${fn:length(breadcrumbs) > 0}">
 	<div class="breadcrumb-section">
-		<div class="container">
+<!-- 		<div class="container"> -->
 			<breadcrumb:breadcrumb breadcrumbs="${breadcrumbs}" />
-		</div>
+<!-- 		</div> -->
 	</div>
 </c:if>

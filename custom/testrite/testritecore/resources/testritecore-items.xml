@@ -436,6 +436,19 @@
 			    extends="ProductCarouselComponent" autocreate="true">
 			    <description>It represents Hotselling product by customer.</description>
 			</itemtype>
+			
+			<itemtype code="ProductCarouselLimitComponent" generate="true"
+		       jaloclass="com.testritegroup.ec.core.jalo.cms2.components.ProductCarouselLimitComponent"
+		       extends="ProductCarouselComponent" autocreate="true">
+		       <description>It represents Product Carousel Component with Limit.</description>
+		       <attributes>
+			     <attribute qualifier="size" type="java.lang.Integer">
+			      <persistence type="property" />
+			      <modifiers />
+			      <description>Have size Products Each Row.</description>
+			     </attribute>
+		    	</attributes>
+   </itemtype>
         </typegroup>
 
 

@@ -39,8 +39,11 @@ import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.commercefacades.product.data.ProductReferenceData;
 import de.hybris.platform.commercefacades.product.data.ReviewData;
 import de.hybris.platform.commercefacades.search.ProductSearchFacade;
+import de.hybris.platform.commercefacades.search.data.SearchStateData;
+import de.hybris.platform.commerceservices.category.CommerceCategoryService;
+import de.hybris.platform.commerceservices.product.CommerceProductService;
+import de.hybris.platform.commerceservices.search.facetdata.ProductCategorySearchPageData;
 import de.hybris.platform.commerceservices.url.UrlResolver;
-import de.hybris.platform.converters.Converters;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.product.ProductService;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
@@ -73,6 +76,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.testritegroup.ec.hola.storefront.BreadcrumbBuilder.SearchCategoryPageBreadcrumbBuilder;
 import com.testritegroup.ec.hola.storefront.controllers.ControllerConstants;
 
 
@@ -125,6 +129,15 @@ public class ProductPageController extends AbstractPageController
 	@Resource(name = "categoryConverter")
 	private Converter<CategoryModel, CategoryData> categoryConverter;
 
+	@Resource(name = "searchCategoryPageBreadcrumbBuilder")
+	private SearchCategoryPageBreadcrumbBuilder searchCategoryPageBreadcrumbBuilder;
+
+	@Resource(name = "commerceProductService")
+	private CommerceProductService commerceProductService;
+
+	@Resource(name = "commerceCategoryService")
+	private CommerceCategoryService commerceCategoryService;
+
 	@RequestMapping(value = PRODUCT_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
 	public String productDetail(@PathVariable("productCode") final String productCode, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response) throws CMSItemNotFoundException,
@@ -137,21 +150,23 @@ public class ProductPageController extends AbstractPageController
 			return redirection;
 		}
 
-		final CategoryModel superCategory = categoryService
-				.getAllSupercategoriesForCategory(productModel.getSupercategories().iterator().next()).iterator().next();
-		model.addAttribute("superCategory", superCategory);
-		model.addAttribute("subCategories",
-				Converters.convertAll(categoryService.getAllSubcategoriesForCategory(superCategory), categoryConverter));
+		final Map<String, List<CategoryData>> categoryList = new HashMap<String, List<CategoryData>>();
+		final CategoryModel category = commerceProductService.getSuperCategoriesExceptClassificationClassesForProduct(productModel)
+				.iterator().next();
 
+		final String mainCategoryCode = commerceCategoryService.getPathsForCategory(category).iterator().next().get(1).getCode();
+		final ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> mainSearchPageData = productSearchFacade
+				.categorySearch(mainCategoryCode);
+		for (final CategoryData categorydata : mainSearchPageData.getSubCategories())
+		{
+			final String midCategoryCode = categorydata.getCode();
 
-		//		final CategoryModel category = categoryService.getCategoryForCode(productModel.getSupercategories().iterator().next()
-		//				.getCode());
-		//		final ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> categorydata = productSearchFacade
-		//				.categorySearch(category.getSupercategories().iterator().next().getCode());
-		//
-		//
-		//		model.addAttribute("supercategory", category.getSupercategories().iterator().next().getName());
-		//		model.addAttribute("categorydata", categorydata);
+			final ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> midSearchPageData = productSearchFacade
+					.categorySearch(midCategoryCode);
+			categoryList.put(categorydata.getName(), midSearchPageData.getSubCategories());
+		}
+
+		model.addAttribute("midcategories", categoryList);
 
 		updatePageTitle(productModel, model);
 		populateProductDetailForDisplay(productModel, model, request);
@@ -340,7 +355,7 @@ public class ProductPageController extends AbstractPageController
 		sortVariantOptionData(productData);
 		storeCmsPageInModel(model, getPageForProduct(productModel));
 		populateProductData(productData, model);
-		model.addAttribute(WebConstants.BREADCRUMBS_KEY, productBreadcrumbBuilder.getBreadcrumbs(productModel));
+		model.addAttribute(WebConstants.BREADCRUMBS_KEY, searchCategoryPageBreadcrumbBuilder.getBreadcrumbs(productModel));
 	}
 
 	protected void populateProductData(final ProductData productData, final Model model)
@@ -422,5 +437,6 @@ public class ProductPageController extends AbstractPageController
 	{
 		return cmsPageService.getPageForProduct(product);
 	}
+
 
 }

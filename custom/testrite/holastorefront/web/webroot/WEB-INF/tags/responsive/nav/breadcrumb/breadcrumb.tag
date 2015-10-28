@@ -5,7 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <c:url value="/" var="homeUrl" />
-<div class="container" id="wrapper"> 
+
 <ol class="breadcrumb">
 	<li>
 		<a href="${homeUrl}"><spring:theme code="breadcrumb.home" /></a>
@@ -14,7 +14,7 @@
 	<c:forEach items="${breadcrumbs}" var="breadcrumb" varStatus="status">
 		<c:url value="${breadcrumb.url}" var="breadcrumbUrl" />
 		<c:choose>
-			<c:when test="${status.last}">
+			<c:when test="${status.last || empty breadcrumb.url}">
 				<li class="active">${breadcrumb.name}</li>
 			</c:when>
 			<c:when test="${breadcrumb.url eq '#'}">

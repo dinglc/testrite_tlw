@@ -82,6 +82,10 @@ UPDATE BannerComponent		;$contentCV[unique=true]	;uid[unique=true]		;headline[la
 UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;title[lang=$lang]
 								;							;Suggestion-2		;推薦-2
 
+# CMS Paragraph Component (Contact information)
+UPDATE CMSParagraphComponent	;$contentCV[unique=true]	;uid[unique=true]		;content[lang=$lang]
+								;							;CMSParagraphComponent	;<h4 class="MB20">購物貼心叮嚀</h4><ul class="ML20"><li>【商品運送】運送服務費用、運送範圍請參考<a class="orangeColor" href="#">運送服務說明。</a></li><li>【售後服務】若有運送限制本網站保留接單與否權利，如無法出貨，客服人員將主動協助訂單取消、退款事宜，其他請參考<a class="orangeColor" href="#">退換貨說明。</a></li><li>【客服中心】更多說明請參考<a class="orangeColor" href="#">客服中心</a>，如仍有問題請留言<a class="orangeColor" href="#">「客服信箱」</a>，我們將於3個工作天內與您聯絡。</li></ul>
+
 # Lightbox Banner for Mini Cart (banner is not localizable so we must create a separate banner per language)
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
 

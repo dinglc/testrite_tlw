@@ -79,7 +79,7 @@
 		<cms:component component="${comp}"/>
 	</cms:pageSlot>
 	<product:productPageTabs />
-	<cms:pageSlot position="Section4" var="comp" element="div" class="productDetailsPageSection4">
+	<cms:pageSlot position="Section4" var="comp" element="div" class="smallNotice MT20">
 		<cms:component component="${comp}"/>
 	</cms:pageSlot>	
 		

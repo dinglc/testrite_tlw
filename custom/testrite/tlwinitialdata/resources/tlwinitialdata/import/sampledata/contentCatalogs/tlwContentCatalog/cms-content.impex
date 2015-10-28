@@ -233,12 +233,18 @@ INSERT_UPDATE ProductGridComponent	;$contentCV[unique=true]	;uid[unique=true]		;
 INSERT_UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;name		;products(code,$productCV)						;scroll(code)	;popup		;&componentRef
 										;							;Suggestion			;Suggestion	;10481,10491,10857,10972,6663,2516,322			;allVisible		;false		;Suggestion
 
+# CMS Paragraph Component (Contact information)
+INSERT_UPDATE CMSParagraphComponent	;$contentCV[unique=true]	;uid[unique=true]		;name						;&componentRef
+									;							;CMSParagraphComponent	;CMS Paragraph Component	;CMSParagraphComponent
+
 # Content Slots
 INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsComponents(&componentRef)
                          	;                       	;RotatingBannerSlot-shopping	     	;RotatingImagesComponent
 						 	;							;ProductCarouselSlot-shopping			;Suggestion
 						 	;							;ProductListSlot						;ProductGridComponent
 						 	;							;AdContentSlot-shopping					;AdBanner1Component,AdBanner2Component,AdBanner3Component,AdBanner4Component
+						 	;							;ParagraphSlot							;CMSParagraphComponent
+
 #中小分類頁-2
 INSERT_UPDATE BannerComponent	;$contentCV[unique=true]	;uid[unique=true]		;name					;&componentRef			;urlLink
 								;							;mBN1BannerComponent-2	;mBN1 Banner Component	;mBN1BannerComponent-2	;/-2
@@ -268,9 +274,9 @@ INSERT_UPDATE AccountNavigationCollectionComponent;$contentCV[unique=true];uid[u
 INSERT_UPDATE NavigationBarCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
 
 # CMS tabs components
-INSERT_UPDATE CMSTabParagraphComponent;$contentCV[unique=true];uid[unique=true];name;visible;&componentRef
+INSERT_UPDATE CMSTabParagraphComponent	;$contentCV[unique=true];uid[unique=true]	;name			;visible	;&componentRef
 
-INSERT_UPDATE CMSTabParagraphContainer;$contentCV[unique=true];uid[unique=true];name;visible;simpleCMSComponents(uid, $contentCV);&componentRef
+INSERT_UPDATE CMSTabParagraphContainer	;$contentCV[unique=true];uid[unique=true]	;name			;visible	;simpleCMSComponents(uid, $contentCV)	;&componentRef
 
 # CMS Footer Component
 INSERT_UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];wrapAfter;&componentRef

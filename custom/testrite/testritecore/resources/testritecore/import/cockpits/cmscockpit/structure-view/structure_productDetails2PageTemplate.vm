@@ -62,7 +62,7 @@
 					<cockpit code="HotSellingSlot" />
 				</td>
 				<td colspan="3" class="structureViewSection">
-					<cockpit code="Section2" />
+					<cockpit code="Section3" />
 				</td>
 			</tr>
 			<tr>
@@ -70,7 +70,7 @@
 					<cockpit code="Section1C" />
 				</td>
 				<td colspan="3" class="structureViewSection">
-					<cockpit code="Section3" />
+					<cockpit code="Section4" />
 				</td>
 			</tr>
 			<tr>
@@ -89,7 +89,7 @@
 					<cockpit code="Section1D" />
 				</td>
 				<td colspan="4" class="structureViewSection">
-					<cockpit code="Section4" />
+					<cockpit code="Section5" />
 				</td>
 			</tr>
 			<tr>
