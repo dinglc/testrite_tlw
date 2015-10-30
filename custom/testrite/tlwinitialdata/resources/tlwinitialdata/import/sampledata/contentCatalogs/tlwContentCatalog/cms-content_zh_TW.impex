@@ -86,6 +86,35 @@ UPDATE ProductCarouselComponent	;$contentCV[unique=true]	;uid[unique=true]	;titl
 UPDATE CMSParagraphComponent	;$contentCV[unique=true]	;uid[unique=true]		;content[lang=$lang]
 								;							;CMSParagraphComponent	;<h4 class="MB20">購物貼心叮嚀</h4><ul class="ML20"><li>【商品運送】運送服務費用、運送範圍請參考<a class="orangeColor" href="#">運送服務說明。</a></li><li>【售後服務】若有運送限制本網站保留接單與否權利，如無法出貨，客服人員將主動協助訂單取消、退款事宜，其他請參考<a class="orangeColor" href="#">退換貨說明。</a></li><li>【客服中心】更多說明請參考<a class="orangeColor" href="#">客服中心</a>，如仍有問題請留言<a class="orangeColor" href="#">「客服信箱」</a>，我們將於3個工作天內與您聯絡。</li></ul>
 
+####################################################################################
+#rick add cms paragraph component
+#homepage 
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true]          ;content[lang=$lang]
+                            ;                       ;HomeCMSParagraphComponent ;我的風格廚房
+                            ;                       ;Home3CMSParagraphComponent;熱門推薦
+                            ;                       ;Home4CMSParagraphComponent;今日最Hito
+                            ;                       ;Home5CMSParagraphComponent;個人推薦
+                            ;                       ;Home7CMSParagraphComponent;居家照明方案
+                            
+UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang];content[lang=$lang]
+                      ;                       ;BN_0            ;BN_0.jpg            ;
+                      ;                       ;BN_4            ;BN_4.jpg            ;
+                      ;                       ;room_b_1        ;room_b_1.jpg        ;<article><div><h4>戀戀普羅旺斯系列</h4><h5>參考價<span class="bold MLR5">$41,987</span>元起/每式</h5></div><a href="more">更多</a></article>
+                      ;                       ;room_b_2        ;room_b_2.jpg        ;<article><div><h4>金典科隆系列</h4><h5>參考價<span class="bold MLR5">$61,829</span>元起/每式</h5></div><a href="more">更多</a></article>
+                      ;                       ;room_b_3        ;room_b_3.jpg        ;<article><div><h4>亞維儂系列</h4><h5>參考價<span class="bold MLR5">$41,987</span>元起/每式</h5></div><a href="more">更多</a></article>
+                      ;                       ;room_s_1        ;room_s_1.jpg        ;<h4>淨水器</h4>
+                      ;                       ;room_s_2        ;room_s_2.jpg        ;<h4>瓦斯爐/除油煙機</h4>
+                      ;                       ;room_s_3        ;room_s_3.jpg        ;<h4>廚房五金/收納</h4>
+                      ;                       ;room_s_4        ;room_s_4.jpg        ;<h4>廚房水龍頭</h4>                                              
+                      ;                       ;BN_2            ;BN_2.jpg            ;          
+                      ;                       ;brand_BImg2     ;brand_BImg2.jpg     ;
+                      ;                       ;SBN_1           ;SBN_1.jpg           ;
+                      ;                       ;SBN_2           ;SBN_2.jpg           ;
+                      ;                       ;SBN_3           ;SBN_3.jpg           ;
+                      ;                       ;SBN_4           ;SBN_4.jpg           ;
+                      ;                       ;SBN_5           ;SBN_5.jpg           ;
+
+
 # Lightbox Banner for Mini Cart (banner is not localizable so we must create a separate banner per language)
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
 

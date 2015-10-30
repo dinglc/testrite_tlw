@@ -12,10 +12,10 @@
 	<c:when test="${not empty primaryImage}">
 		<c:choose>
 			<c:when test="${not empty primaryImage.altText}">
-<img src="${primaryImage.url}" alt="${fn:escapeXml(primaryImage.altText)}" title="${fn:escapeXml(primaryImage.altText)}"/>
+				<img src="${primaryImage.url}" alt="${fn:escapeXml(primaryImage.altText)}" title="${fn:escapeXml(primaryImage.altText)}"/>
 			</c:when>
 			<c:otherwise>
-<img src="${primaryImage.url}" alt="${fn:escapeXml(product.name)}" title="${fn:escapeXml(product.name)}"/>
+				<img src="${primaryImage.url}" alt="${fn:escapeXml(product.name)}" title="${fn:escapeXml(product.name)}"/>
 			</c:otherwise>
 		</c:choose>
 	</c:when>

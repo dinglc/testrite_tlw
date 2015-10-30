@@ -4,15 +4,13 @@
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
 
 <template:page pageTitle="${pageTitle}">
-	<c:url value="/p/10481" var="prdurl"></c:url>
-	<a href="${prdurl}"></a>
+	
 <div class="container" id="wrapper">
+
 	<section class="Slider">
-		<div class="callbacks_container ">
-			<cms:pageSlot position="Section1" var="feature">
-				<cms:component component="${feature}"/>
-			</cms:pageSlot>
-		</div>
+		<cms:pageSlot position="Section1" var="feature" element="div" class="callbacks_container">
+			<cms:component component="${feature}"/>
+		</cms:pageSlot>
 	</section>
 	
 	<section class="mainBN">
@@ -22,24 +20,15 @@
 	</section>
 	
 	<section class="roomPrds">
-		<div class="title-2">
-		<h3>
-			<cms:pageSlot position="Section3" var="feature">
+		<cms:pageSlot position="Section3" var="feature" element="div" class="title-2">
+			<cms:component component="${feature}"/>
+		</cms:pageSlot>
+		<div class="row">
+			<cms:pageSlot position="Section3A" var="feature" element="div" class="col-xs-6">
 				<cms:component component="${feature}"/>
 			</cms:pageSlot>
-		</h3>
-			<hr>
-		</div>
-		<div class="row">
-			<cms:pageSlot position="Section3A" var="feature" element="div">
-				<div class="col-xs-6">
-					<cms:component component="${feature}"/>
-				</div>
-			</cms:pageSlot>
-			<cms:pageSlot position="Section3B" var="feature" element="div">
-				<div class="col-xs-6">
-					<cms:component component="${feature}"/>
-				</div>
+			<cms:pageSlot position="Section3B" var="feature" element="div" class="col-xs-6">
+				<cms:component component="${feature}"/>
 			</cms:pageSlot>
 		</div>
 	</section>
@@ -51,91 +40,75 @@
  	</section>
  	
  	<section class="recommendPrd">
-	<cms:pageSlot position="Section5" var="feature">
-		<cms:component component="${feature}"/>
-	</cms:pageSlot>
+		<cms:pageSlot position="Section5" var="feature">
+			<cms:component component="${feature}"/>
+		</cms:pageSlot>
 	</section>
 	
 	<section class="brandPrd">
-	<div class="title-2">
-		<cms:pageSlot position="Section6" var="feature">
+	
+		<cms:pageSlot position="Section6" var="feature" element="div" class="title-2">
 			<cms:component component="${feature}"/>
 		</cms:pageSlot>
-	</div>
-	<div class="row brandTab MT20 hidden-xs">
-		<cms:pageSlot position="Section6A" var="feature">
-			<div class="col-xs-1-5">
-				<cms:component component="${feature}"/>
-			</div>
+		
+		<cms:pageSlot position="Section6A" var="feature" element="div" class="row brandTab MT20 hidden-xs">
+			<cms:component component="${feature}" element="div" class="col-xs-1-5"/>
 		</cms:pageSlot>
-	</div>
-	<article>
-		<cms:pageSlot position="Section6B" var="feature">
-				<cms:component component="${feature}"/>
+		
+		<cms:pageSlot position="Section6B" var="feature" element="article">
+			<cms:component component="${feature}"/>
 		</cms:pageSlot>
-	</article>
-	<article>
-		<cms:pageSlot position="Section6C" var="feature">
-				<cms:component component="${feature}"/>
+		
+		<cms:pageSlot position="Section6C" var="feature" element="article">
+			<cms:component component="${feature}"/>
 		</cms:pageSlot>
-	</article>
-	<article>
-		<cms:pageSlot position="Section6D" var="feature">
-				<cms:component component="${feature}"/>
+		
+		<cms:pageSlot position="Section6D" var="feature" element="article">
+			<cms:component component="${feature}"/>
 		</cms:pageSlot>
-	</article>
-	<article>
-		<cms:pageSlot position="Section6E" var="feature">
-				<cms:component component="${feature}"/>
+		
+		<cms:pageSlot position="Section6E" var="feature" element="article">
+			<cms:component component="${feature}"/>
 		</cms:pageSlot>
-	</article>
-	<article>
-		<cms:pageSlot position="Section6F" var="feature">
-				<cms:component component="${feature}"/>
+		
+		<cms:pageSlot position="Section6F" var="feature" element="article">
+			<cms:component component="${feature}"/>
 		</cms:pageSlot>
-	</article>
  	</section>
  	
-	 <section class="roomPrds">
-		 <div class="title-2">
-		 <h3>
-			<cms:pageSlot position="Section7" var="feature">
-				<cms:component component="${feature}"/>
-			</cms:pageSlot>
-		</h3>
-		<hr></div>
+	<section class="roomPrds">
+		 
+		<cms:pageSlot position="Section7" var="feature" element="div" class="title-2">
+			<cms:component component="${feature}"/>
+		</cms:pageSlot>
+			
 		<div class="row">
 			<cms:pageSlot position="Section7A" var="feature">
-				<div class="col-md-3 col-xs-6 col-sm-6">
-					<cms:component component="${feature}"/>
-				</div>
+				<cms:component component="${feature}" element="div" class="col-md-3 col-xs-6 col-sm-6"/>
 			</cms:pageSlot>
+			
 			<cms:pageSlot position="Section7B" var="feature">
-				<div class="col-md-3 col-xs-6 col-sm-6">
-					<cms:component component="${feature}"/>
-				</div>
+				<cms:component component="${feature}" element="div" class="col-md-3 col-xs-6 col-sm-6"/>
 			</cms:pageSlot>
+			
 			<cms:pageSlot position="Section7C" var="feature">
-				<div class="col-md-3 col-xs-6 col-sm-6">
-					<cms:component component="${feature}"/>
-				</div>
+				<cms:component component="${feature}" element="div" class="col-md-3 col-xs-6 col-sm-6"/>
 			</cms:pageSlot>
+			
 			<cms:pageSlot position="Section7D" var="feature">
-				<div class="col-md-3 col-xs-6 col-sm-6">
-					<cms:component component="${feature}"/>
-				</div>
+				<cms:component component="${feature}" element="div" class="col-md-3 col-xs-6 col-sm-6"/>
 			</cms:pageSlot>
+		
 		</div>
+		
 	</section>
 
 	<section class="narrowBN">
-		<div class="row">
-			<cms:pageSlot position="Section8" var="feature">
-				<div class="col-md-12">
-					<cms:component component="${feature}"/>
-				</div>
-			</cms:pageSlot>
-		</div>
+	
+		<cms:pageSlot position="Section8" var="feature" element="div" class="row">
+			<cms:component component="${feature}" element="div" class="col-md-12"/>
+		</cms:pageSlot>
+		
 	</section>
 </div>
 </template:page>

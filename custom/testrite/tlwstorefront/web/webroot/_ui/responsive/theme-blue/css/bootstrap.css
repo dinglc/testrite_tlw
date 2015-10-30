@@ -1903,6 +1903,22 @@ pre code {
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left;
   }
+  .col-lg-2-5 {
+		width:40%;
+		float: left;
+	}
+	.col-lg-3-5 {
+		width: 60%;
+		float: left;
+	}
+	.col-lg-4-5 {
+		width: 80%;
+		float: left;
+	}
+	.col-lg-1-5 {
+		width: 20%;
+		float: left;
+	}
   .col-lg-12 {
     width: 100%;
   }

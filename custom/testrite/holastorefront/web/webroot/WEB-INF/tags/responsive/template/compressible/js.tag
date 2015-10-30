@@ -54,7 +54,7 @@
 <script type="text/javascript" src="${commonResourcePath}/js/_autoload.js"></script>
 
 <script type="text/javascript" src="${commonResourcePath}/js/animate.js"></script>
-<script type="text/javascript" src="${commonResourcePath}/js/bootstrap.min.js"></script>
+<%-- <script type="text/javascript" src="${commonResourcePath}/js/bootstrap.min.js"></script> --%>
 <script type="text/javascript" src="${commonResourcePath}/js/npm.js"></script>
 <script type="text/javascript" src="${commonResourcePath}/js/responsiveslides.min.js"></script>
 

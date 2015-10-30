@@ -12,7 +12,6 @@
 <c:url value="${product.url}" var="productUrl"/>
 <c:set value="${not empty product.potentialPromotions}" var="hasPromotion"/>
 
-<!-- <li class="product-item"> -->
 <div class="col-sm-6 col-lg-4">
 	
 	<ycommerce:testId code="product_wholeProduct">
@@ -51,6 +50,4 @@
 			</div>
 		</div>
 	</ycommerce:testId>
-</div>	
-<!-- </li> -->
-
+</div>

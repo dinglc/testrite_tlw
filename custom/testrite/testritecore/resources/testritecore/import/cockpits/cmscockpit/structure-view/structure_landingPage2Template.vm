@@ -34,13 +34,18 @@
 				</td>
 			</tr>
 			<tr>
-				<td width="25%" height="249px" style="vertical-align:top;" class="structureViewSection">
+				<td colspan="5" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section2" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" height="249px" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section2A" />
 				</td>
-				<td colspan="2" width="25%" height="249px" style="vertical-align:top;" class="structureViewSection">
+				<td colspan="2" height="249px" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section2B" />
 				</td>
-				<td colspan="2" height="249px" style="vertical-align:top;" class="structureViewSection">
+				<td  height="249px" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section2C" />
 				</td>
 			</tr>
@@ -50,14 +55,79 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="5" height="249px" style="vertical-align:top;" class="structureViewSection">
+				<td colspan="2" height="249px" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section3A" />
+				</td>
+				<td colspan="1" height="249px" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section3B" />
+				</td>
+				<td colspan="1" height="249px" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section3C" />
+				</td>
+				<td colspan="1" height="249px" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section3D" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section4" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" height="249px" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section4A" />
 				</td>
 			</tr>
 			<tr>
 				<td colspan="5" style="vertical-align:top;" class="structureViewSection">
 					<cockpit code="Section5" />
 				</td>
+			</tr>
+			<tr>
+				<td colspan="5"  height="249px" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section5A" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section6" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section7" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" rowspan="2" height="249px" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section7A" />
+				</td>
+				<td colspan="3"  height="249px" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section7B" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3"  height="249px" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section7C" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section8A" />
+				</td>
+				<td colspan="1" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section8B" />
+				</td>
+				<td colspan="1" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section8C" />
+				</td>
+				<td colspan="1" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section8D" />
+				</td>
+				<td colspan="1" style="vertical-align:top;" class="structureViewSection">
+					<cockpit code="Section8E" />
+				</td>
+				
 			</tr>
 			<tr>
 				<td height="270px" colspan="5" class="structureViewSection">

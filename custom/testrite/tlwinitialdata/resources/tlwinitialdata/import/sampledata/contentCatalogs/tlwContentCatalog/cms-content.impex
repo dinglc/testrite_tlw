@@ -261,6 +261,137 @@ INSERT_UPDATE ContentSlot	;$contentCV[unique=true]	;uid[unique=true]						;cmsCo
 						 	;							;ProductCarouselSlot-CategoryPage-2		;Suggestion-2
 
 
+##################################################
+#Rick add image path (for Section1)
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime              ;realfilename       ;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];&imageRef          ;altText         ;folder(qualifier)[default='images']
+                   ;                       ;BN_0.jpg        ;images/jpeg        ;BN_0.jpg          ;$siteResource/images/sample/BN_0.jpg                                                             ;BN_0.jpg          ;BN_0.jpg       ;
+                   ;                       ;BN_4.jpg        ;images/jpeg        ;BN_4.jpg          ;$siteResource/images/sample/BN_4.jpg                                                             ;BN_4.jpg          ;BN_4.jpg       ;
+
+#Rick add 
+INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name ;&componentRef;urlLink
+                             ;                       ;BN_0           ;BN_0;BN_0        ;http://BN_0
+                             ;                       ;BN_4           ;BN_4;BN_4        ;http://BN_4
+                             
+INSERT_UPDATE RotatingImagesComponent;$contentCV[unique=true];uid[unique=true]           ;name                       ;banners(&componentRef);&componentRef
+                                     ;                       ;HomeRotatingImagesComponent;HomeRotatingImagesComponent;BN_0,BN_4   ;HomeRotatingImagesComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]        ;cmsComponents(&componentRef)
+                         ;                       ;Section1Slot    ;HomeRotatingImagesComponent
+ 
+##################################################
+#Rick add image path (for Section2)
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime              ;realfilename       ;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];&imageRef          ;altText         ;folder(qualifier)[default='images']
+                   ;                       ;room_b_1.jpg     ;images/jpeg       ;room_b_1.jpg       ;$siteResource/images/sample/room_b_1.jpg                                                          ;room_b_1.jpg       ;room_b_1.jpg    ;
+                   ;                       ;room_b_2.jpg     ;images/jpeg       ;room_b_2.jpg       ;$siteResource/images/sample/room_b_2.jpg                                                          ;room_b_2.jpg       ;room_b_2.jpg    ;
+                   ;                       ;room_b_3.jpg     ;images/jpeg       ;room_b_3.jpg       ;$siteResource/images/sample/room_b_3.jpg                                                          ;room_b_3.jpg       ;room_b_3.jpg    ;
+
+#Rick add 
+INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name    ;&componentRef;urlLink
+                             ;                       ;room_b_1        ;room_b_1;room_b_1     ;http://room_b_1
+                             ;                       ;room_b_2        ;room_b_2;room_b_2     ;http://room_b_2
+                             ;                       ;room_b_3        ;room_b_3;room_b_3     ;http://room_b_3                             
+                             
+# CMS Paragraph Component (Contact information)
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;                       ;HomeCMSParagraphComponent;Home CMS Paragraph Component;HomeCMSParagraphComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]        ;cmsComponents(&componentRef)
+                         ;                       ;Section2ASlot    ;room_b_1
+                         ;                       ;Section2BSlot    ;room_b_2
+                         ;                       ;Section2CSlot    ;room_b_3
+                         ;                       ;Section2Slot    ;HomeCMSParagraphComponent
+                         
+##################################################
+#Rick add image path (for Section3)
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime              ;realfilename       ;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];&imageRef          ;altText         ;folder(qualifier)[default='images']
+                   ;                       ;room_s_1.jpg     ;images/jpeg       ;room_s_1.jpg       ;$siteResource/images/sample/room_s_1.jpg                                                          ;room_s_1.jpg       ;room_s_1.jpg    ;
+                   ;                       ;room_s_2.jpg     ;images/jpeg       ;room_s_2.jpg       ;$siteResource/images/sample/room_s_2.jpg                                                          ;room_s_2.jpg       ;room_s_2.jpg    ;
+                   ;                       ;room_s_3.jpg     ;images/jpeg       ;room_s_3.jpg       ;$siteResource/images/sample/room_s_3.jpg                                                          ;room_s_3.jpg       ;room_s_3.jpg    ;
+				   ;                       ;room_s_4.jpg     ;images/jpeg       ;room_s_4.jpg       ;$siteResource/images/sample/room_s_4.jpg                                                          ;room_s_4.jpg       ;room_s_4.jpg    ;                   
+
+INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name     ;&componentRef;urlLink
+                             ;                       ;room_s_1        ;room_s_1 ;room_s_1     ;http://room_s_1
+                             ;                       ;room_s_2        ;room_s_2 ;room_s_2     ;http://room_s_2
+                             ;                       ;room_s_3        ;room_s_3 ;room_s_3     ;http://room_s_3                             
+                             ;                       ;room_s_4        ;room_s_4 ;room_s_4     ;http://room_s_4  
+                             
+# CMS Paragraph Component (Contact information)
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;                       ;Home3CMSParagraphComponent;Home section3 CMS Paragraph Component;Home3CMSParagraphComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]        ;cmsComponents(&componentRef)
+                         ;                       ;Section3ASlot    ;room_s_1
+                         ;                       ;Section3BSlot    ;room_s_2
+                         ;                       ;Section3CSlot    ;room_s_3
+                         ;                       ;Section3DSlot    ;room_s_4                         
+                         ;                       ;Section3Slot    ;Home3CMSParagraphComponent
+
+##################################################
+#Rick add image path (for Section3~8)
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime              ;realfilename       ;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];&imageRef          ;altText         ;folder(qualifier)[default='images']
+                   ;                       ;BN_2.jpg     ;images/jpeg       ;BN_2.jpg       ;$siteResource/images/sample/BN_2.jpg                                                          ;BN_2.jpg       ;BN_2.jpg    ;
+                   ;                       ;brand_BImg2.jpg ;images/jpeg    ;brand_BImg2.jpg;$siteResource/images/sample/brand_BImg2.jpg                                                               ;brand_BImg2.jpg    ;brand_BImg2.jpg ;
+                   ;                       ;SBN_1.jpg    ;images/jpeg       ;SBN_1.jpg      ;$siteResource/images/sample/SBN_1.jpg   ;SBN_1.jpg  ; SBN_1.jpg  ;
+                   ;                       ;SBN_2.jpg    ;images/jpeg       ;SBN_2.jpg      ;$siteResource/images/sample/SBN_2.jpg   ;SBN_2.jpg  ; SBN_2.jpg  ;
+                   ;                       ;SBN_3.jpg    ;images/jpeg       ;SBN_3.jpg      ;$siteResource/images/sample/SBN_3.jpg   ;SBN_3.jpg  ; SBN_3.jpg  ;
+                   ;                       ;SBN_4.jpg    ;images/jpeg       ;SBN_4.jpg      ;$siteResource/images/sample/SBN_4.jpg   ;SBN_4.jpg  ; SBN_4.jpg  ;
+                   ;                       ;SBN_5.jpg    ;images/jpeg       ;SBN_5.jpg      ;$siteResource/images/sample/SBN_5.jpg   ;SBN_5.jpg  ; SBN_5.jpg  ;
+                   
+                   
+                   
+                   
+INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name     ;&componentRef;urlLink
+                             ;                       ;BN_2           ;BN_2      ;BN_2         ;http://BN_2
+                             ;                       ;brand_BImg2 ;brand_BImg2 ;brand_BImg2 ;http://brand_BImg2
+                             ;                       ;SBN_1       ;SBN_1       ;SBN_1       ;http://SBN_1
+                             ;                       ;SBN_2       ;SBN_2       ;SBN_2       ;http://SBN_2
+                             ;                       ;SBN_3       ;SBN_3       ;SBN_3       ;http://SBN_3
+                             ;                       ;SBN_4       ;SBN_4       ;SBN_4       ;http://SBN_4
+                             ;                       ;SBN_5       ;SBN_5       ;SBN_5       ;http://SBN_5
+                             
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;                       ;Home4CMSParagraphComponent;Home section4 CMS Paragraph Component;Home4CMSParagraphComponent
+                                   ;                       ;Home5CMSParagraphComponent;Home section5 CMS Paragraph Component;Home5CMSParagraphComponent
+                                   ;                       ;Home7CMSParagraphComponent;Home section7 CMS Paragraph Component;Home7CMSParagraphComponent
+
+
+INSERT_UPDATE ProductCarouselLimitComponent;$contentCV[unique=true];uid[unique=true]              ;name                          ;products(code,$productCV);scroll(code);popup   ;&componentRef            ;size
+                                      ;                       ;Home4AProductCarouselLimitComponent;Home4AProductCarouselLimitComponent;130,322,1193,2516,6663   ;allVisible  ; false  ;Home4AProductCarouselLimitComponent;5
+                                      ;                       ;Home5AProductCarouselLimitComponent;Home5AProductCarouselLimitComponent;130,322,1193,2516,6663   ;allVisible  ; false  ;Home5AProductCarouselLimitComponent;5
+                                      ;                       ;Home7BProductCarouselLimitComponent;Home7BProductCarouselLimitComponent;322,1193,2516   ;allVisible  ; false  ;Home7BProductCarouselLimitComponent;3
+                                      ;                       ;Home7CProductCarouselLimitComponent;Home7CProductCarouselLimitComponent;130,322,6663   ;allVisible  ; false  ;Home7CProductCarouselLimitComponent;3
+
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]        ;cmsComponents(&componentRef)
+                         ;                       ;Section4Slot    ;Home4CMSParagraphComponent
+                         ;                       ;Section5Slot    ;Home5CMSParagraphComponent
+                         ;                       ;Section6Slot    ;BN_2 
+                         ;                       ;Section4ASlot   ;Home4AProductCarouselLimitComponent
+                         ;                       ;Section7Slot    ;Home7CMSParagraphComponent
+                         ;                       ;Section7ASlot   ;brand_BImg2
+                         ;                       ;Section8ASlot   ;SBN_1
+                         ;                       ;Section8BSlot   ;SBN_2
+                         ;                       ;Section8CSlot   ;SBN_3
+                         ;                       ;Section8DSlot   ;SBN_4
+                         ;                       ;Section8ESlot   ;SBN_5
+                         ;                       ;Section5ASlot   ;Home5AProductCarouselLimitComponent
+                         ;                       ;Section7BSlot   ;Home7BProductCarouselLimitComponent
+                         ;                       ;Section7CSlot   ;Home7CProductCarouselLimitComponent
+
+
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime              ;realfilename       ;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];&imageRef          ;altText         ;folder(qualifier)[default='images']
+                   ;                       ;prd_1.png    ;images/png       ;prd_1.png      ;$productResource/images/prd_1.png   ;prd_1.png  ; prd_1.png  ;
+                   ;                       ;prd_2.png    ;images/png       ;prd_2.png      ;$productResource/images/prd_2.png   ;prd_2.png  ; prd_2.png  ;
+                   ;                       ;prd_3.png    ;images/png       ;prd_3.png      ;$productResource/images/prd_3.png   ;prd_3.png  ; prd_3.png  ;
+                   ;                       ;prd_4.png    ;images/png       ;prd_4.png      ;$productResource/images/prd_4.png   ;prd_4.png  ; prd_4.png  ;
+                   ;                       ;prd_5.png    ;images/png       ;prd_5.png      ;$productResource/images/prd_5.png   ;prd_5.png  ; prd_5.png  ;
+                   ;                       ;prd_6.png    ;images/png       ;prd_6.png      ;$productResource/images/prd_6.png   ;prd_6.png  ; prd_6.png  ;
+                   ;                       ;prd_7.png    ;images/png       ;prd_7.png      ;$productResource/images/prd_7.png   ;prd_7.png  ; prd_7.png  ;
+                   ;                       ;prd_8.png    ;images/png       ;prd_8.png      ;$productResource/images/prd_8.png   ;prd_8.png  ; prd_8.png  ;
+                   ;                       ;prd_9.png    ;images/png       ;prd_9.png      ;$productResource/images/prd_9.png   ;prd_9.png  ; prd_9.png  ;
+                   ;                       ;prd_10.png    ;images/png       ;prd_10.png      ;$productResource/images/prd_10.png   ;prd_10.png  ; prd_10.png  ;
+
+      
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef
 

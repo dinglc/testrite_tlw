@@ -881,3 +881,95 @@ INSERT_UPDATE ContentPage	;$contentCV[unique=true]	;uid[unique=true]		;name				;
 # Bind Content Slots to Product List Page
 INSERT_UPDATE ContentSlotForPage	;$contentCV[unique=true]	;uid[unique=true]				;position[unique=true]	;page(uid,$contentCV)[unique=true][default='ProductListPage']	;contentSlot(uid,$contentCV)[unique=true]
 									;							;ProductListSlot				;ProductListSlot		;																;ProductListSlot			
+
+									######################################################################
+#Rick Mark create new
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='LandingPage2Template'];validComponentTypes(code);compTypeGroup(code)
+;SiteLogo;;;logo
+;HeaderLinks;;;headerlinks
+;SearchBox;;;searchbox
+;MiniCart;;;minicart
+;NavigationBar;;;navigation
+;Section1;;;wide
+;Section2;;;wide
+;Section2A;;;narrow
+;Section2B;;;narrow
+;Section2C;;;narrow
+;Section3;;;wide
+;Section3A;;;narrow
+;Section3B;;;narrow
+;Section3C;;;narrow
+;Section3D;;;narrow
+;Section4;;;wide
+;Section4A;;;wide
+;Section5;;;wide
+;Section5A;;;wide
+;Section6;;;wide
+;Section7;;;wide
+;Section7A;;;narrow
+;Section7B;;;narrow
+;Section7C;;;narrow
+;Section8A;;;narrow
+;Section8B;;;narrow
+;Section8C;;;narrow
+;Section8D;;;narrow
+;Section8E;;;narrow
+;Footer;;;footer
+;TopHeaderSlot;;;wide
+;BottomHeaderSlot;;;wide
+;PlaceholderContentSlot;;;
+
+# Rick add ContentSlotForTemplate 
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true]             ;position[unique=true]        ;pageTemplate(uid,$contentCV)[unique=true][default='LandingPage2Template'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+                                    ;                       ;Section1-LandingPage2;Section1             ;                                                                         ;Section1Slot                    ;true                                    
+                                    ;                       ;Section2A-LandingPage2;Section2A             ;                                                                         ;Section2ASlot                    ;true                                    
+                                    ;                       ;Section2B-LandingPage2;Section2B             ;                                                                         ;Section2BSlot                    ;true                                    
+                                    ;                       ;Section2C-LandingPage2;Section2C             ;                                                                         ;Section2CSlot                    ;true                                    
+                                    ;                       ;Section2-LandingPage2;Section2             ;                                                                         ;Section2Slot                    ;true                                    
+                                    ;                       ;Section3-LandingPage2;Section3             ;                                                                         ;Section3Slot                    ;true
+                                    ;                       ;Section3A-LandingPage2;Section3A             ;                                                                         ;Section3ASlot                    ;true                                    
+                                    ;                       ;Section3B-LandingPage2;Section3B             ;                                                                         ;Section3BSlot                    ;true                                    
+                                    ;                       ;Section3C-LandingPage2;Section3C             ;                                                                         ;Section3CSlot                    ;true
+                                    ;                       ;Section3D-LandingPage2;Section3D             ;                                                                         ;Section3DSlot                    ;true
+                                    ;                       ;Section4-LandingPage2;Section4             ;                                                                         ;Section4Slot                    ;true                                    
+                                    ;                       ;Section4A-LandingPage2;Section4A             ;                                                                         ;Section4ASlot                    ;true
+                                    ;                       ;Section5-LandingPage2;Section5             ;                                                                         ;Section5Slot                    ;true                                    
+                                    ;                       ;Section5A-LandingPage2;Section5A             ;                                                                         ;Section5ASlot                    ;true
+                                    ;                       ;Section6-LandingPage2;Section6             ;                                                                         ;Section6Slot                    ;true
+                                    ;                       ;Section7-LandingPage2;Section7             ;                                                                         ;Section7Slot                    ;true
+                                    ;                       ;Section7A-LandingPage2;Section7A             ;                                                                         ;Section7ASlot                    ;true
+                                    ;                       ;Section7B-LandingPage2;Section7B             ;                                                                         ;Section7BSlot                    ;true
+                                    ;                       ;Section7C-LandingPage2;Section7C             ;                                                                         ;Section7CSlot                    ;true
+                                    ;                       ;Section8A-LandingPage2;Section8A             ;                                                                         ;Section8ASlot                    ;true
+                                    ;                       ;Section8B-LandingPage2;Section8B             ;                                                                         ;Section8BSlot                    ;true
+                                    ;                       ;Section8C-LandingPage2;Section8C             ;                                                                         ;Section8CSlot                    ;true
+                                    ;                       ;Section8D-LandingPage2;Section8D             ;                                                                         ;Section8DSlot                    ;true
+                                    ;                       ;Section8E-LandingPage2;Section8E             ;                                                                         ;Section8ESlot                    ;true
+                                                                                                            
+# Rick add Content Slots
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true]    ;name                  ;active
+                         ;                       ;Section1Slot        ; Section1 Slot        ;true
+                         ;                       ;Section2ASlot       ; Section2A Slot       ;true
+                         ;                       ;Section2BSlot       ; Section2B Slot       ;true
+                         ;                       ;Section2CSlot       ; Section2C Slot       ;true
+                         ;                       ;Section2Slot        ; Section2 Slot        ;true   
+                         ;                       ;Section3Slot        ; Section3 Slot        ;true   
+                         ;                       ;Section3ASlot        ; Section3A Slot        ;true   
+                         ;                       ;Section3BSlot        ; Section3B Slot        ;true   
+                         ;                       ;Section3CSlot        ; Section3C Slot        ;true   
+                         ;                       ;Section3DSlot        ; Section3D Slot        ;true   
+                         ;                       ;Section4Slot        ; Section4 Slot        ;true
+                         ;                       ;Section4ASlot        ; Section4A Slot        ;true
+                         ;                       ;Section5Slot        ; Section5 Slot        ;true
+                         ;                       ;Section5ASlot        ; Section5A Slot        ;true 
+                         ;                       ;Section6Slot        ; Section6 Slot        ;true                         
+                         ;                       ;Section7Slot        ; Section7 Slot        ;true
+                         ;                       ;Section7ASlot        ; Section7A Slot        ;true
+                         ;                       ;Section7BSlot        ; Section7B Slot        ;true
+                         ;                       ;Section7CSlot        ; Section7C Slot        ;true
+                         ;                       ;Section8ASlot        ; Section8A Slot        ;true                         
+                         ;                       ;Section8BSlot        ; Section8B Slot        ;true                         
+                         ;                       ;Section8CSlot        ; Section8C Slot        ;true                         
+                         ;                       ;Section8DSlot        ; Section8D Slot        ;true                         
+                         ;                       ;Section8ESlot        ; Section8E Slot        ;true                         
+          

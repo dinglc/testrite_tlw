@@ -35,7 +35,7 @@
 					</div>
 				</c:when>
 				<c:otherwise>
-				${component.size}
+				
 					<c:choose>
 						<c:when test="${component.size == 3}">
 							<div class="row prdList List5">
